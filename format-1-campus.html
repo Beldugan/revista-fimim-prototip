@@ -127,7 +127,7 @@
   A.bara("campus");
   
   function card(a) {
-    return '<article class="c-card"><a href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu) +
+    return '<article class="c-card"><a href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu, a.foto) +
       '<span class="rubrica">' + e(A.rubrica(a.rubrica || "cercetare")) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a>" +
       '<div class="meta">' + e(a.autor) + (a.data ? " · " + e(a.data) : "") + "</div></article>";
   }
@@ -137,7 +137,7 @@
   document.getElementById("flux").textContent = m.slice(1, 4).map(function (a) { return a.titlu; }).join("   ·   ");
 
   var l = m[0];
-  document.getElementById("lead").innerHTML = '<a href="' + A.href(l) + '">' + A.imagine(l.tema, l.titlu) +
+  document.getElementById("lead").innerHTML = '<a href="' + A.href(l) + '">' + A.imagine(l.tema, l.titlu, l.foto) +
     '<span class="rubrica">' + e(A.rubrica(l.rubrica)) + "</span><h1>" + e(l.titlu) + "</h1><p>" + e(l.sapou) + "</p></a>" +
     '<div class="meta">' + e(l.autor) + " · " + e(l.data) + " · " + l.minute + " min de citit</div>";
 
@@ -147,7 +147,7 @@
 
   document.getElementById("ultimele").innerHTML = m.slice(2, 8).map(card).join("");
   document.getElementById("explicat").innerHTML = R.cercetareExplicata.map(function (a) {
-    return card({ titlu: a.titlu, sapou: a.sapou, autor: a.autor, tema: a.tema, rubrica: "Cercetare explicată", idx: a.idx, tipLink: "explicat" });
+    return card({ titlu: a.titlu, sapou: a.sapou, autor: a.autor, tema: a.tema, foto: a.foto, rubrica: "Cercetare explicată", idx: a.idx, tipLink: "explicat" });
   }).join("");
   document.getElementById("economie").innerHTML = [m[1], m[5], m[3]].map(card).join("");
 

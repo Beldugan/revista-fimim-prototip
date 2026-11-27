@@ -33,7 +33,7 @@
     "cercetare-explicata": { titlu: "Cercetare explicată", grup: "magazin", tip: "explicate", sapou: "Proiectele de cercetare ale facultății, povestite pentru cititorii care nu sunt specialiști." },
     oameni: { titlu: "Oameni", grup: "magazin", tip: "oameni", sapou: "Portrete și interviuri cu cadre didactice, cercetători, studenți și absolvenți ai facultății." },
     dosar: {
-      titlu: "Dosar: Mobilitatea de mâine", grup: "magazin", tema: 7,
+      titlu: "Dosar: Mobilitatea de mâine", grup: "magazin", tema: 7, foto: "coperta-autobuz-electric",
       sapou: "Dosarul tematic al numărului curent: vehicule mai eficiente, energie curată și fabricație digitală.",
       sectiuni: [
         { h: "Introducere", p: par(2) },

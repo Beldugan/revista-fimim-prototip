@@ -10,7 +10,7 @@
   var pg = PG[slug] || PG.despre;
 
   function card(a, i) {
-    return '<a class="pg-card" href="' + L("articol", { id: i }) + '">' + A.imagine(a.tema, a.titlu) +
+    return '<a class="pg-card" href="' + L("articol", { id: i }) + '">' + A.imagine(a.tema, a.titlu, a.foto) +
       '<span class="pg-rubrica">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + '</p><span class="pg-meta">' + e(a.autor) + " · " + e(a.data) + "</span></a>";
   }
   function sectiuni(s) {
@@ -33,7 +33,7 @@
     return h;
   }
 
-  var corp = "", titlu = pg.titlu, sapou = pg.sapou || "", imagineSus = pg.tema ? A.imagine(pg.tema, titlu) : "";
+  var corp = "", titlu = pg.titlu, sapou = pg.sapou || "", imagineSus = pg.tema ? A.imagine(pg.tema, titlu, pg.foto) : "";
 
   switch (pg.tip) {
     case "rubrica":
@@ -44,12 +44,12 @@
       break;
     case "explicate":
       corp = '<div class="pg-carduri">' + R.cercetareExplicata.map(function (a, i) {
-        return '<a class="pg-card" href="' + L("explicat", { id: i }) + '">' + A.imagine(a.tema, a.titlu) + '<span class="pg-rubrica">Cercetare explicată</span><h3>' + e(a.titlu) + "</h3><p>" + e(a.sapou) + '</p><span class="pg-meta">' + e(a.autor) + "</span></a>";
+        return '<a class="pg-card" href="' + L("explicat", { id: i }) + '">' + A.imagine(a.tema, a.titlu, a.foto) + '<span class="pg-rubrica">Cercetare explicată</span><h3>' + e(a.titlu) + "</h3><p>" + e(a.sapou) + '</p><span class="pg-meta">' + e(a.autor) + "</span></a>";
       }).join("") + "</div>";
       break;
     case "oameni":
-      corp = '<div class="pg-carduri">' + [["Cercetătoare, Departamentul X", 5], ["Profesor, Autovehicule rutiere", 7], ["Student, anul IV, IAII", 9], ["Absolvent, inginer în industrie", 1], ["Doctorandă, Energetică industrială", 8], ["Partener industrial", 2]].map(function (o, i) {
-        return '<a class="pg-card" href="' + L("articol", { id: (i * 2) % R.magazin.length }) + '">' + A.imagine(o[1], "Portret") + '<span class="pg-rubrica">Portret</span><h3>Nume Prenume: „Fraza-cheie a interviului”</h3><p>' + e(o[0]) + "</p></a>";
+      corp = '<div class="pg-carduri">' + [["Cercetătoare, laboratorul de materiale", 5, "portret-cercetatoare"], ["Profesor, Autovehicule rutiere", 7, "portret-profesor"], ["Student, anul IV, IAII", 9, "portret-student"], ["Absolvent, inginer în industrie", 1, "portret-absolvent"], ["Doctorandă, Energetică industrială", 8, "portret-doctoranda"], ["Partener industrial, sectorul portuar", 2, "portret-partener"]].map(function (o, i) {
+        return '<a class="pg-card" href="' + L("articol", { id: (i * 2) % R.magazin.length }) + '">' + A.imagine(o[1], "Portret", o[2]) + '<span class="pg-rubrica">Portret</span><h3>Interviu: „Ce m-a adus în inginerie”</h3><p>' + e(o[0]) + "</p></a>";
       }).join("") + "</div>";
       break;
     case "articol":
@@ -58,7 +58,7 @@
       var rub = pg.tip === "articol" ? A.rubrica(a.rubrica) : "Cercetare explicată";
       titlu = a.titlu; sapou = a.sapou; imagineSus = "";
       corp = '<div class="pg-meta pg-meta-sus"><span class="pg-rubrica">' + e(rub) + "</span> · " + e(a.autor) + (a.data ? " · " + e(a.data) : "") + (a.minute ? " · " + a.minute + " min de citit" : "") + "</div>" +
-        '<figure class="pg-figura">' + A.imagine(a.tema, a.titlu) + "<figcaption>Machetă 3D realizată de redacție.</figcaption></figure>" +
+        '<figure class="pg-figura">' + A.imagine(a.tema, a.titlu, a.foto) + "<figcaption>" + e((a.foto && window.FOTO[a.foto]) || "") + (a.foto ? " Imagine ilustrativă generată cu IA." : "") + "</figcaption></figure>" +
         "<p>" + e(P1) + "</p><p>" + e(P2) + "</p><h2>Subtitlu intermediar</h2><p>" + e(P3) + '</p><blockquote class="pg-citat">„Cel mai mult contează ce învață studenții lucrând direct pe echipamente reale.”</blockquote><p>' + e(P2) + "</p><h2>Ce urmează</h2><p>" + e(P1) + "</p>" +
         '<div class="pg-autor"><div class="pg-avatar">NP</div><div><b>' + e(a.autor) + "</b><br>Scurtă prezentare a autorului: rol, departament, domenii de interes.</div></div>" +
         '<div class="pg-distribuie">Distribuie: <a href="#">E-mail</a> · <a href="#">LinkedIn</a> · <a href="#">Facebook</a> · <a href="#">Copiază linkul</a></div>' +
@@ -71,7 +71,7 @@
         '<p class="pg-autori"><b>' + e(s.autori) + "</b><br><i>" + e(s.afiliere) + "</i></p>" +
         '<table class="pg-tabel"><tr><th>DOI</th><td>https://doi.org/' + e(s.doi) + "</td></tr><tr><th>Primit</th><td>12.08.2026</td></tr><tr><th>Revizuit</th><td>20.10.2026</td></tr><tr><th>Acceptat</th><td>05.11.2026</td></tr><tr><th>Publicat</th><td>15.12.2026</td></tr><tr><th>Licență</th><td>CC BY 4.0</td></tr></table>" +
         '<p class="pg-butoane"><a class="pg-buton plin" href="#">Descarcă PDF</a><a class="pg-buton" href="#">Citare (BibTeX / RIS)</a><a class="pg-buton" href="#">Statistici</a></p>' +
-        '<h2>Abstract</h2><p lang="en">' + e(s.rezumat) + "</p><p><b>Keywords:</b> " + s.cuvinte.map(e).join("; ") + "</p>" +
+        (s.foto ? '<figure class="pg-figura">' + A.imagine(1, s.titlu, s.foto) + "<figcaption><b>Fig. 1.</b> " + e(window.FOTO[s.foto] || "") + " Imagine ilustrativă generată cu IA.</figcaption></figure>" : "") + '<h2>Abstract</h2><p lang="en">' + e(s.rezumat) + "</p><p><b>Keywords:</b> " + s.cuvinte.map(e).join("; ") + "</p>" +
         ["1. Introduction", "2. Materials and Methods", "3. Results", "4. Discussion", "5. Conclusions"].map(function (h) { return "<h2 lang=\"en\">" + h + '</h2><p lang="en">The full text of this section is available in the PDF version of the article.</p>'; }).join("") +
         '<h2 lang="en">References</h2><ol class="pg-ref" lang="en"><li>A. Author, B. Author, "Title of the cited article," <i>Journal Name</i>, vol. 1, no. 1, pp. 1–10, 2024.</li><li>C. Author, <i>Title of the Book</i>, 2nd ed. City: Publisher, 2022.</li><li>D. Author et al., "Conference paper title," in <i>Proc. Conference</i>, 2023, pp. 100–105.</li></ol>' +
         '<h2>Alte articole din acest număr</h2><ul>' + R.cercetare.map(function (x, i) { return i === id ? "" : '<li><a href="' + L("articol-stiintific", { id: i }) + '">' + e(x.titlu) + "</a></li>"; }).join("") + "</ul>";
@@ -104,12 +104,14 @@
       corp = '<table class="pg-tabel pg-tabel-lat"><tr><th>Bază de date</th><th>Stare</th></tr>' + PD.indexare.map(function (r) { return "<tr><td>" + e(r[0]) + "</td><td>" + e(r[1]) + "</td></tr>"; }).join("") + "</table><p>" + e(P3) + "</p>";
       break;
     case "parteneri":
-      corp = '<ul class="pg-logo">' + PD.parteneri.map(function (p) { return "<li><span>Logo</span>" + e(p) + "</li>"; }).join("") + "</ul><h2>Devino partener</h2><p>" + e(P1) + ' <a href="' + L("contact") + '">Contactați redacția.</a></p>';
+      corp = '<h2>Învățământ dual și practică</h2><div class="pg-carduri">' + [["dual-cne-simulator", "CNE Cernavodă", "Pregătire pe simulator"], ["dual-oil-terminal", "Oil Terminal", "Măsurări și instrumentație"], ["dual-cfr-cale", "CFR", "Geometria căii ferate"], ["dual-dpworld-terminal", "DP World (CSCT)", "Operațiuni la terminalul de containere"], ["atelier-feroviar", "Atelier feroviar", "Mecanică aplicată"]].map(function (d) {
+        return '<div class="pg-card">' + A.imagine(1, d[1], d[0]) + '<span class="pg-rubrica">' + e(d[1]) + "</span><h3>" + e(d[2]) + "</h3><p>" + e(window.FOTO[d[0]] || "") + "</p></div>";
+      }).join("") + "</div><h2>Alți parteneri</h2>" + '<ul class="pg-logo">' + PD.parteneri.map(function (p) { return "<li><span>Logo</span>" + e(p) + "</li>"; }).join("") + "</ul><h2>Devino partener</h2><p>" + e(P1) + ' <a href="' + L("contact") + '">Contactați redacția.</a></p>';
       break;
     case "specializari":
       corp = [["Licență (4 ani, 240 de credite)", R.specializari.licenta], ["Master (2 ani, 120 de credite)", R.specializari.master]].map(function (g) {
         return "<h2>" + g[0] + '</h2><div class="pg-programe">' + g[1].map(function (s, i) {
-          return '<div class="pg-program">' + A.imagine([7, 1, 9, 2, 3, 7, 9][i % 7], s.nume) + "<div><h3>" + e(s.nume) + '</h3><span class="pg-meta">Domeniul: ' + e(s.domeniu) + "</span><p>" + e(PD.descriereProgram[s.nume] || "") + "</p><ul><li>Ce înveți: discipline fundamentale și de specialitate, laboratoare, proiecte.</li><li>Practică: la companii partenere din Dobrogea.</li><li>Cariere: inginer de proiectare, exploatare, mentenanță, management.</li></ul></div></div>";
+          return '<div class="pg-program">' + A.imagine([7, 1, 9, 2, 3, 7, 9][i % 7], s.nume, s.foto) + "<div><h3>" + e(s.nume) + '</h3><span class="pg-meta">Domeniul: ' + e(s.domeniu) + "</span><p>" + e(PD.descriereProgram[s.nume] || "") + "</p><ul><li>Ce înveți: discipline fundamentale și de specialitate, laboratoare, proiecte.</li><li>Practică: la companii partenere din Dobrogea.</li><li>Cariere: inginer de proiectare, exploatare, mentenanță, management.</li></ul></div></div>";
         }).join("") + "</div>";
       }).join("") + '<p class="pg-sursa">Informații complete despre admitere pe site-ul facultății.</p>';
       break;

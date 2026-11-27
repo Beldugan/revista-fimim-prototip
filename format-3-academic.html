@@ -128,7 +128,7 @@
   var A = window.APP, R = A.R, e = A.esc;
   A.bara("academic");
 
-  document.getElementById("coperta").innerHTML = A.imagine(3, "Coperta numărului").replace("</div>",
+  document.getElementById("coperta").innerHTML = A.imagine(3, "Coperta numărului", "coperta-ruptura-oboseala").replace("</div>",
     '<span class="eticheta-cop">' + e(A.D.titlu) + "<small>Vol. 1 · Nr. 1 · 2026</small></span></div>");
 
   var grupe = { "Research Article": "Articole de cercetare", "Review": "Articole de sinteză", "Short Communication": "Comunicări scurte" };
@@ -168,7 +168,7 @@
   function arata(r) {
     var l = R.magazin.filter(function (a) { return r === "toate" || a.rubrica === r; });
     document.getElementById("mgrila").innerHTML = l.length ? l.map(function (a) {
-      return '<a class="a-mcard" href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu) + '<div class="t"><span class="r">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.autor) + " · " + e(a.data) + "</p></div></a>";
+      return '<a class="a-mcard" href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu, a.foto) + '<div class="t"><span class="r">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.autor) + " · " + e(a.data) + "</p></div></a>";
     }).join("") : '<p class="a-gol">Niciun articol în această rubrică.</p>';
   }
   tb.addEventListener("click", function (ev) {

@@ -45,10 +45,10 @@
         <div id="dosar-imagine"></div>
         <div>
           <span class="eticheta">Dosar · Mobilitatea de mâine</span>
-          <h3>Titlul articolului central al numărului, despre o temă mare de inginerie</h3>
+          <h3>Mobilitatea de mâine se testează în laboratoarele din Constanța</h3>
           <p>Cum arată mobilitatea în următorii zece ani și ce rol au inginerii formați la Constanța? Am petrecut o lună în laboratoarele facultății, alături de echipele care testează vehicule, motoare și surse noi de energie.</p>
           <blockquote class="g-citat">„Un citat puternic dintr-un cercetător sau dintr-un inginer, scos în evidență ca în revistele tipărite.”</blockquote>
-          <p class="meta">Text: Nume Prenume · Fotografii: Nume Prenume · 14 min de citit</p>
+          <p class="meta">Text: Nume Prenume · Fotografii: Redacția · 14 min de citit</p>
           <ul>
             <li><a data-p="articol" data-id="2" href="#">Interviu: cum se testează un vehicul pe standul de probă</a><span class="meta">8 min</span></li>
             <li><a data-p="articol" data-id="6" href="#">Infografic: drumul unei piese de la proiect la fabricație</a><span class="meta">3 min</span></li>
@@ -85,7 +85,7 @@
         <div id="portret-imagine"></div>
         <div>
           <span class="eticheta">Cercetătoare · Departamentul X</span>
-          <h3>Nume Prenume: „Fraza-cheie a interviului, ca titlu”</h3>
+          <h3>Dr. ing. Nume Prenume: „Fiecare procent de eficiență contează”</h3>
           <p class="g-intrebare">Ce v-a adus în ingineria mecanică?</p>
           <p>Curiozitatea pentru felul în care funcționează lucrurile. Am început cu motoare în atelierul familiei, apoi am ales ingineria mecanică și nu am mai plecat din laborator.</p>
           <p class="g-intrebare">La ce lucrați acum?</p>
@@ -152,14 +152,14 @@
   var A = window.APP, R = A.R, e = A.esc, m = R.magazin;
   A.bara("magazin");
   
-  document.getElementById("coperta").innerHTML = A.imagine(7, "Coperta numărului") +
+  document.getElementById("coperta").innerHTML = A.imagine(7, "Coperta numărului", "coperta-autobuz-electric") +
     '<div class="container"><div class="g-numar"><b>Nr. 1</b><span>Iarna 2026</span><span>Dosar: Mobilitatea de mâine</span></div>' +
     "<h1>Mobilitatea de mâine</h1><p>Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p>" +
     '<a class="btn" href="' + A.link("dosar") + '">Citește dosarul</a></div>';
 
   document.getElementById("specializari").innerHTML = A.specializari();
   var cuprins = [
-    { titlu: "Titlul articolului principal din cuprins", sapou: R.cercetareExplicata[0].sapou, rubrica: "Cercetare", tema: 3, ref: R.cercetareExplicata[0] },
+    { titlu: "Eficiența energetică a autovehiculelor: ce măsoară standurile de probă", sapou: R.cercetareExplicata[0].sapou, rubrica: "Cercetare", tema: 3, ref: R.cercetareExplicata[0] },
     { titlu: R.cercetareExplicata[1].titlu, sapou: R.cercetareExplicata[1].sapou, rubrica: "Materiale", tema: 8, ref: R.cercetareExplicata[1] },
     { titlu: R.cercetareExplicata[2].titlu, sapou: R.cercetareExplicata[2].sapou, rubrica: "Automatizare", tema: 9, ref: R.cercetareExplicata[2] },
     { titlu: m[2].titlu, sapou: m[2].sapou, rubrica: A.rubrica(m[2].rubrica), tema: m[2].tema, ref: m[2] },
@@ -167,21 +167,21 @@
     { titlu: m[0].titlu, sapou: m[0].sapou, rubrica: A.rubrica(m[0].rubrica), tema: 1, ref: m[0] }
   ];
   document.getElementById("mozaic").innerHTML = cuprins.map(function (a) {
-    return '<article class="g-item"><a href="' + A.href(a.ref) + '">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(a.rubrica) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a></article>";
+    return '<article class="g-item"><a href="' + A.href(a.ref) + '">' + A.imagine(a.tema, a.titlu, a.ref && a.ref.foto) + '<span class="eticheta">' + e(a.rubrica) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a></article>";
   }).join("");
 
-  document.getElementById("dosar-imagine").innerHTML = A.imagine(7, "Imagine dosar");
-  document.getElementById("portret-imagine").innerHTML = A.imagine(8, "Portret");
+  document.getElementById("dosar-imagine").innerHTML = A.imagine(7, "Imagine dosar", "propulsie-electrica");
+  document.getElementById("portret-imagine").innerHTML = A.imagine(8, "Portret", "portret-doctoranda");
 
   var dobrogea = [
-    { id: 1, t: "Portul Constanța și nevoia de ingineri", s: "Operatorii portuari caută ingineri pentru echipamente și mentenanță." , tema: 2 },
-    { id: 5, t: "Furnizorii auto și service-urile din regiune", s: "Componente, service și logistică: unde lucrează absolvenții.", tema: 7 },
-    { id: 1, t: "Parcurile eoliene și energia Dobrogei", s: "Dobrogea produce o parte importantă din energia eoliană a țării.", tema: 1 },
-    { id: 6, t: "Parcuri industriale și investiții noi", s: "Noi fabrici și depozite în jurul Constanței.", tema: 9 },
-    { id: 8, t: "Firmele mici care angajează absolvenți", s: "Firmele locale care oferă stagii și primele locuri de muncă.", tema: 3 }
+    { foto: "port-cariere", id: 1, t: "Portul Constanța și nevoia de ingineri", s: "Operatorii portuari caută ingineri pentru echipamente și mentenanță." , tema: 2 },
+    { foto: "practica-componente-auto", id: 8, t: "Furnizorii auto și service-urile din regiune", s: "Componente, service și logistică: unde lucrează absolvenții.", tema: 7 },
+    { foto: "parcuri-eoliene", id: 1, t: "Parcurile eoliene și energia Dobrogei", s: "Dobrogea produce o parte importantă din energia eoliană a țării.", tema: 1 },
+    { foto: "parc-industrial", id: 1, t: "Parcuri industriale și investiții noi", s: "Noi fabrici și depozite în jurul Constanței.", tema: 9 },
+    { foto: "imm-atelier", id: 5, t: "Firmele mici care angajează absolvenți", s: "Firmele locale care oferă stagii și primele locuri de muncă.", tema: 3 }
   ];
   document.getElementById("banda").innerHTML = dobrogea.map(function (a) {
-    return '<a href="' + A.href(m[a.id]) + '" style="text-decoration:none">' + A.imagine(a.tema, a.t) + '<span class="eticheta">Economie</span><h4>' + e(a.t) + '</h4><p class="meta">' + e(a.s) + "</p></a>";
+    return '<a href="' + A.href(m[a.id]) + '" style="text-decoration:none">' + A.imagine(a.tema, a.t, a.foto) + '<span class="eticheta">Economie</span><h4>' + e(a.t) + '</h4><p class="meta">' + e(a.s) + "</p></a>";
   }).join("");
 
   document.getElementById("articole").innerHTML = R.cercetare.map(function (a, i) {
@@ -189,7 +189,7 @@
   }).join("");
 
   document.getElementById("studenti").innerHTML = [m[4], m[8], m[7]].map(function (a) {
-    return '<article class="g-item"><a href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + '</h3><p class="meta">' + e(a.autor) + "</p></a></article>";
+    return '<article class="g-item"><a href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu, a.foto) + '<span class="eticheta">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + '</h3><p class="meta">' + e(a.autor) + "</p></a></article>";
   }).join("");
 
   var numere = [["Nr. 1 · Iarna 2026", "Mobilitatea de mâine", 7], ["Nr. 0 · Vara 2026", "Număr pilot: tema numărului", 3], ["Nr. viitor", "Energie și tranziție", 1], ["Nr. viitor", "Fabrica digitală", 9], ["Nr. viitor", "Materiale noi", 8]];

@@ -39,7 +39,11 @@
   }
 
   /* Imagine generică (SVG) pentru fiecare temă: valuri, roți dințate, grilă tehnică etc. */
-  function imagine(tema, eticheta) {
+  function imagine(tema, eticheta, foto) {
+    if (foto) {
+      var alt = (window.FOTO && window.FOTO[foto]) || eticheta || "";
+      return '<div class="imagine foto"><img src="assets/img/foto/' + foto + '.webp" alt="' + esc(alt) + '"></div>';
+    }
     var c1 = D.culoare, c2 = D.accent;
     var forme = {
       1: '<circle cx="300" cy="200" r="120" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><circle cx="300" cy="200" r="70" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><line x1="0" y1="200" x2="600" y2="200" stroke="#fff" stroke-opacity=".2"/>',

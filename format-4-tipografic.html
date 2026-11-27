@@ -53,7 +53,7 @@
       <div id="dosar-img"></div>
       <div>
         <span class="t-et">§ Dosar · Mobilitatea de mâine</span>
-        <h3>Titlul articolului central, despre o temă mare a ingineriei mecanice</h3>
+        <h3>Mobilitatea de mâine se testează în laboratoarele din Constanța</h3>
         <div class="t-coloane">
           <p>Cum arată mobilitatea în următorii zece ani și ce rol au inginerii formați la Constanța? Am petrecut o lună în laboratoarele facultății, alături de echipele care testează vehicule, motoare și surse noi de energie.</p>
           <p>În laboratorul de autovehicule, standul de probă rulează zi și noapte. Studenții din anul terminal măsoară consumul, temperaturile și vibrațiile, apoi compară datele cu simulările făcute la calculator.</p>
@@ -81,7 +81,7 @@
       <div id="interviu-img"></div>
       <div>
         <span class="t-et">§ Oameni</span>
-        <h3 style="color:var(--ink);font-size:1.309em;margin:6px 0 12px">Nume Prenume: „Fraza-cheie a interviului, ca titlu”</h3>
+        <h3 style="color:var(--ink);font-size:1.309em;margin:6px 0 12px">Dr. ing. Nume Prenume: „Materialele ne spun povestea fiecărei piese”</h3>
         <p class="q">Ce v-a adus în ingineria mecanică?</p>
         <p>Curiozitatea pentru felul în care funcționează lucrurile. Am început cu motoare în atelierul familiei, apoi am ales ingineria mecanică.</p>
         <p class="q">La ce lucrați acum?</p>
@@ -137,7 +137,7 @@
   var A = window.APP, R = A.R, e = A.esc, m = R.magazin, L = A.link;
   A.bara("tipografic");
 
-  document.getElementById("coperta").innerHTML = '<div>' + A.imagine(7, "Coperta numărului") + '</div><div><span class="t-et">§ Nr. 1 · Iarna 2026</span><h2>Mobilitatea de mâine</h2><p class="sub">Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p><p>Dosarul numărului, un interviu, reportaje din Dobrogea și noutățile facultății.</p><a class="t-btn" href="' + L("dosar") + '">Citește dosarul</a><p class="meta">Text: Nume Prenume · Machete: Redacția</p></div>';
+  document.getElementById("coperta").innerHTML = '<div>' + A.imagine(7, "Coperta numărului", "coperta-motor-electric") + '</div><div><span class="t-et">§ Nr. 1 · Iarna 2026</span><h2>Mobilitatea de mâine</h2><p class="sub">Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p><p>Dosarul numărului, un interviu, reportaje din Dobrogea și noutățile facultății.</p><a class="t-btn" href="' + L("dosar") + '">Citește dosarul</a><p class="meta">Text și fotografii: Redacția</p></div>';
 
   var rows = '<tr><th>Rubrica</th><th>Titlu</th><th class="dr">Min.</th></tr>';
   rows += '<tr class="bloc"><td colspan="3">Dosar</td></tr>';
@@ -146,16 +146,16 @@
   m.slice(0, 6).forEach(function (a, i) { rows += "<tr" + (a.rubrica === "evenimente" ? ' class="grn"' : "") + "><td>" + e(A.rubrica(a.rubrica)) + "</td><td><a href=\"" + L("articol", { id: i }) + "\">" + e(a.titlu) + '</a></td><td class="dr">' + a.minute + "</td></tr>"; });
   document.getElementById("cuprins").innerHTML = rows;
 
-  document.getElementById("dosar-img").innerHTML = A.imagine(3, "Dosar");
-  document.getElementById("interviu-img").innerHTML = A.imagine(5, "Portret");
+  document.getElementById("dosar-img").innerHTML = A.imagine(3, "Dosar", "lab-autovehicule");
+  document.getElementById("interviu-img").innerHTML = A.imagine(5, "Portret", "portret-cercetatoare");
 
   document.getElementById("scurt").innerHTML = m.slice(0, 4).map(function (a, i) {
     return '<div class="t-caseta"><div class="rand1"><span><b>Știre ' + (i + 1) + '</b><span class="pct">(' + a.minute + ' min)</span></span><span class="t-et">§ ' + e(A.rubrica(a.rubrica)) + '</span></div><a href="' + L("articol", { id: i }) + '">' + e(a.titlu) + "</a></div>";
   }).join("");
 
-  var dob = [["Portul Constanța și nevoia de ingineri", 2, 1], ["Furnizorii auto din regiune", 7, 5], ["Parcurile eoliene ale Dobrogei", 1, 1], ["Automatizare în fabricile mici", 9, 6]];
+  var dob = [["Portul Constanța și nevoia de ingineri", 2, 1, "port-cariere"], ["Furnizorii auto din regiune", 7, 8, "practica-componente-auto"], ["Parcurile eoliene ale Dobrogei", 1, 1, "parcuri-eoliene"], ["Parcuri industriale și investiții noi", 9, 1, "parc-industrial"]];
   document.getElementById("galerie").innerHTML = dob.map(function (d) {
-    return '<a href="' + L("articol", { id: d[2] }) + '">' + A.imagine(d[1], d[0]) + "<b>" + e(d[0]) + "</b><span>Reportaj · 5 min</span></a>";
+    return '<a href="' + L("articol", { id: d[2] }) + '">' + A.imagine(d[1], d[0], d[3]) + "<b>" + e(d[0]) + "</b><span>Reportaj · 5 min</span></a>";
   }).join("");
 
   var p = '<tr><th>Ciclu</th><th>Program de studii</th><th>Domeniu</th></tr>';

@@ -171,3 +171,6 @@ p { margin: 0 0 1em; }
 .pg-lateral li a { display: block; padding: 7px 0; border-bottom: 1px solid var(--linie); text-decoration: none; color: var(--text); font-size: 15px; }
 .pg-lateral li a:hover { color: var(--brand); }
 .pg-lateral li a.activ { color: var(--brand); font-weight: 700; }
+
+.imagine.foto { background: var(--fundal-2); }
+.imagine.foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
