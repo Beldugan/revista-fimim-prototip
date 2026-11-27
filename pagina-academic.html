@@ -1,0 +1,72 @@
+<!doctype html>
+<!-- Pagină internă generică a formatului; conținutul vine din assets/js/pagini.js (?p=...) -->
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagină</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/academic.css">
+</head>
+<body class="interior">
+
+<div class="a-sus">
+  <div class="container">
+    <span data-universitate></span>
+    <span><a data-p="trimitere" href="#">Autentificare</a><a data-p="trimitere" href="#">Înregistrare</a><a href="#">RO</a> / <a href="#">EN</a></span>
+  </div>
+</div>
+
+<header class="a-antet">
+  <div class="container">
+    <div class="a-sigla" data-scurt></div>
+    <div>
+      <h1 data-titlu></h1>
+      <div class="sub"><span data-motto></span><br><span data-facultate></span></div>
+    </div>
+    <div class="issn">
+      <div><b>ISSN online:</b> XXXX-XXXX</div>
+      <div><b>Prefix DOI:</b> 10.XXXXX</div>
+      <div><b>Periodicitate:</b> semestrială</div>
+    </div>
+  </div>
+</header>
+
+<nav class="a-nav" aria-label="Navigare jurnal">
+  <div class="container">
+    <div class="a-m"><a href="#" data-acasa>Număr curent</a></div>
+    <div class="a-m"><a data-p="arhiva-jurnal" href="#">Arhivă</a></div>
+    <div class="a-m"><a data-p="despre-jurnal" href="#">Despre jurnal</a><div class="a-sub"><a data-p="despre-jurnal" href="#">Prezentare</a><a data-p="scop" href="#">Scop și domenii</a><a data-p="acces-deschis" href="#">Acces deschis</a><a data-p="indexare" href="#">Indexare</a><a data-p="contact" href="#">Contact</a></div></div>
+    <div class="a-m"><a data-p="colegiul-editorial" href="#">Colegiul editorial</a></div>
+    <div class="a-m"><a data-p="instructiuni-autori" href="#">Instrucțiuni pentru autori</a><div class="a-sub"><a data-p="instructiuni-autori" href="#">Instrucțiuni generale</a><a data-p="ghid-redactare" href="#">Ghid de redactare</a><a data-p="sablon" href="#">Șablon articol</a><a data-p="trimitere" href="#">Trimiterea manuscrisului</a><a data-p="taxe" href="#">Taxe de publicare</a><a data-p="declaratie" href="#">Declarație de originalitate</a></div></div>
+    <div class="a-m"><a data-p="evaluare" href="#">Evaluare colegială</a></div>
+    <div class="a-m"><a data-p="etica" href="#">Etică și politici</a><div class="a-sub"><a data-p="etica" href="#">Etica publicării (COPE)</a><a data-p="anti-plagiat" href="#">Politica anti-plagiat</a><a data-p="licenta" href="#">Licență și drepturi de autor</a><a data-p="acces-deschis" href="#">Acces deschis și arhivare</a></div></div>
+    <div class="a-m"><a data-p="indexare" href="#">Indexare</a></div>
+    <div class="a-m magazin"><a data-p="stiri" href="#">Magazin FIMIM</a><div class="a-sub dreapta"><a data-p="stiri" href="#">Știri FIMIM</a><a data-p="specializari" href="#">Specializări</a><a data-p="economie" href="#">Economie &amp; Industrie</a><a data-p="evenimente" href="#">Evenimente</a><a data-p="studenti" href="#">De la student la student</a><a data-p="cercetare-explicata" href="#">Cercetare explicată</a></div></div>
+  </div>
+</nav>
+
+<main class="container pg-cont"><div id="pagina"></div></main>
+
+<footer class="a-subsol">
+  <div class="container">
+    <div class="grila">
+      <div><h5 data-titlu></h5><p data-facultate></p><p data-universitate></p></div>
+      <div><h5>Contact redacție</h5><p>Adresa redacției, Constanța</p><p>revista@exemplu.ro</p></div>
+      <div><h5>Politici</h5><p><a data-p="acces-deschis" href="#">Acces deschis</a> · <a data-p="etica" href="#">Etica publicării (COPE)</a> · <a data-p="anti-plagiat" href="#">Politica anti-plagiat</a> · <a data-p="licenta" href="#">Licență</a> · <a data-p="confidentialitate" href="#">Protecția datelor</a></p></div>
+    </div>
+    <div class="licenta">Articolele sunt publicate sub licența Creative Commons Attribution 4.0 International (CC BY 4.0). &copy; <span data-an></span> <span data-titlu></span>.</div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/pagini.js"></script>
+<script src="assets/js/app.js"></script>
+<script>APP.bara("pagina-academic");</script>
+<script src="assets/js/pagina.js"></script>
+<script>APP.completeaza();</script>
+</body>
+</html>

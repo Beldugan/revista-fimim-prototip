@@ -7,7 +7,7 @@ Revista are două părți, păstrate separat în toate formatele:
 - **Jurnalul științific**: articole originale evaluate colegial, în limba engleză, cu DOI, organizate în volume și numere (ținta: indexare).
 - **Magazinul**: știri FIMIM, specializări, economia și industria Dobrogei, evenimente, articole „de la student la student”, opinii.
 
-Toate textele și imaginile sunt **generice** (placeholder).
+Toate textele sunt **generice** (placeholder). Culorile sunt verdele de pe site-ul facultății (#094536 și #126A1D). Ilustrațiile sunt machete 3D transparente, randate cu three.js (`assets/img/3d/`, sursele în `instrumente/randare-3d/`).
 
 ## Ce conține
 
@@ -17,6 +17,8 @@ Toate textele și imaginile sunt **generice** (placeholder).
 | `format-1-campus.html` | Formatul 1, **Campus & Cercetare**, inspirat de Delta (TU Delft): publicație de știri, condusă de actualitate |
 | `format-2-magazin.html` | Formatul 2, **Magazin de știință**, inspirat de Globe (ETH Zürich): numere tematice, imagini mari, lectură lungă |
 | `format-3-academic.html` | Formatul 3, **Jurnal academic**: structură clasică de jurnal indexat, cu magazinul într-o zonă separată |
+| `format-4-tipografic.html` | Formatul 4, **Magazin tipografic**: structură Globe, cu tipografia din specificația PDF (Palatino, etichete Helvetica, casete și tabele booktabs) |
+| `pagina-<format>.html` | Paginile interne ale fiecărui format (toate meniurile și submeniurile), cu conținut din `assets/js/pagini.js`, de exemplu `pagina-academic.html?p=colegiul-editorial` |
 
 Denumiri disponibile: **Acta Technica Tomitana**, **TEHNONAV Review**, **Ingenium Ponticum**, **Tomis Engineering Review**.
 
@@ -52,13 +54,20 @@ index.html
 format-1-campus.html
 format-2-magazin.html
 format-3-academic.html
+format-4-tipografic.html
 assets/
   css/base.css        stiluri comune și bara de prototip
   css/campus.css      formatul 1
   css/magazin.css     formatul 2
   css/academic.css    formatul 3
-  js/data.js          denumiri, formate și tot conținutul generic
-  js/app.js           logica comună (denumirea aleasă, bara, imaginile generice)
+  css/tipografic.css  formatul 4
+  js/data.js          denumiri, formate, specializări, articole generice
+  js/pagini.js        conținutul paginilor interne (meniuri și submeniuri)
+  js/pagina.js        randarea paginilor interne
+  js/app.js           logica comună (denumirea aleasă, bara, legături, imagini)
+  img/3d/*.webp       machete 3D transparente
+pagina-campus.html, pagina-magazin.html, pagina-academic.html, pagina-tipografic.html
+instrumente/randare-3d/   sursele machetelor 3D (opțional)
 .nojekyll
 ```
 

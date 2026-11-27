@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Pagină internă generică a formatului; conținutul vine din assets/js/pagini.js (?p=...) -->
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagină</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/magazin.css">
+</head>
+<body class="interior">
+
+<header class="g-antet">
+  <div class="container">
+    <a class="g-logo" href="#" data-acasa data-titlu></a>
+    <nav class="g-meniu" aria-label="Meniu">
+      <div class="g-m"><a href="#" data-acasa>Numărul curent</a><div class="g-sub"><a href="#" data-acasa>Cuprins</a><a data-p="dosar" href="#">Dosarul numărului</a><a data-p="arhiva" href="#">Numere anterioare</a></div></div>
+      <div class="g-m"><a data-p="dosar" href="#">Dosar</a></div>
+      <div class="g-m"><a data-p="oameni" href="#">Oameni</a><div class="g-sub"><a data-p="oameni" href="#">Portrete</a><a data-p="studenti" href="#">De la student la student</a><a data-p="opinie" href="#">Opinie</a></div></div>
+      <div class="g-m"><a data-p="stiri" href="#">Facultatea</a><div class="g-sub"><a data-p="stiri" href="#">Știri FIMIM</a><a data-p="specializari" href="#">Specializări</a><a data-p="evenimente" href="#">Evenimente</a></div></div>
+      <div class="g-m"><a data-p="economie" href="#">Dobrogea</a><div class="g-sub"><a data-p="economie" href="#">Economie &amp; Industrie</a><a data-p="parteneri" href="#">Parteneri industriali</a></div></div>
+      <div class="g-m"><a data-p="cercetare-explicata" href="#">Cercetare</a><div class="g-sub"><a data-p="cercetare-explicata" href="#">Cercetare explicată</a><a data-p="numar-curent" href="#">Jurnal științific</a><a data-p="instructiuni-autori" href="#">Pentru autori</a><a data-p="colegiul-editorial" href="#">Colegiul editorial</a></div></div>
+      <div class="g-m"><a data-p="arhiva" href="#">Arhivă</a></div>
+      <div class="g-m"><a data-p="abonare" href="#" class="g-imp">Abonare</a></div>
+    </nav>
+  </div>
+</header>
+
+<main class="container pg-cont"><div id="pagina"></div></main>
+
+<footer class="g-subsol">
+  <div class="container">
+    <div><strong data-titlu></strong><span data-facultate></span><br><span data-universitate></span></div>
+    <nav><a data-p="despre" href="#">Despre revistă</a><a data-p="redactia" href="#">Redacția</a><a data-p="statut" href="#">Statut editorial</a><a data-p="contact" href="#">Contact</a><a data-p="confidentialitate" href="#">Protecția datelor</a></nav>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/pagini.js"></script>
+<script src="assets/js/app.js"></script>
+<script>APP.bara("pagina-magazin");</script>
+<script src="assets/js/pagina.js"></script>
+<script>APP.completeaza();</script>
+</body>
+</html>

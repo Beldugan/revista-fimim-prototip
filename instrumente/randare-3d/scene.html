@@ -1,0 +1,324 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const W = 1500, H = 1000;
+const model = location.hash.slice(1) || 'car';
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.add(new THREE.HemisphereLight(0xffffff, 0x0a3a2e, 1.2));
+const dl = new THREE.DirectionalLight(0xffffff, 2.2); dl.position.set(5, 8, 6); scene.add(dl);
+const dl2 = new THREE.DirectionalLight(0xcfeee0, 1.0); dl2.position.set(-6, 3, -4); scene.add(dl2);
+
+/* Materiale: sticlă (carcasă transparentă), muchii luminoase, componente interne */
+const glass = new THREE.MeshPhysicalMaterial({ color: 0xe8fff6, metalness: 0, roughness: 0.08, transparent: true, opacity: 0.22, clearcoat: 1, clearcoatRoughness: 0.05, side: THREE.DoubleSide, depthWrite: false, envMapIntensity: 1.4 });
+const glassTint = glass.clone(); glassTint.color.set(0xbff5dd); glassTint.opacity = 0.3;
+const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
+const edgeSoft = new THREE.LineBasicMaterial({ color: 0xd8fff0, transparent: true, opacity: 0.4 });
+const metal = new THREE.MeshPhysicalMaterial({ color: 0xdfe8e4, metalness: 0.9, roughness: 0.28, envMapIntensity: 1.2 });
+const darkMetal = new THREE.MeshPhysicalMaterial({ color: 0x3a4a45, metalness: 0.7, roughness: 0.35 });
+const rubber = new THREE.MeshPhysicalMaterial({ color: 0x1a2421, metalness: 0, roughness: 0.75, transparent: true, opacity: 0.85 });
+const accent = new THREE.MeshPhysicalMaterial({ color: 0x3fd39a, metalness: 0.2, roughness: 0.3, emissive: 0x0d5a3c, emissiveIntensity: 0.5 });
+const copper = new THREE.MeshPhysicalMaterial({ color: 0xe0a46a, metalness: 1, roughness: 0.3 });
+
+function shell(geo, mat = glass, edges = true, thr = 20) {
+  const g = new THREE.Group();
+  g.add(new THREE.Mesh(geo, mat));
+  if (edges) g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, thr), edgeMat));
+  return g;
+}
+function wire(geo, mat = edgeSoft) { return new THREE.LineSegments(new THREE.WireframeGeometry(geo), mat); }
+const root = new THREE.Group(); scene.add(root);
+
+function gearShape(r, teeth, depth, holeR) {
+  const s = new THREE.Shape();
+  const n = teeth * 4;
+  for (let i = 0; i <= n; i++) {
+    const a = (i / n) * Math.PI * 2;
+    const k = i % 4;
+    const rr = (k === 1 || k === 2) ? r + depth : r;
+    const x = Math.cos(a) * rr, y = Math.sin(a) * rr;
+    i ? s.lineTo(x, y) : s.moveTo(x, y);
+  }
+  if (holeR) { const h = new THREE.Path(); h.absarc(0, 0, holeR, 0, Math.PI * 2, true); s.holes.push(h); }
+  const spokes = 5, sr1 = holeR * 1.8, sr2 = r * 0.72;
+  for (let i = 0; i < spokes; i++) {
+    const a0 = (i / spokes) * Math.PI * 2 + 0.22, a1 = ((i + 1) / spokes) * Math.PI * 2 - 0.22;
+    const p = new THREE.Path();
+    p.absarc(0, 0, sr2, a0, a1, false);
+    p.lineTo(Math.cos(a1) * sr1, Math.sin(a1) * sr1);
+    p.absarc(0, 0, sr1, a1, a0, true);
+    s.holes.push(p);
+  }
+  return s;
+}
+function gear(r, teeth, th = 0.35, depth = 0.18) {
+  const geo = new THREE.ExtrudeGeometry(gearShape(r, teeth, depth, r * 0.16), { depth: th, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.02, bevelSegments: 1, curveSegments: 24 });
+  geo.translate(0, 0, -th / 2);
+  return shell(geo, glassTint, true, 25);
+}
+function wheel(R = 0.42, w = 0.28) {
+  const g = new THREE.Group();
+  const tire = new THREE.Mesh(new THREE.TorusGeometry(R - 0.09, 0.1, 18, 48), rubber);
+  tire.scale.z = w / 0.2;
+  g.add(tire);
+  g.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.TorusGeometry(R - 0.09, 0.1, 6, 32), 30), edgeSoft));
+  const rim = new THREE.Mesh(new THREE.CylinderGeometry(R - 0.17, R - 0.17, w * 0.7, 32, 1, true), metal); rim.rotation.x = Math.PI / 2; g.add(rim);
+  for (let i = 0; i < 5; i++) {
+    const sp = new THREE.Mesh(new THREE.BoxGeometry(0.05, R - 0.2, 0.04), metal);
+    sp.position.set(0, (R - 0.2) / 2, w * 0.3); const pv = new THREE.Group(); pv.add(sp); pv.rotation.z = (i / 5) * Math.PI * 2; g.add(pv);
+  }
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, w * 0.8, 20), metal); hub.rotation.x = Math.PI / 2; g.add(hub);
+  const disc = new THREE.Mesh(new THREE.CylinderGeometry(R - 0.2, R - 0.2, 0.03, 32), darkMetal); disc.rotation.x = Math.PI / 2; disc.position.z = -w * 0.15; g.add(disc);
+  const cal = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.2, 0.08), accent); cal.position.set(R - 0.27, 0.05, -w * 0.15); g.add(cal);
+  return g;
+}
+
+const builders = {
+  car() {
+    // profil lateral al caroseriei
+    const s = new THREE.Shape();
+    const pts = [[-2.25,0.32],[-2.3,0.62],[-2.15,0.82],[-1.4,0.95],[-0.75,1.02],[-0.35,1.42],[0.25,1.52],[0.95,1.5],[1.55,1.18],[2.05,1.02],[2.3,0.82],[2.32,0.5],[2.25,0.32]];
+    s.moveTo(...pts[0]); pts.slice(1).forEach(p => s.lineTo(...p));
+    // decupaje pentru roți
+    const a1 = new THREE.Path(); a1.absarc(-1.45, 0.32, 0.5, 0, Math.PI, false);
+    const a2 = new THREE.Path(); a2.absarc(1.45, 0.32, 0.5, 0, Math.PI, false);
+    const spl = new THREE.SplineCurve(pts.slice(0, -1).map(p => new THREE.Vector2(...p)).concat([new THREE.Vector2(...pts[0])]));
+    const body = new THREE.Shape(spl.getPoints(160));
+    const geo = new THREE.ExtrudeGeometry(body, { depth: 1.7, bevelEnabled: true, bevelThickness: 0.18, bevelSize: 0.14, bevelSegments: 10, curveSegments: 32 });
+    geo.translate(0, 0, -0.85);
+    // rotunjire laterală: îngustează plafonul
+    const pos = geo.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const y = pos.getY(i), z = pos.getZ(i);
+      const t = THREE.MathUtils.clamp((y - 0.95) / 0.6, 0, 1);
+      pos.setZ(i, z * (1 - 0.22 * t));
+    }
+    geo.computeVertexNormals();
+    root.add(shell(geo, glass, true, 50));
+    // geamuri
+    const wpts = [[-0.62,1.06],[-0.3,1.38],[0.25,1.47],[0.9,1.45],[1.4,1.14]].map(p => new THREE.Vector2(...p));
+    const win = new THREE.Shape(new THREE.SplineCurve(wpts).getPoints(60)); win.lineTo(-0.62, 1.06);
+    const wg = new THREE.ExtrudeGeometry(win, { depth: 1.5, bevelEnabled: false }); wg.translate(0, 0.0, -0.75);
+    const wp = wg.attributes.position; for (let i = 0; i < wp.count; i++) { const y = wp.getY(i), z = wp.getZ(i); const t = THREE.MathUtils.clamp((y - 0.95) / 0.6, 0, 1); wp.setZ(i, z * (1 - 0.22 * t) * 1.02); }
+    wg.computeVertexNormals();
+    const winMat = glassTint.clone(); winMat.color.set(0x7fe0bf); winMat.opacity = 0.35;
+    root.add(shell(wg, winMat, true, 30));
+    // roți
+    [[-1.45, 0.86], [-1.45, -0.86], [1.45, 0.86], [1.45, -0.86]].forEach(([x, z]) => { const w = wheel(); w.position.set(x, 0.32, z); if (z < 0) w.rotation.y = Math.PI; root.add(w); });
+    // osii
+    [-1.45, 1.45].forEach(x => { const ax = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.6, 12), metal); ax.rotation.x = Math.PI / 2; ax.position.set(x, 0.32, 0); root.add(ax); });
+    // motor (bloc + chiulasă) și baterie, vizibile prin caroserie
+    const eng = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.42, 0.75), darkMetal); eng.position.set(1.5, 0.72, 0); root.add(eng);
+    for (let i = 0; i < 4; i++) { const c = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.2, 14), metal); c.position.set(1.5, 1.0, -0.27 + i * 0.18); root.add(c); }
+    const bat = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.14, 1.3), accent); bat.position.set(-0.2, 0.42, 0); root.add(bat);
+    root.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(2.0, 0.14, 1.3)), edgeMat).translateX(-0.2).translateY(0.42));
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.6, 12), metal); shaft.rotation.z = Math.PI / 2; shaft.position.set(0, 0.36, 0); root.add(shaft);
+    // scaune
+    [[-0.1, 0.42], [-0.1, -0.42], [-1.0, 0.42], [-1.0, -0.42]].forEach(([x, z]) => {
+      const sb = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.1, 0.42), rubber); sb.position.set(x, 0.62, z); root.add(sb);
+      const sr = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.55, 0.42), rubber); sr.position.set(x - 0.22, 0.9, z); sr.rotation.z = 0.15; root.add(sr);
+    });
+    // volan
+    const sw = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.02, 8, 24), darkMetal); sw.position.set(0.45, 1.0, 0.42); sw.rotation.y = Math.PI / 2; sw.rotation.x = 0.4; root.add(sw);
+    // faruri
+    [0.55, -0.55].forEach(z => { const l = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 12), accent); l.position.set(2.32, 0.78, z); l.scale.set(0.5, 0.6, 1.2); root.add(l); });
+    return { cam: [5.4, 2.3, 5.8], target: [0, 0.7, 0], fov: 30 };
+  },
+
+  gears() {
+    const g1 = gear(1.3, 18); root.add(g1);
+    const g2 = gear(0.78, 11); g2.position.set(2.2, 0.15, 0.0); g2.rotation.z = 0.14; root.add(g2);
+    const g3 = gear(0.55, 8); g3.position.set(-0.9, -1.75, 0.0); g3.rotation.z = 0.2; root.add(g3);
+    [[0, 0], [2.2, 0.15], [-0.9, -1.75]].forEach(([x, y]) => {
+      const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 1.8, 24), metal); sh.rotation.x = Math.PI / 2; sh.position.set(x, y, 0); root.add(sh);
+      const b = new THREE.Mesh(new THREE.TorusGeometry(0.2, 0.06, 12, 24), copper); b.position.set(x, y, 0.55); root.add(b);
+      const b2 = b.clone(); b2.position.z = -0.55; root.add(b2);
+    });
+    const plate = new THREE.BoxGeometry(5.2, 4.2, 0.08); const p = shell(plate, glass, true); p.position.set(0.5, -0.6, -0.8); root.add(p);
+    root.rotation.set(-0.35, 0.55, 0);
+    return { cam: [0, 0.4, 8.5], target: [0.4, -0.35, 0], fov: 38 };
+  },
+
+  turbine() {
+    const tower = new THREE.CylinderGeometry(0.09, 0.2, 5, 28, 6, true); const t = shell(tower, glass, true); t.position.y = 0; root.add(t);
+    root.add(wire(new THREE.CylinderGeometry(0.09, 0.2, 5, 14, 10, true)));
+    const lad = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 4.8, 6), metal); lad.position.set(0, 0, 0); root.add(lad);
+    const nac = new THREE.CapsuleGeometry(0.22, 0.75, 8, 16); nac.rotateZ(Math.PI / 2); const n = shell(nac, glassTint, true, 35); n.position.set(-0.15, 2.65, 0); root.add(n);
+    const gen = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.4, 24), copper); gen.rotation.z = Math.PI / 2; gen.position.set(-0.25, 2.65, 0); root.add(gen);
+    const gb = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.22, 0.22), darkMetal); gb.position.set(0.1, 2.65, 0); root.add(gb);
+    const hub = new THREE.SphereGeometry(0.2, 24, 16); hub.scale(1.3, 1, 1); const h = shell(hub, glassTint, false); h.position.set(0.45, 2.65, 0); root.add(h);
+    const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.7, 12), metal); sh.rotation.z = Math.PI / 2; sh.position.set(0.2, 2.65, 0); root.add(sh);
+    for (let i = 0; i < 3; i++) {
+      const bs = new THREE.Shape(); bs.moveTo(0, 0.05); bs.quadraticCurveTo(0.22, 0.6, 0.12, 2.6); bs.lineTo(0.03, 2.65); bs.quadraticCurveTo(-0.08, 1.2, -0.08, 0.05); bs.lineTo(0, 0.05);
+      const bg = new THREE.ExtrudeGeometry(bs, { depth: 0.04, bevelEnabled: true, bevelThickness: 0.02, bevelSize: 0.02, bevelSegments: 2, curveSegments: 24 });
+      const b = shell(bg, glass, true, 30);
+      const pv = new THREE.Group(); pv.add(b); b.position.y = 0.12; pv.rotation.x = (i / 3) * Math.PI * 2 + 1.1; pv.position.set(0.55, 2.65, 0);
+      b.rotation.y = Math.PI / 2; root.add(pv);
+    }
+    const base = new THREE.CylinderGeometry(0.6, 0.7, 0.18, 32); const bb = shell(base, glass, true); bb.position.y = -2.55; root.add(bb);
+    return { cam: [8.2, 2.0, 9.2], target: [0.2, 0.8, 0], fov: 42 };
+  },
+
+  robot() {
+    const base = new THREE.CylinderGeometry(0.75, 0.9, 0.35, 40); root.add(shell(base, glass, true).translateY(0.17));
+    const turret = new THREE.CylinderGeometry(0.5, 0.55, 0.45, 32); root.add(shell(turret, glassTint, true).translateY(0.57));
+    const mot = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.35, 24), copper); mot.position.y = 0.57; root.add(mot);
+    const j1 = new THREE.Group(); j1.position.y = 0.95; root.add(j1);
+    const jg = new THREE.CylinderGeometry(0.28, 0.28, 0.62, 32); jg.rotateX(Math.PI / 2); j1.add(shell(jg, glassTint, true));
+    j1.add(new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.7, 16).rotateX(Math.PI / 2), accent));
+    j1.rotation.z = -0.55;
+    const l1 = new THREE.BoxGeometry(0.34, 1.9, 0.42); const L1 = shell(l1, glass, true); L1.position.y = 0.95; j1.add(L1);
+    const cable = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(0.1, 0, 0.18), new THREE.Vector3(0.18, 0.9, 0.2), new THREE.Vector3(0.1, 1.85, 0.18)]), 20, 0.025, 8), accent); j1.add(cable);
+    const j2 = new THREE.Group(); j2.position.y = 1.9; j1.add(j2);
+    j2.add(shell(new THREE.CylinderGeometry(0.24, 0.24, 0.55, 32).rotateX(Math.PI / 2), glassTint, true));
+    j2.add(new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.6, 16).rotateX(Math.PI / 2), accent));
+    j2.rotation.z = 1.9;
+    const l2 = new THREE.BoxGeometry(0.28, 1.55, 0.34); const L2 = shell(l2, glass, true); L2.position.y = 0.78; j2.add(L2);
+    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1.4, 12), metal); rod.position.y = 0.75; j2.add(rod);
+    const j3 = new THREE.Group(); j3.position.y = 1.55; j2.add(j3);
+    j3.add(shell(new THREE.SphereGeometry(0.18, 24, 16), glassTint, false));
+    j3.rotation.z = -0.9;
+    const w = new THREE.CylinderGeometry(0.12, 0.14, 0.35, 24); const W1 = shell(w, glass, true); W1.position.y = 0.2; j3.add(W1);
+    [-1, 1].forEach(sd => { const f = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.3, 0.14), metal); f.position.set(sd * 0.1, 0.5, 0); f.rotation.z = -sd * 0.18; j3.add(f); });
+    // piesă prinsă
+    const part = new THREE.BoxGeometry(0.16, 0.16, 0.16); const P = shell(part, accent, true); P.position.y = 0.62; j3.add(P);
+    // bandă transportoare
+    const belt = new THREE.BoxGeometry(3.6, 0.14, 0.8); const B = shell(belt, glass, true); B.position.set(1.9, 0.5, 0.9); root.add(B);
+    for (let i = 0; i < 9; i++) { const r = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.82, 12), metal); r.rotation.x = Math.PI / 2; r.position.set(0.3 + i * 0.4, 0.5, 0.9); root.add(r); }
+    [0.8, 2.0, 3.0].forEach(x => { const bx = shell(new THREE.BoxGeometry(0.3, 0.3, 0.3), glassTint, true); bx.position.set(x, 0.72, 0.9); root.add(bx); });
+    return { cam: [6.2, 3.8, 7.4], target: [0.9, 1.5, 0.2], fov: 40 };
+  },
+
+  crane() {
+    // macara portuară tip portal (STS), din grinzi
+    const beamM = glassTint;
+    const bar = (a, b, r = 0.045) => {
+      const v = new THREE.Vector3().subVectors(b, a); const len = v.length();
+      const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 8), metal);
+      m.position.copy(a).add(b).multiplyScalar(0.5); m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), v.normalize()); root.add(m);
+    };
+    const V = (x, y, z) => new THREE.Vector3(x, y, z);
+    const legs = [[-1.2, -0.9], [-1.2, 0.9], [1.2, -0.9], [1.2, 0.9]];
+    legs.forEach(([x, z]) => { const g = new THREE.BoxGeometry(0.22, 3.2, 0.22); const l = shell(g, beamM, true); l.position.set(x, 1.6, z); root.add(l); });
+    [[-0.9], [0.9]].forEach(([z]) => { bar(V(-1.2, 0.6, z), V(1.2, 2.4, z)); bar(V(1.2, 0.6, z), V(-1.2, 2.4, z)); });
+    const boom = new THREE.BoxGeometry(7.2, 0.3, 0.5); const bm = shell(boom, beamM, true); bm.position.set(1.0, 3.35, 0); root.add(bm);
+    [[-0.9], [0.9]].forEach(([z]) => { const g = new THREE.BoxGeometry(0.22, 0.22, 0.22); });
+    const top = [V(-1.2, 3.2, 0), V(-0.6, 4.6, 0)];
+    bar(V(-1.2, 3.3, -0.25), V(-0.6, 4.7, 0)); bar(V(-1.2, 3.3, 0.25), V(-0.6, 4.7, 0));
+    bar(V(-0.6, 4.7, 0), V(4.4, 3.45, 0), 0.025); bar(V(-0.6, 4.7, 0), V(2.0, 3.45, 0), 0.025); bar(V(-0.6, 4.7, 0), V(-2.4, 3.45, 0), 0.025);
+    const cab = new THREE.BoxGeometry(0.4, 0.35, 0.4); const cb = shell(cab, accent, true); cb.position.set(2.6, 3.0, 0.3); root.add(cb);
+    const trol = new THREE.BoxGeometry(0.5, 0.2, 0.55); const tr = shell(trol, glassTint, true); tr.position.set(3.3, 3.15, 0); root.add(tr);
+    [-0.12, 0.12].forEach(z => bar(V(3.3, 3.05, z), V(3.3, 1.9, z), 0.012));
+    const spr = new THREE.BoxGeometry(1.5, 0.08, 0.5); const sp = shell(spr, metal, true); sp.position.set(3.3, 1.85, 0); root.add(sp);
+    const contM = (c) => { const m = glassTint.clone(); m.color.set(c); m.opacity = 0.45; return m; };
+    const cont = (x, y, z, c) => { const g = new THREE.BoxGeometry(1.4, 0.55, 0.55); const s = shell(g, contM(c), true); s.position.set(x, y, z); root.add(s); };
+    cont(3.3, 1.5, 0, 0x6fe3b5);
+    cont(0, 0.28, 0, 0xa6f0d2); cont(0, 0.84, 0, 0x5fd0a6); cont(0, 0.28, -0.6, 0x7fe0bf); cont(0, 0.28, 0.6, 0xcff7e7);
+    const quay = new THREE.BoxGeometry(9, 0.08, 3); const q = shell(quay, glass, true); q.position.set(0.8, -0.04, 0); root.add(q);
+    [-0.9, 0.9].forEach(z => bar(V(-3.6, 0.02, z), V(5.2, 0.02, z), 0.02));
+    return { cam: [6.5, 3.6, 7.8], target: [0.9, 1.8, 0], fov: 40 };
+  },
+
+  lattice() {
+    // rețea cristalină (material) cu atomi și legături, într-un cub de sticlă
+    const n = 4, d = 0.75, off = (n - 1) * d / 2;
+    const atomA = new THREE.MeshPhysicalMaterial({ color: 0xdffcf0, metalness: 0.3, roughness: 0.15, transmission: 0, clearcoat: 1 });
+    const geoA = new THREE.SphereGeometry(0.11, 24, 16), geoB = new THREE.SphereGeometry(0.07, 18, 12);
+    const bond = (a, b) => { const v = new THREE.Vector3().subVectors(b, a); const m = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, v.length(), 6), metal); m.position.copy(a).add(b).multiplyScalar(0.5); m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), v.normalize()); root.add(m); };
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) for (let k = 0; k < n; k++) {
+      const p = new THREE.Vector3(i * d - off, j * d - off, k * d - off);
+      const a = new THREE.Mesh(geoA, (i + j + k) % 2 ? atomA : accent); a.position.copy(p); root.add(a);
+      if (i < n - 1) bond(p, p.clone().add(new THREE.Vector3(d, 0, 0)));
+      if (j < n - 1) bond(p, p.clone().add(new THREE.Vector3(0, d, 0)));
+      if (k < n - 1) bond(p, p.clone().add(new THREE.Vector3(0, 0, d)));
+      if (i < n - 1 && j < n - 1 && k < n - 1) { const c = new THREE.Mesh(geoB, copper); c.position.copy(p).addScalar(d / 2); root.add(c); }
+    }
+    const box = new THREE.BoxGeometry(n * d + 0.2, n * d + 0.2, n * d + 0.2); root.add(shell(box, glass, true));
+    root.rotation.set(0.45, 0.65, 0);
+    return { cam: [0, 0.3, 7.2], target: [0, 0, 0], fov: 38 };
+  },
+
+  engine() {
+    // secțiune motor: cilindru transparent, piston, bielă, arbore cotit
+    const cyl = new THREE.CylinderGeometry(0.62, 0.62, 2.0, 40, 1, true); const C = shell(cyl, glass, true); C.position.y = 1.6; root.add(C);
+    root.add(wire(new THREE.CylinderGeometry(0.62, 0.62, 2.0, 20, 4, true)).translateY(1.6));
+    const head = new THREE.BoxGeometry(1.6, 0.4, 1.6); const Hd = shell(head, glassTint, true); Hd.position.y = 2.8; root.add(Hd);
+    const piston = new THREE.Mesh(new THREE.CylinderGeometry(0.58, 0.58, 0.6, 40), metal); piston.position.y = 1.55; root.add(piston);
+    for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(0.585, 0.018, 8, 40), copper); r.rotation.x = Math.PI / 2; r.position.y = 1.72 - i * 0.09; root.add(r); }
+    const rod = new THREE.Mesh(new THREE.BoxGeometry(0.16, 1.5, 0.12), darkMetal); rod.position.set(0.12, 0.72, 0); rod.rotation.z = -0.16; root.add(rod);
+    const crankGrp = new THREE.Group(); crankGrp.position.y = 0; root.add(crankGrp);
+    const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 2.6, 20), metal); sh.rotation.x = Math.PI / 2; crankGrp.add(sh);
+    [-0.22, 0.22].forEach(z => { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.12, 32, 1, false, -0.9, 3.9), darkMetal); w.rotation.x = Math.PI / 2; w.position.z = z; crankGrp.add(w); });
+    const pin = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.5, 16), accent); pin.rotation.x = Math.PI / 2; pin.position.set(0.25, 0.0, 0); crankGrp.add(pin);
+    [-0.35, 0.35].forEach(x => { const v = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.55, 10), metal); v.position.set(x, 3.15, 0); root.add(v); const vh = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.03, 0.06, 20), metal); vh.position.set(x, 2.88, 0); root.add(vh); });
+    const spark = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.45, 12), accent); spark.position.set(0, 3.15, 0); root.add(spark);
+    const sump = new THREE.BoxGeometry(1.8, 1.1, 1.4); const S = shell(sump, glass, true); S.position.y = -0.1; root.add(S);
+    return { cam: [4.8, 2.8, 5.4], target: [0, 1.35, 0], fov: 40 };
+  },
+
+  caliper() {
+    // șubler (instrument de măsură) și o piesă prelucrată
+    const beam = new THREE.BoxGeometry(5.0, 0.32, 0.06); root.add(shell(beam, glassTint, true));
+    for (let i = 0; i <= 40; i++) { const t = new THREE.Mesh(new THREE.BoxGeometry(0.012, i % 5 ? 0.06 : 0.11, 0.01), darkMetal); t.position.set(-2.3 + i * 0.11, 0.16 - (i % 5 ? 0.03 : 0.055), 0.036); root.add(t); }
+    const fj = new THREE.Shape(); fj.moveTo(0, 0); fj.lineTo(0.35, 0); fj.lineTo(0.35, -1.0); fj.lineTo(0.12, -1.25); fj.lineTo(0, -1.25); fj.lineTo(0, 0);
+    const fg = new THREE.ExtrudeGeometry(fj, { depth: 0.06, bevelEnabled: false }); fg.translate(-2.5, -0.16, -0.03); root.add(shell(fg, glass, true));
+    const sl = new THREE.Group(); sl.position.x = -0.6; root.add(sl);
+    const slb = new THREE.BoxGeometry(1.1, 0.5, 0.14); sl.add(shell(slb, glass, true));
+    const mj = new THREE.Shape(); mj.moveTo(0, 0); mj.lineTo(-0.35, 0); mj.lineTo(-0.35, -1.0); mj.lineTo(-0.12, -1.25); mj.lineTo(0, -1.25); mj.lineTo(0, 0);
+    const mg = new THREE.ExtrudeGeometry(mj, { depth: 0.06, bevelEnabled: false }); mg.translate(-0.2, -0.25, -0.03); sl.add(shell(mg, glass, true));
+    const lcd = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.22, 0.02), accent); lcd.position.set(0.15, 0.05, 0.08); sl.add(lcd);
+    // piesă: bucșă cilindrică între fălci
+    const bush = new THREE.CylinderGeometry(0.62, 0.62, 0.9, 48, 1, true); const B = shell(bush, metal, false); B.position.set(-1.43, -0.95, 0); B.rotation.x = Math.PI / 2; root.add(B);
+    const inner = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 0.92, 40, 1, true), darkMetal); inner.position.copy(B.position); inner.rotation.x = Math.PI / 2; root.add(inner);
+    const ring = new THREE.RingGeometry(0.35, 0.62, 48); [0.45, -0.45].forEach(z => { const r = new THREE.Mesh(ring, metal); r.position.set(-1.43, -0.95, z); if (z < 0) r.rotation.y = Math.PI; root.add(r); });
+    // schiță tehnică (plan transparent)
+    const plan = new THREE.PlaneGeometry(4.4, 2.8, 8, 5); const pl = shell(plan, glass, true); pl.position.set(0.6, -0.5, -1.2); pl.rotation.y = -0.1; root.add(pl);
+    root.rotation.set(0.3, -0.5, 0.05);
+    return { cam: [0, 0.2, 7.0], target: [-0.3, -0.45, 0], fov: 40 };
+  },
+
+  bulb() {
+    // bec (idee) cu filament și dulie, sticlă reală
+    const pts = [];
+    for (let i = 0; i <= 40; i++) { const t = i / 40; const a = -Math.PI / 2 + t * Math.PI * 1.25; pts.push(new THREE.Vector2(Math.max(0.001, Math.cos(a) * 1.1), Math.sin(a) * 1.1 + 1.6)); }
+    pts.push(new THREE.Vector2(0.48, 0.55), new THREE.Vector2(0.45, 0.2));
+    pts.sort((a, b) => a.y - b.y);
+    const g = new THREE.LatheGeometry(pts.map(p => new THREE.Vector2(p.x, p.y)), 64);
+    root.add(shell(g, glass, false));
+    root.add(wire(new THREE.LatheGeometry(pts, 16), new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.18 })));
+    for (let i = 0; i < 6; i++) { const r = new THREE.Mesh(new THREE.TorusGeometry(0.45, 0.04, 10, 40), metal); r.rotation.x = Math.PI / 2; r.position.y = 0.15 - i * 0.12; root.add(r); }
+    const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.3, 0.75, 40), darkMetal); cap.position.y = -0.18; root.add(cap);
+    const tip = new THREE.Mesh(new THREE.SphereGeometry(0.16, 20, 12), copper); tip.position.y = -0.6; root.add(tip);
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.18, 0.9, 20), glassTint); stem.position.y = 0.7; root.add(stem);
+    [-0.18, 0.18].forEach(x => { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 1.0, 6), metal); w.position.set(x, 1.15, 0); root.add(w); });
+    const coil = []; for (let i = 0; i <= 200; i++) { const t = i / 200; coil.push(new THREE.Vector3(-0.18 + t * 0.36, 1.65 + Math.sin(t * Math.PI) * 0.18 + Math.cos(t * 60) * 0.03, Math.sin(t * 60) * 0.03)); }
+    root.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(coil), 300, 0.012, 6), new THREE.MeshBasicMaterial({ color: 0xffe9a8 })));
+    const glow = new THREE.PointLight(0xfff0c0, 6, 4); glow.position.set(0, 1.7, 0); scene.add(glow);
+    // roată dințată mică lângă bec
+    const gg = gear(0.55, 10, 0.18, 0.1); gg.position.set(1.35, 0.25, -0.3); gg.rotation.set(0.3, -0.6, 0); root.add(gg);
+    return { cam: [2.8, 1.7, 5.8], target: [0.25, 1.15, 0], fov: 40 };
+  }
+};
+
+const cfg = builders[model]();
+const cam = new THREE.PerspectiveCamera(cfg.fov, W / H, 0.1, 100);
+cam.position.set(...cfg.cam); cam.lookAt(new THREE.Vector3(...cfg.target));
+// umbră moale de contact
+renderer.render(scene, cam);
+window.__done = true;
+</script>
+</body></html>

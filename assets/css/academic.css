@@ -19,7 +19,6 @@ body { font-family: "Inter", system-ui, sans-serif; background: #fff; font-size:
 .a-nav .container { display: flex; overflow-x: auto; scrollbar-width: none; }
 .a-nav a { color: #fff; text-decoration: none; padding: 12px 14px; font-size: 14px; white-space: nowrap; border-right: 1px solid rgba(255,255,255,.12); }
 .a-nav a:hover, .a-nav a.activ { background: rgba(0,0,0,.2); }
-.a-nav a.magazin { margin-left: auto; background: var(--accent); font-weight: 600; border: 0; }
 
 .a-fir { font-size: 13px; color: var(--text-2); padding: 14px 0; border-bottom: 1px solid var(--linie); }
 .a-fir a { color: var(--brand); text-decoration: none; }
@@ -35,7 +34,7 @@ body { font-family: "Inter", system-ui, sans-serif; background: #fff; font-size:
 .a-info dt { font-weight: 600; color: var(--text); margin-top: 10px; }
 .a-info dd { margin: 0; }
 .a-insigne { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.a-insigne span { border: 1px dashed #b6bbc4; font-size: 11px; padding: 4px 8px; color: var(--text-2); }
+.a-insigne span { border: 1px dashed #9fbcb2; font-size: 11px; padding: 4px 8px; color: var(--text-2); }
 
 .a-principal h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 28px; font-weight: 600; margin-bottom: 4px; }
 .a-principal .publicat { color: var(--text-2); font-size: 14px; margin-bottom: 18px; }
@@ -70,11 +69,11 @@ body { font-family: "Inter", system-ui, sans-serif; background: #fff; font-size:
 .a-nori a { background: var(--fundal-2); padding: 3px 8px; font-size: 12px; color: var(--text); }
 
 /* Zona magazin, vizual separată */
-.a-magazin { background: #f3efe6; border-top: 6px solid var(--accent); padding: 40px 0 48px; }
+.a-magazin { background: #f2f5f7; border-top: 6px solid var(--accent); padding: 40px 0 48px; }
 .a-magazin-cap { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
 .a-magazin-cap h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 30px; margin: 0; }
 .a-magazin-cap p { margin: 4px 0 0; color: var(--text-2); font-size: 14px; max-width: 640px; }
-.a-taburi { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid #d8d1c2; margin-bottom: 22px; }
+.a-taburi { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid #cfdad6; margin-bottom: 22px; }
 .a-taburi button { font: inherit; font-size: 14px; background: none; border: 0; padding: 10px 14px; cursor: pointer; color: var(--text-2); border-bottom: 3px solid transparent; margin-bottom: -1px; }
 .a-taburi button[aria-selected="true"] { color: var(--text); border-color: var(--accent); font-weight: 600; }
 .a-mgrila { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
@@ -86,8 +85,21 @@ body { font-family: "Inter", system-ui, sans-serif; background: #fff; font-size:
 .a-mcard p { font-size: 13px; color: var(--text-2); margin: 0; }
 .a-gol { color: var(--text-2); font-size: 14px; }
 
-.a-subsol { background: #12161d; color: #a7adb7; font-size: 13px; padding: 32px 0; }
+.a-subsol { background: #062e24; color: #b9d0c7; font-size: 13px; padding: 32px 0; }
 .a-subsol .grila { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 .a-subsol h5 { color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 8px; }
 .a-subsol p { margin: 0 0 6px; }
-.a-subsol .licenta { border-top: 1px solid #2a2f38; margin-top: 24px; padding-top: 14px; }
+.a-subsol .licenta { border-top: 1px solid #0f4a3b; margin-top: 24px; padding-top: 14px; }
+
+/* meniu cu submeniuri */
+.a-nav .container { overflow: visible; flex-wrap: wrap; }
+@media (max-width: 999px) { .a-nav .container { overflow-x: auto; flex-wrap: nowrap; } .a-sub { display: none !important; } }
+.a-m { position: relative; display: flex; }
+.a-m.magazin { margin-left: auto; }
+.a-m.magazin > a { background: var(--accent); font-weight: 600; border: 0; }
+.a-sub { display: none; position: absolute; top: 100%; left: 0; min-width: 240px; background: #fff; border: 1px solid var(--linie); border-top: 3px solid var(--accent); box-shadow: 0 10px 24px rgba(0,0,0,.12); z-index: 30; flex-direction: column; }
+.a-sub.dreapta { left: auto; right: 0; }
+.a-m:hover .a-sub, .a-m:focus-within .a-sub { display: flex; }
+.a-nav .a-sub a { color: var(--text); background: none; border-right: 0; border-bottom: 1px solid var(--linie); padding: 9px 14px; }
+.a-nav .a-sub a:hover { background: var(--fundal-2); color: var(--brand); }
+.a-subsol a { color: inherit; }

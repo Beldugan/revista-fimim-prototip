@@ -15,7 +15,7 @@
 <div class="a-sus">
   <div class="container">
     <span data-universitate></span>
-    <span><a href="#">Autentificare</a><a href="#">Înregistrare</a><a href="#">RO</a> / <a href="#">EN</a></span>
+    <span><a data-p="trimitere" href="#">Autentificare</a><a data-p="trimitere" href="#">Înregistrare</a><a href="#">RO</a> / <a href="#">EN</a></span>
   </div>
 </div>
 
@@ -36,20 +36,20 @@
 
 <nav class="a-nav" aria-label="Navigare jurnal">
   <div class="container">
-    <a href="#" class="activ">Număr curent</a>
-    <a href="#">Arhivă</a>
-    <a href="#">Despre jurnal</a>
-    <a href="#">Colegiul editorial</a>
-    <a href="#">Instrucțiuni pentru autori</a>
-    <a href="#">Evaluare colegială</a>
-    <a href="#">Etică și politici</a>
-    <a href="#">Indexare</a>
-    <a href="#magazin" class="magazin">Magazin FIMIM</a>
+    <div class="a-m"><a href="#" data-acasa class="activ">Număr curent</a></div>
+    <div class="a-m"><a data-p="arhiva-jurnal" href="#">Arhivă</a></div>
+    <div class="a-m"><a data-p="despre-jurnal" href="#">Despre jurnal</a><div class="a-sub"><a data-p="despre-jurnal" href="#">Prezentare</a><a data-p="scop" href="#">Scop și domenii</a><a data-p="acces-deschis" href="#">Acces deschis</a><a data-p="indexare" href="#">Indexare</a><a data-p="contact" href="#">Contact</a></div></div>
+    <div class="a-m"><a data-p="colegiul-editorial" href="#">Colegiul editorial</a></div>
+    <div class="a-m"><a data-p="instructiuni-autori" href="#">Instrucțiuni pentru autori</a><div class="a-sub"><a data-p="instructiuni-autori" href="#">Instrucțiuni generale</a><a data-p="ghid-redactare" href="#">Ghid de redactare</a><a data-p="sablon" href="#">Șablon articol</a><a data-p="trimitere" href="#">Trimiterea manuscrisului</a><a data-p="taxe" href="#">Taxe de publicare</a><a data-p="declaratie" href="#">Declarație de originalitate</a></div></div>
+    <div class="a-m"><a data-p="evaluare" href="#">Evaluare colegială</a></div>
+    <div class="a-m"><a data-p="etica" href="#">Etică și politici</a><div class="a-sub"><a data-p="etica" href="#">Etica publicării (COPE)</a><a data-p="anti-plagiat" href="#">Politica anti-plagiat</a><a data-p="licenta" href="#">Licență și drepturi de autor</a><a data-p="acces-deschis" href="#">Acces deschis și arhivare</a></div></div>
+    <div class="a-m"><a data-p="indexare" href="#">Indexare</a></div>
+    <div class="a-m magazin"><a data-p="stiri" href="#">Magazin FIMIM</a><div class="a-sub dreapta"><a data-p="stiri" href="#">Știri FIMIM</a><a data-p="specializari" href="#">Specializări</a><a data-p="economie" href="#">Economie &amp; Industrie</a><a data-p="evenimente" href="#">Evenimente</a><a data-p="studenti" href="#">De la student la student</a><a data-p="cercetare-explicata" href="#">Cercetare explicată</a></div></div>
   </div>
 </nav>
 
 <div class="container">
-  <div class="a-fir"><a href="#">Acasă</a> / <a href="#">Arhivă</a> / Vol. 1, Nr. 1 (2026)</div>
+  <div class="a-fir"><a href="#" data-acasa>Acasă</a> / <a data-p="arhiva-jurnal" href="#">Arhivă</a> / Vol. 1, Nr. 1 (2026)</div>
 
   <div class="a-corp">
     <aside>
@@ -70,13 +70,13 @@
       <h2>Vol. 1, Nr. 1 (2026)</h2>
       <div class="publicat">Număr curent · Ediție inaugurală</div>
       <div class="a-editorial">
-        <strong>Editorial.</strong> Text generic de deschidere semnat de redactorul-șef: scopul jurnalului, domeniile acoperite și invitația adresată autorilor din țară și din străinătate. <a href="#">Citește editorialul (PDF)</a>
+        <strong>Editorial.</strong> Text generic de deschidere semnat de redactorul-șef: scopul jurnalului, domeniile acoperite și invitația adresată autorilor din țară și din străinătate. <a data-p="despre-jurnal" href="#">Citește editorialul (PDF)</a>
       </div>
       <div id="cuprins"></div>
     </main>
 
     <aside class="a-lateral">
-      <a class="trimite" href="#">Trimite un manuscris</a>
+      <a class="trimite" data-p="trimitere" href="#">Trimite un manuscris</a>
       <div class="bloc"><h4>Apel la lucrări</h4><div class="in">Pentru Vol. 2, Nr. 1 (2027) se primesc articole originale în domeniile ingineriei mecanice, industriale, energetice și a autovehiculelor.</div></div>
       <div class="bloc"><h4>Date importante</h4><div class="in"><ul class="a-date">
         <li><span>Termen trimitere</span><b>15.03.2027</b></li>
@@ -84,10 +84,10 @@
         <li><span>Publicare</span><b>15.06.2027</b></li>
       </ul></div></div>
       <div class="bloc"><h4>Pentru autori</h4><div class="in"><ul>
-        <li><a href="#">Șablon articol (DOCX / LaTeX)</a></li>
-        <li><a href="#">Ghid de redactare</a></li>
-        <li><a href="#">Taxe de publicare: fără</a></li>
-        <li><a href="#">Declarație de originalitate</a></li>
+        <li><a data-p="sablon" href="#">Șablon articol (DOCX / LaTeX)</a></li>
+        <li><a data-p="ghid-redactare" href="#">Ghid de redactare</a></li>
+        <li><a data-p="taxe" href="#">Taxe de publicare: fără</a></li>
+        <li><a data-p="declaratie" href="#">Declarație de originalitate</a></li>
       </ul></div></div>
       <div class="bloc"><h4>Cuvinte-cheie</h4><div class="in a-nori" id="nori"></div></div>
     </aside>
@@ -115,7 +115,7 @@
     <div class="grila">
       <div><h5 data-titlu></h5><p data-facultate></p><p data-universitate></p></div>
       <div><h5>Contact redacție</h5><p>Adresa redacției, Constanța</p><p>revista@exemplu.ro</p></div>
-      <div><h5>Politici</h5><p>Acces deschis · Etica publicării (COPE) · Politica anti-plagiat · Arhivare</p></div>
+      <div><h5>Politici</h5><p><a data-p="acces-deschis" href="#">Acces deschis</a> · <a data-p="etica" href="#">Etica publicării (COPE)</a> · <a data-p="anti-plagiat" href="#">Politica anti-plagiat</a> · <a data-p="licenta" href="#">Licență</a> · <a data-p="confidentialitate" href="#">Protecția datelor</a></p></div>
     </div>
     <div class="licenta">Articolele sunt publicate sub licența Creative Commons Attribution 4.0 International (CC BY 4.0). &copy; <span data-an></span> <span data-titlu></span>.</div>
   </div>
@@ -127,7 +127,6 @@
 (function () {
   var A = window.APP, R = A.R, e = A.esc;
   A.bara("academic");
-  A.completeaza();
 
   document.getElementById("coperta").innerHTML = A.imagine(3, "Coperta numărului").replace("</div>",
     '<span class="eticheta-cop">' + e(A.D.titlu) + "<small>Vol. 1 · Nr. 1 · 2026</small></span></div>");
@@ -140,10 +139,10 @@
     html += '<h3 class="a-sectiune-titlu">' + grupe[tip] + "</h3>";
     lista.forEach(function (a) {
       var i = R.cercetare.indexOf(a);
-      html += '<article class="a-art"><h3><a href="#">' + e(a.titlu) + '</a></h3>' +
+      html += '<article class="a-art"><h3><a href="' + A.href(a) + '">' + e(a.titlu) + '</a></h3>' +
         '<div class="a-autori">' + e(a.autori) + '</div><div class="a-afil">' + e(a.afiliere) + "</div>" +
         '<div class="a-rand"><span>pp. ' + e(a.pagini) + "</span><span>DOI: <code>" + e(a.doi) + "</code></span>" +
-        '<button class="a-btn" aria-expanded="false" aria-controls="rez' + i + '">Rezumat</button><a class="a-btn plin" href="#">PDF</a><a class="a-btn" href="#">Citare</a></div>' +
+        '<button class="a-btn" aria-expanded="false" aria-controls="rez' + i + '">Rezumat</button><a class="a-btn plin" href="' + A.href(a) + '">PDF</a><a class="a-btn" href="' + A.href(a) + '">Citare</a></div>' +
         '<div class="a-rezumat" id="rez' + i + '" hidden><strong>Abstract</strong><p>' + e(a.rezumat) + '</p><div class="kw"><b>Keywords:</b> ' + a.cuvinte.map(e).join("; ") + "</div></div></article>";
     });
   });
@@ -159,7 +158,7 @@
   document.getElementById("specializari").innerHTML = A.specializari();
   var kw = [];
   R.cercetare.forEach(function (a) { a.cuvinte.forEach(function (k) { if (kw.indexOf(k) < 0) kw.push(k); }); });
-  document.getElementById("nori").innerHTML = kw.map(function (k) { return '<a href="#">' + e(k) + "</a>"; }).join("");
+  document.getElementById("nori").innerHTML = kw.map(function (k) { return '<a href="' + A.link("numar-curent") + '">' + e(k) + "</a>"; }).join("");
 
   var rub = ["toate", "fimim", "specializari", "economie", "evenimente", "studenti"];
   var tb = document.getElementById("taburi");
@@ -169,7 +168,7 @@
   function arata(r) {
     var l = R.magazin.filter(function (a) { return r === "toate" || a.rubrica === r; });
     document.getElementById("mgrila").innerHTML = l.length ? l.map(function (a) {
-      return '<a class="a-mcard" href="#">' + A.imagine(a.tema, a.titlu) + '<div class="t"><span class="r">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.autor) + " · " + e(a.data) + "</p></div></a>";
+      return '<a class="a-mcard" href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu) + '<div class="t"><span class="r">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.autor) + " · " + e(a.data) + "</p></div></a>";
     }).join("") : '<p class="a-gol">Niciun articol în această rubrică.</p>';
   }
   tb.addEventListener("click", function (ev) {
@@ -178,6 +177,7 @@
     arata(b.dataset.r);
   });
   arata("toate");
+  A.completeaza();
 })();
 </script>
 </body>

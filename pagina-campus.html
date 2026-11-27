@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- Pagină internă generică a formatului; conținutul vine din assets/js/pagini.js (?p=...) -->
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagină</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/campus.css">
+</head>
+<body class="interior">
+
+<div class="c-top">
+  <div class="container">
+    <span>Publicație independentă editorial a <span data-facultate></span></span>
+    <span class="c-limba" aria-label="Limba"><a href="#">RO</a>|<a href="#">EN</a></span>
+  </div>
+</div>
+
+<header class="c-mast">
+  <div class="container">
+    <a class="c-logo" href="#" data-acasa>
+      <span class="sigla" data-scurt></span>
+      <span><strong data-titlu></strong><span data-motto></span></span>
+    </a>
+    <form class="c-cauta" role="search" onsubmit="return false"><input type="search" placeholder="Caută în revistă" aria-label="Caută"><button>Caută</button></form>
+  </div>
+</header>
+
+<nav class="c-nav" aria-label="Rubrici">
+  <div class="container">
+    <div class="c-meniu"><a href="#" data-acasa>Acasă</a></div>
+    <div class="c-meniu"><a data-p="stiri" href="#">Știri FIMIM</a><div class="c-sub"><a data-p="stiri" href="#">Toate știrile</a><a data-p="evenimente" href="#">Evenimente</a><a data-p="oameni" href="#">Oameni</a></div></div>
+    <div class="c-meniu"><a data-p="cercetare-explicata" href="#">Cercetare explicată</a><div class="c-sub"><a data-p="cercetare-explicata" href="#">Toate articolele</a><a data-p="explicat" data-id="0" href="#">Vehicule eficiente</a><a data-p="explicat" data-id="1" href="#">Materiale rezistente</a><a data-p="explicat" data-id="2" href="#">Roboți industriali</a></div></div>
+    <div class="c-meniu"><a data-p="specializari" href="#">Specializări</a><div class="c-sub"><a data-p="specializari" href="#">Programe de licență</a><a data-p="specializari" href="#">Programe de master</a><a data-p="parteneri" href="#">Practică și parteneri</a></div></div>
+    <div class="c-meniu"><a data-p="economie" href="#">Economie &amp; Industrie</a><div class="c-sub"><a data-p="economie" href="#">Toate articolele</a><a data-p="parteneri" href="#">Parteneri industriali</a></div></div>
+    <div class="c-meniu"><a data-p="evenimente" href="#">Evenimente</a></div>
+    <div class="c-meniu"><a data-p="studenti" href="#">De la student la student</a></div>
+    <div class="c-meniu"><a data-p="opinie" href="#">Opinie</a></div>
+    <div class="c-meniu stiintific"><a data-p="numar-curent" href="#">Jurnal științific</a><div class="c-sub dreapta"><a data-p="numar-curent" href="#">Număr curent</a><a data-p="arhiva-jurnal" href="#">Arhivă</a><a data-p="despre-jurnal" href="#">Despre jurnal</a><a data-p="colegiul-editorial" href="#">Colegiul editorial</a><a data-p="instructiuni-autori" href="#">Instrucțiuni pentru autori</a><a data-p="evaluare" href="#">Evaluare colegială</a><a data-p="etica" href="#">Etică și politici</a></div></div>
+  </div>
+</nav>
+
+<main class="container pg-cont"><div id="pagina"></div></main>
+
+<footer class="c-subsol">
+  <div class="container">
+    <div class="grila">
+      <div><h4 data-titlu></h4><p data-motto></p></div>
+      <div><h4>Redacția</h4><ul><li><a data-p="redactia" href="#">Echipa redacțională</a></li><li><a data-p="statut" href="#">Statut editorial și independență</a></li><li><a data-p="trimite-subiect" href="#">Trimite un subiect</a></li><li><a data-p="abonare" href="#">Abonare</a></li><li><a data-p="contact" href="#">Contact</a></li><li><a data-p="confidentialitate" href="#">Protecția datelor</a></li></ul></div>
+      <div><h4>Jurnal științific</h4><ul><li><a data-p="numar-curent" href="#">Număr curent</a></li><li><a data-p="arhiva-jurnal" href="#">Arhivă</a></li><li><a data-p="instructiuni-autori" href="#">Instrucțiuni pentru autori</a></li><li><a data-p="etica" href="#">Etica publicării</a></li></ul></div>
+      <div><h4>Facultatea</h4><ul><li><a href="https://imim.univ-ovidius.ro/" target="_blank" rel="noopener">Site FIMIM</a></li><li><a href="https://www.univ-ovidius.ro/" target="_blank" rel="noopener">Universitatea „Ovidius”</a></li><li><a data-p="specializari" href="#">Specializări</a></li><li><a data-p="despre" href="#">Despre revistă</a></li></ul></div>
+    </div>
+    <div class="jos">&copy; <span data-an></span> <span data-titlu></span> · <span data-facultate></span>, <span data-universitate></span>. Redacția decide independent asupra conținutului.</div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/pagini.js"></script>
+<script src="assets/js/app.js"></script>
+<script>APP.bara("pagina-campus");</script>
+<script src="assets/js/pagina.js"></script>
+<script>APP.completeaza();</script>
+</body>
+</html>

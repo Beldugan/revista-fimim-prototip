@@ -19,11 +19,10 @@ body { font-family: "Inter", system-ui, sans-serif; }
 .c-nav .container { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
 .c-nav a { color: #fff; text-decoration: none; padding: 12px 14px; font-size: 14px; font-weight: 600; white-space: nowrap; }
 .c-nav a:hover, .c-nav a.activ { background: rgba(255,255,255,.12); }
-.c-nav a.stiintific { margin-left: auto; background: var(--accent); }
 
 .c-flux { border-bottom: 1px solid var(--linie); background: var(--fundal-2); font-size: 14px; }
 .c-flux .container { display: flex; gap: 14px; align-items: center; padding-top: 10px; padding-bottom: 10px; overflow: hidden; }
-.c-flux b { background: #c0392b; color: #fff; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; flex: none; }
+.c-flux b { background: #126A1D; color: #fff; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; flex: none; }
 .c-flux span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .rubrica { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); text-decoration: none; }
@@ -33,7 +32,7 @@ body { font-family: "Inter", system-ui, sans-serif; }
 @media (min-width: 900px) { .c-prim { grid-template-columns: 2fr 1fr; } }
 .c-lead .imagine { aspect-ratio: 16/9; }
 .c-lead h1 { font-size: clamp(26px, 3.4vw, 40px); font-weight: 800; letter-spacing: -.02em; margin: 14px 0 10px; }
-.c-lead p { font-size: 18px; color: #3a3f47; }
+.c-lead p { font-size: 18px; color: #192a3d; }
 .c-lead a { text-decoration: none; }
 .c-lead a:hover h1 { text-decoration: underline; text-decoration-thickness: 2px; }
 
@@ -56,11 +55,11 @@ body { font-family: "Inter", system-ui, sans-serif; }
 .c-card a:hover h3 { text-decoration: underline; }
 .c-card p { font-size: 14px; color: var(--text-2); margin-bottom: 6px; }
 
-.c-explicat { background: #0f1218; color: #e8eaee; }
+.c-explicat { background: #062e24; color: #e1e8ed; }
 .c-explicat .c-sectiune-cap h2 { border-color: var(--accent); color: #fff; }
 .c-explicat .c-sectiune-cap a { color: #fff; }
-.c-explicat .c-card p, .c-explicat .meta { color: #a3a9b3; }
-.c-explicat .intro-sec { color: #a3a9b3; max-width: 680px; margin-top: -6px; }
+.c-explicat .c-card p, .c-explicat .meta { color: #b9d0c7; }
+.c-explicat .intro-sec { color: #b9d0c7; max-width: 680px; margin-top: -6px; }
 
 .c-jurnal { background: var(--fundal-2); }
 .c-jurnal-box { display: grid; gap: 24px; grid-template-columns: 1fr; background: #fff; border: 1px solid var(--linie); padding: 24px; }
@@ -82,11 +81,23 @@ body { font-family: "Inter", system-ui, sans-serif; }
 .c-newsletter input { flex: 1; min-width: 180px; padding: 10px; border: 0; font: inherit; }
 .c-newsletter button { background: var(--accent); color: #fff; border: 0; padding: 10px 16px; font: inherit; font-weight: 600; cursor: pointer; }
 
-.c-subsol { background: #0f1218; color: #a3a9b3; font-size: 14px; padding: 36px 0 24px; }
+.c-subsol { background: #062e24; color: #b9d0c7; font-size: 14px; padding: 36px 0 24px; }
 .c-subsol .grila { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
 .c-subsol h4 { color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; }
 .c-subsol ul { list-style: none; margin: 0; padding: 0; }
 .c-subsol li { margin-bottom: 6px; }
 .c-subsol a { text-decoration: none; }
 .c-subsol a:hover { color: #fff; }
-.c-subsol .jos { border-top: 1px solid #2a2e36; margin-top: 28px; padding-top: 16px; font-size: 12px; }
+.c-subsol .jos { border-top: 1px solid #0f4a3b; margin-top: 28px; padding-top: 16px; font-size: 12px; }
+
+/* meniu cu submeniuri */
+.c-nav .container { overflow: visible; flex-wrap: wrap; }
+@media (max-width: 899px) { .c-nav .container { overflow-x: auto; flex-wrap: nowrap; } .c-sub { display: none !important; } }
+.c-meniu { position: relative; display: flex; }
+.c-meniu.stiintific { margin-left: auto; }
+.c-meniu.stiintific > a { background: var(--accent); }
+.c-sub { display: none; position: absolute; top: 100%; left: 0; min-width: 230px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.15); border-top: 3px solid var(--accent); z-index: 30; flex-direction: column; }
+.c-sub.dreapta { left: auto; right: 0; }
+.c-meniu:hover .c-sub, .c-meniu:focus-within .c-sub { display: flex; }
+.c-nav .c-sub a { color: var(--text); font-weight: 500; padding: 10px 14px; border-bottom: 1px solid var(--linie); background: none; }
+.c-nav .c-sub a:hover { background: var(--fundal-2); color: var(--brand); }

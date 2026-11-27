@@ -14,15 +14,16 @@
 
 <header class="g-antet">
   <div class="container">
-    <a class="g-logo" href="#" data-titlu></a>
+    <a class="g-logo" href="#" data-acasa data-titlu></a>
     <nav class="g-meniu" aria-label="Meniu">
-      <a href="#cuprins">Numărul curent</a>
-      <a href="#dosar">Dosar</a>
-      <a href="#oameni">Oameni</a>
-      <a href="#dobrogea">Dobrogea</a>
-      <a href="#stiinta">Cercetare</a>
-      <a href="#arhiva">Arhivă</a>
-      <a href="#abonare" class="g-imp">Abonare</a>
+      <div class="g-m"><a href="#" data-acasa>Numărul curent</a><div class="g-sub"><a href="#" data-acasa>Cuprins</a><a data-p="dosar" href="#">Dosarul numărului</a><a data-p="arhiva" href="#">Numere anterioare</a></div></div>
+      <div class="g-m"><a data-p="dosar" href="#">Dosar</a></div>
+      <div class="g-m"><a data-p="oameni" href="#">Oameni</a><div class="g-sub"><a data-p="oameni" href="#">Portrete</a><a data-p="studenti" href="#">De la student la student</a><a data-p="opinie" href="#">Opinie</a></div></div>
+      <div class="g-m"><a data-p="stiri" href="#">Facultatea</a><div class="g-sub"><a data-p="stiri" href="#">Știri FIMIM</a><a data-p="specializari" href="#">Specializări</a><a data-p="evenimente" href="#">Evenimente</a></div></div>
+      <div class="g-m"><a data-p="economie" href="#">Dobrogea</a><div class="g-sub"><a data-p="economie" href="#">Economie &amp; Industrie</a><a data-p="parteneri" href="#">Parteneri industriali</a></div></div>
+      <div class="g-m"><a data-p="cercetare-explicata" href="#">Cercetare</a><div class="g-sub"><a data-p="cercetare-explicata" href="#">Cercetare explicată</a><a data-p="numar-curent" href="#">Jurnal științific</a><a data-p="instructiuni-autori" href="#">Pentru autori</a><a data-p="colegiul-editorial" href="#">Colegiul editorial</a></div></div>
+      <div class="g-m"><a data-p="arhiva" href="#">Arhivă</a></div>
+      <div class="g-m"><a data-p="abonare" href="#" class="g-imp">Abonare</a></div>
     </nav>
   </div>
 </header>
@@ -49,9 +50,9 @@
           <blockquote class="g-citat">„Un citat puternic dintr-un cercetător sau dintr-un inginer, scos în evidență ca în revistele tipărite.”</blockquote>
           <p class="meta">Text: Nume Prenume · Fotografii: Nume Prenume · 14 min de citit</p>
           <ul>
-            <li><a href="#">Interviu: cum se testează un vehicul pe standul de probă</a><span class="meta">8 min</span></li>
-            <li><a href="#">Infografic: drumul unei piese de la proiect la fabricație</a><span class="meta">3 min</span></li>
-            <li><a href="#">Glosar: zece termeni din ingineria autovehiculelor</a><span class="meta">4 min</span></li>
+            <li><a data-p="articol" data-id="2" href="#">Interviu: cum se testează un vehicul pe standul de probă</a><span class="meta">8 min</span></li>
+            <li><a data-p="articol" data-id="6" href="#">Infografic: drumul unei piese de la proiect la fabricație</a><span class="meta">3 min</span></li>
+            <li><a data-p="articol" data-id="3" href="#">Glosar: zece termeni din ingineria autovehiculelor</a><span class="meta">4 min</span></li>
           </ul>
         </div>
       </div>
@@ -89,7 +90,7 @@
           <p>Răspuns generic de două-trei fraze, care prezintă drumul profesional și motivația cercetătoarei.</p>
           <p class="g-intrebare">La ce lucrați acum?</p>
           <p>Răspuns generic despre proiectul actual, explicat pe înțelesul unui cititor fără pregătire tehnică.</p>
-          <a href="#" class="meta">Citește interviul complet &rarr;</a>
+          <a data-p="oameni" href="#" class="meta">Citește interviul complet &rarr;</a>
         </div>
       </div>
     </div>
@@ -108,7 +109,7 @@
         <span class="eticheta">Secțiune științifică separată</span>
         <h2>Articole evaluate colegial</h2>
         <p class="meta">Jurnalul publică cercetare originală în limba engleză, cu DOI, în volume și numere. Partea de magazin de mai sus nu face parte din jurnalul științific.</p>
-        <a class="btn" id="btn-jurnal" href="format-3-academic.html">Deschide jurnalul</a>
+        <a class="btn" data-p="numar-curent" href="#">Deschide jurnalul</a>
       </div>
       <div id="articole"></div>
     </div>
@@ -132,7 +133,7 @@
     <div class="container">
       <h2>Primiți fiecare număr</h2>
       <p>Revista apare de două ori pe an, online și într-un tiraj tipărit pentru absolvenți, parteneri și liceele din regiune.</p>
-      <a class="btn" href="#">Abonare gratuită</a><a class="btn contur" href="#">Descarcă PDF</a>
+      <a class="btn" data-p="abonare" href="#">Abonare gratuită</a><a class="btn contur" data-p="arhiva" href="#">Descarcă PDF</a>
     </div>
   </section>
 </main>
@@ -140,7 +141,7 @@
 <footer class="g-subsol">
   <div class="container">
     <div><strong data-titlu></strong><span data-facultate></span><br><span data-universitate></span></div>
-    <nav><a href="#">Despre revistă</a><a href="#">Redacția</a><a href="#">Contact</a><a href="#">Protecția datelor</a></nav>
+    <nav><a data-p="despre" href="#">Despre revistă</a><a data-p="redactia" href="#">Redacția</a><a data-p="statut" href="#">Statut editorial</a><a data-p="contact" href="#">Contact</a><a data-p="confidentialitate" href="#">Protecția datelor</a></nav>
   </div>
 </footer>
 
@@ -150,53 +151,52 @@
 (function () {
   var A = window.APP, R = A.R, e = A.esc, m = R.magazin;
   A.bara("magazin");
-  A.completeaza();
-  document.getElementById("btn-jurnal").href = "format-3-academic.html?n=" + A.id;
-
+  
   document.getElementById("coperta").innerHTML = A.imagine(7, "Coperta numărului") +
     '<div class="container"><div class="g-numar"><b>Nr. 1</b><span>Iarna 2026</span><span>Dosar: Mobilitatea de mâine</span></div>' +
     "<h1>Mobilitatea de mâine</h1><p>Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală. Text generic de copertă.</p>" +
-    '<a class="btn" href="#dosar">Citește dosarul</a></div>';
+    '<a class="btn" href="' + A.link("dosar") + '">Citește dosarul</a></div>';
 
   document.getElementById("specializari").innerHTML = A.specializari();
   var cuprins = [
-    { titlu: "Titlul articolului principal din cuprins", sapou: R.cercetareExplicata[0].sapou, rubrica: "Cercetare", tema: 3 },
-    { titlu: R.cercetareExplicata[1].titlu, sapou: R.cercetareExplicata[1].sapou, rubrica: "Materiale", tema: 8 },
-    { titlu: R.cercetareExplicata[2].titlu, sapou: R.cercetareExplicata[2].sapou, rubrica: "Automatizare", tema: 9 },
-    { titlu: m[2].titlu, sapou: m[2].sapou, rubrica: A.rubrica(m[2].rubrica), tema: m[2].tema },
-    { titlu: m[3].titlu, sapou: m[3].sapou, rubrica: A.rubrica(m[3].rubrica), tema: m[3].tema },
-    { titlu: m[0].titlu, sapou: m[0].sapou, rubrica: A.rubrica(m[0].rubrica), tema: 1 }
+    { titlu: "Titlul articolului principal din cuprins", sapou: R.cercetareExplicata[0].sapou, rubrica: "Cercetare", tema: 3, ref: R.cercetareExplicata[0] },
+    { titlu: R.cercetareExplicata[1].titlu, sapou: R.cercetareExplicata[1].sapou, rubrica: "Materiale", tema: 8, ref: R.cercetareExplicata[1] },
+    { titlu: R.cercetareExplicata[2].titlu, sapou: R.cercetareExplicata[2].sapou, rubrica: "Automatizare", tema: 9, ref: R.cercetareExplicata[2] },
+    { titlu: m[2].titlu, sapou: m[2].sapou, rubrica: A.rubrica(m[2].rubrica), tema: m[2].tema, ref: m[2] },
+    { titlu: m[3].titlu, sapou: m[3].sapou, rubrica: A.rubrica(m[3].rubrica), tema: m[3].tema, ref: m[3] },
+    { titlu: m[0].titlu, sapou: m[0].sapou, rubrica: A.rubrica(m[0].rubrica), tema: 1, ref: m[0] }
   ];
   document.getElementById("mozaic").innerHTML = cuprins.map(function (a) {
-    return '<article class="g-item"><a href="#">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(a.rubrica) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a></article>";
+    return '<article class="g-item"><a href="' + A.href(a.ref) + '">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(a.rubrica) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a></article>";
   }).join("");
 
   document.getElementById("dosar-imagine").innerHTML = A.imagine(7, "Imagine dosar");
   document.getElementById("portret-imagine").innerHTML = A.imagine(8, "Portret");
 
   var dobrogea = [
-    { t: "Portul Constanța și nevoia de ingineri", s: "Reportaj generic despre activitatea portuară." , tema: 2 },
-    { t: "Furnizorii auto și service-urile din regiune", s: "Prezentare generică a industriei auto locale.", tema: 7 },
-    { t: "Parcurile eoliene și energia Dobrogei", s: "Text generic despre proiectele energetice.", tema: 1 },
-    { t: "Parcuri industriale și investiții noi", s: "Text generic despre investițiile din județ.", tema: 9 },
-    { t: "Firmele mici care angajează absolvenți", s: "Text generic despre IMM-uri tehnice.", tema: 3 }
+    { id: 1, t: "Portul Constanța și nevoia de ingineri", s: "Reportaj generic despre activitatea portuară." , tema: 2 },
+    { id: 5, t: "Furnizorii auto și service-urile din regiune", s: "Prezentare generică a industriei auto locale.", tema: 7 },
+    { id: 1, t: "Parcurile eoliene și energia Dobrogei", s: "Text generic despre proiectele energetice.", tema: 1 },
+    { id: 6, t: "Parcuri industriale și investiții noi", s: "Text generic despre investițiile din județ.", tema: 9 },
+    { id: 8, t: "Firmele mici care angajează absolvenți", s: "Text generic despre IMM-uri tehnice.", tema: 3 }
   ];
   document.getElementById("banda").innerHTML = dobrogea.map(function (a) {
-    return '<a href="#" style="text-decoration:none">' + A.imagine(a.tema, a.t) + '<span class="eticheta">Economie</span><h4>' + e(a.t) + '</h4><p class="meta">' + e(a.s) + "</p></a>";
+    return '<a href="' + A.href(m[a.id]) + '" style="text-decoration:none">' + A.imagine(a.tema, a.t) + '<span class="eticheta">Economie</span><h4>' + e(a.t) + '</h4><p class="meta">' + e(a.s) + "</p></a>";
   }).join("");
 
   document.getElementById("articole").innerHTML = R.cercetare.map(function (a, i) {
-    return '<div class="g-art"><span class="nr">0' + (i + 1) + '</span><div><span class="eticheta">' + e(a.tip) + "</span><h4>" + e(a.titlu) + '</h4><div class="meta">' + e(a.autori) + " · DOI " + e(a.doi) + "</div></div></div>";
+    return '<div class="g-art"><span class="nr">0' + (i + 1) + '</span><div><span class="eticheta">' + e(a.tip) + '</span><h4><a href="' + A.href(a) + '" style="text-decoration:none">' + e(a.titlu) + '</a></h4><div class="meta">' + e(a.autori) + " · DOI " + e(a.doi) + "</div></div></div>";
   }).join("");
 
   document.getElementById("studenti").innerHTML = [m[4], m[8], m[7]].map(function (a) {
-    return '<article class="g-item"><a href="#">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + '</h3><p class="meta">' + e(a.autor) + "</p></a></article>";
+    return '<article class="g-item"><a href="' + A.href(a) + '">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + '</h3><p class="meta">' + e(a.autor) + "</p></a></article>";
   }).join("");
 
   var numere = [["Nr. 1 · Iarna 2026", "Mobilitatea de mâine", 7], ["Nr. 0 · Vara 2026", "Număr pilot: tema numărului", 3], ["Nr. viitor", "Energie și tranziție", 1], ["Nr. viitor", "Fabrica digitală", 9], ["Nr. viitor", "Materiale noi", 8]];
   document.getElementById("arhiva-grila").innerHTML = numere.map(function (n) {
-    return '<a href="#" class="g-coperta-mica">' + A.imagine(n[2], n[1]).replace('class="imagine"', 'class="imagine" data-t="' + e(n[1]) + '"') + "<b>" + e(n[0]) + "</b></a>";
+    return '<a href="' + A.link("arhiva") + '" class="g-coperta-mica">' + A.imagine(n[2], n[1]).replace('class="imagine"', 'class="imagine" data-t="' + e(n[1]) + '"') + "<b>" + e(n[0]) + "</b></a>";
   }).join("");
+  A.completeaza();
 })();
 </script>
 </body>

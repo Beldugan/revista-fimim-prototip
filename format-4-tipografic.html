@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatul 4 · Magazin tipografic</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/tipografic.css">
+</head>
+<body>
+
+<header class="t-antet">
+  <div class="t-wrap">
+    <span><span data-titlu></span> – Nr. 1, Iarna 2026</span>
+    <span><a data-p="despre" href="#">Despre</a> · <a data-p="abonare" href="#">Abonare</a> · <a data-p="contact" href="#">Contact</a></span>
+  </div>
+</header>
+
+<div class="t-mast">
+  <div class="t-wrap">
+    <h1 data-titlu></h1>
+    <p><span data-motto></span> · <span data-facultate></span></p>
+  </div>
+  <nav class="t-nav" aria-label="Meniu principal">
+    <ul>
+      <li><a href="#" data-acasa>Numărul curent</a></li>
+      <li><a data-p="dosar" href="#">Dosar</a>
+        <ul><li><a data-p="dosar" href="#">Mobilitatea de mâine</a></li><li><a data-p="articol" data-id="0" href="#">Interviu</a></li><li><a data-p="arhiva" href="#">Dosare anterioare</a></li></ul></li>
+      <li><a data-p="stiri" href="#">Facultatea</a>
+        <ul><li><a data-p="stiri" href="#">Știri FIMIM</a></li><li><a data-p="specializari" href="#">Specializări</a></li><li><a data-p="evenimente" href="#">Evenimente</a></li></ul></li>
+      <li><a data-p="economie" href="#">Dobrogea</a>
+        <ul><li><a data-p="economie" href="#">Economie &amp; Industrie</a></li><li><a data-p="parteneri" href="#">Parteneri industriali</a></li></ul></li>
+      <li><a data-p="oameni" href="#">Oameni</a>
+        <ul><li><a data-p="oameni" href="#">Portrete</a></li><li><a data-p="studenti" href="#">De la student la student</a></li><li><a data-p="opinie" href="#">Opinie</a></li></ul></li>
+      <li><a data-p="cercetare-explicata" href="#">Cercetare</a>
+        <ul><li><a data-p="cercetare-explicata" href="#">Cercetare explicată</a></li><li><a data-p="numar-curent" href="#">Jurnal științific</a></li><li><a data-p="instructiuni-autori" href="#">Instrucțiuni pentru autori</a></li></ul></li>
+      <li><a data-p="arhiva" href="#">Arhivă</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="t-wrap">
+  <section class="t-coperta" id="coperta"></section>
+
+  <section class="t-sec">
+    <h2>1. În acest număr</h2>
+    <div class="t-scroll"><table class="t-tab" id="cuprins"></table></div>
+  </section>
+
+  <section class="t-sec">
+    <h2>2. Dosarul numărului</h2>
+    <div class="t-dosar">
+      <div id="dosar-img"></div>
+      <div>
+        <span class="t-et">§ Dosar · Mobilitatea de mâine</span>
+        <h3>Titlul articolului central, despre o temă mare a ingineriei mecanice</h3>
+        <div class="t-coloane">
+          <p>Text generic de deschidere pentru un reportaj amplu. Primul paragraf prezintă contextul și întrebarea de la care pornește articolul, cu oamenii pe care cititorul îi va întâlni pe parcurs.</p>
+          <p>Al doilea paragraf descrie laboratorul, echipa și proiectul, folosind un limbaj accesibil pentru absolvenți, parteneri și publicul larg.</p>
+          <p class="t-citat">„Un citat dintr-un cercetător, pus în evidență ca în revistele tipărite.”</p>
+          <p>Paragraful de încheiere deschide spre următoarele articole din dosar.</p>
+        </div>
+        <ul class="t-lista">
+          <li><a data-p="articol" data-id="2" href="#">Interviu: cum se testează un vehicul pe standul de probă</a></li>
+          <li><a data-p="articol" data-id="6" href="#">Infografic: drumul unei piese de la proiect la fabricație</a></li>
+          <li><a data-p="articol" data-id="3" href="#">Glosar: zece termeni din ingineria autovehiculelor</a></li>
+        </ul>
+        <a class="t-btn" data-p="dosar" href="#">Citește dosarul</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="t-sec">
+    <h2>3. Pe scurt din facultate</h2>
+    <div class="t-casete" id="scurt"></div>
+  </section>
+
+  <section class="t-sec">
+    <h2>4. Interviu</h2>
+    <div class="t-interviu">
+      <div id="interviu-img"></div>
+      <div>
+        <span class="t-et">§ Oameni</span>
+        <h3 style="color:var(--ink);font-size:1.309em;margin:6px 0 12px">Nume Prenume: „Fraza-cheie a interviului, ca titlu”</h3>
+        <p class="q">Ce v-a adus în ingineria mecanică?</p>
+        <p>Răspuns generic de două-trei fraze despre drumul profesional și motivație.</p>
+        <p class="q">La ce lucrați acum?</p>
+        <p>Răspuns generic despre proiectul actual, explicat pe înțelesul unui cititor fără pregătire tehnică.</p>
+        <p class="q">Ce le recomandați studenților?</p>
+        <p>Răspuns generic, cu un sfat practic pentru anii de studiu.</p>
+        <a class="t-btn" data-p="oameni" href="#">Toate portretele</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="t-sec">
+    <h2>5. Dobrogea industrială</h2>
+    <div class="t-galerie" id="galerie"></div>
+  </section>
+
+  <section class="t-sec">
+    <h2>6. Programe de studii</h2>
+    <div class="t-scroll"><table class="t-tab" id="programe"></table></div>
+  </section>
+
+  <section class="t-sec">
+    <h2>7. Cercetare evaluată colegial</h2>
+    <p>Secțiune separată de magazin: articole originale în limba engleză, cu DOI, publicate în jurnalul științific al revistei.</p>
+    <div class="t-scroll"><table class="t-tab" id="cercetare"></table></div>
+    <a class="t-btn" data-p="numar-curent" href="#">Numărul curent al jurnalului</a>
+  </section>
+
+  <section class="t-sec">
+    <h2>8. Agenda</h2>
+    <div class="t-scroll"><table class="t-tab">
+      <tr><th>Data</th><th>Eveniment</th><th>Loc</th></tr>
+      <tr><td>10.12.2026</td><td><a data-p="evenimente" href="#">Ziua porților deschise la laboratoare</a></td><td>Campus, corp X</td></tr>
+      <tr class="yel"><td>15.03.2027</td><td><a data-p="instructiuni-autori" href="#">Termen trimitere articole, Vol. 2</a></td><td>online</td></tr>
+      <tr><td>05.04.2027</td><td><a data-p="evenimente" href="#">Târg de cariere cu firme din Dobrogea</a></td><td>Aula universității</td></tr>
+      <tr class="grn"><td>06.2027</td><td><a data-p="evenimente" href="#">Conferința studențească anuală</a></td><td>FIMIM</td></tr>
+    </table></div>
+  </section>
+</main>
+
+<footer class="t-subsol">
+  <div class="t-wrap">
+    <nav><a data-p="despre" href="#">Despre revistă</a><a data-p="redactia" href="#">Redacția</a><a data-p="abonare" href="#">Abonare</a><a data-p="contact" href="#">Contact</a><a data-p="confidentialitate" href="#">Protecția datelor</a></nav>
+    <div><span data-titlu></span> · <span data-facultate></span>, <span data-universitate></span> · Numărul 1, Iarna <span data-an></span></div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/pagini.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function () {
+  var A = window.APP, R = A.R, e = A.esc, m = R.magazin, L = A.link;
+  A.bara("tipografic");
+
+  document.getElementById("coperta").innerHTML = '<div>' + A.imagine(7, "Coperta numărului") + '</div><div><span class="t-et">§ Nr. 1 · Iarna 2026</span><h2>Mobilitatea de mâine</h2><p class="sub">Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p><p>Text generic de copertă, care prezintă tema numărului și principalele articole.</p><a class="t-btn" href="' + L("dosar") + '">Citește dosarul</a><p class="meta">Text: Nume Prenume · Machete: Redacția</p></div>';
+
+  var rows = '<tr><th>Rubrica</th><th>Titlu</th><th class="dr">Min.</th></tr>';
+  rows += '<tr class="bloc"><td colspan="3">Dosar</td></tr>';
+  R.cercetareExplicata.forEach(function (a, i) { rows += "<tr><td>Cercetare</td><td><a href=\"" + L("explicat", { id: i }) + "\">" + e(a.titlu) + '</a></td><td class="dr">' + (6 + i * 2) + "</td></tr>"; });
+  rows += '<tr class="bloc"><td colspan="3">Facultatea și regiunea</td></tr>';
+  m.slice(0, 6).forEach(function (a, i) { rows += "<tr" + (a.rubrica === "evenimente" ? ' class="grn"' : "") + "><td>" + e(A.rubrica(a.rubrica)) + "</td><td><a href=\"" + L("articol", { id: i }) + "\">" + e(a.titlu) + '</a></td><td class="dr">' + a.minute + "</td></tr>"; });
+  document.getElementById("cuprins").innerHTML = rows;
+
+  document.getElementById("dosar-img").innerHTML = A.imagine(3, "Dosar");
+  document.getElementById("interviu-img").innerHTML = A.imagine(5, "Portret");
+
+  document.getElementById("scurt").innerHTML = m.slice(0, 4).map(function (a, i) {
+    return '<div class="t-caseta"><div class="rand1"><span><b>Știre ' + (i + 1) + '</b><span class="pct">(' + a.minute + ' min)</span></span><span class="t-et">§ ' + e(A.rubrica(a.rubrica)) + '</span></div><a href="' + L("articol", { id: i }) + '">' + e(a.titlu) + "</a></div>";
+  }).join("");
+
+  var dob = [["Portul Constanța și nevoia de ingineri", 2, 1], ["Furnizorii auto din regiune", 7, 5], ["Parcurile eoliene ale Dobrogei", 1, 1], ["Automatizare în fabricile mici", 9, 6]];
+  document.getElementById("galerie").innerHTML = dob.map(function (d) {
+    return '<a href="' + L("articol", { id: d[2] }) + '">' + A.imagine(d[1], d[0]) + "<b>" + e(d[0]) + "</b><span>Reportaj generic · 5 min</span></a>";
+  }).join("");
+
+  var p = '<tr><th>Ciclu</th><th>Program de studii</th><th>Domeniu</th></tr>';
+  R.specializari.licenta.forEach(function (s) { p += "<tr><td>Licență</td><td><a href=\"" + L("specializari") + "\">" + e(s.nume) + "</a></td><td>" + e(s.domeniu) + "</td></tr>"; });
+  R.specializari.master.forEach(function (s) { p += '<tr class="grn"><td>Master</td><td><a href="' + L("specializari") + '">' + e(s.nume) + "</a></td><td>" + e(s.domeniu) + "</td></tr>"; });
+  document.getElementById("programe").innerHTML = p;
+
+  var c = '<tr><th>Tip</th><th>Articol</th><th>DOI</th><th class="dr">Pagini</th></tr>';
+  R.cercetare.forEach(function (a, i) { c += "<tr><td>" + e(a.tip) + "</td><td><a href=\"" + L("articol-stiintific", { id: i }) + "\"><i>" + e(a.titlu) + "</i></a><br>" + e(a.autori) + '</td><td style="font-family:var(--sans-t);font-size:.85em;white-space:nowrap">' + e(a.doi) + '</td><td class="dr">' + e(a.pagini) + "</td></tr>"; });
+  document.getElementById("cercetare").innerHTML = c;
+
+  A.completeaza();
+})();
+</script>
+</body>
+</html>

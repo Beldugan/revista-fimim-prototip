@@ -10,8 +10,8 @@ window.REVISTA = {
       scurt: "ATT",
       motto: "Cercetare în inginerie mecanică și industrială",
       descriere: "Nume latin, în tradiția seriilor „Acta” ale universităților europene. Trimite la Tomis, cetatea antică a Constanței.",
-      culoare: "#1f3a5f",
-      accent: "#b8862b"
+      culoare: "#094536",
+      accent: "#126A1D"
     },
     tehnonav: {
       id: "tehnonav",
@@ -19,8 +19,8 @@ window.REVISTA = {
       scurt: "TNR",
       motto: "Tehnică, energie și industrie în Dobrogea",
       descriere: "Continuă un brand al facultății (conferința studențească TEHNONAV Junior), deja recunoscut de studenți și parteneri.",
-      culoare: "#0b4f6c",
-      accent: "#e07a2f"
+      culoare: "#094536",
+      accent: "#126A1D"
     },
     ingenium: {
       id: "ingenium",
@@ -28,8 +28,8 @@ window.REVISTA = {
       scurt: "IP",
       motto: "Ingeniozitate tehnică în Dobrogea",
       descriere: "„Ingenium” este rădăcina cuvântului inginer; „Ponticum” ancorează revista în regiunea Constanței.",
-      culoare: "#3d2f5b",
-      accent: "#2f9c8f"
+      culoare: "#094536",
+      accent: "#126A1D"
     },
     tomis: {
       id: "tomis",
@@ -37,8 +37,8 @@ window.REVISTA = {
       scurt: "TER",
       motto: "Revistă de inginerie a Universității „Ovidius”",
       descriere: "Nume în engleză, direct și ușor de citat internațional, cu ancoră locală în numele Tomis.",
-      culoare: "#2b3a2f",
-      accent: "#c0392b"
+      culoare: "#094536",
+      accent: "#126A1D"
     }
   },
 
@@ -66,6 +66,14 @@ window.REVISTA = {
       nume: "Jurnal academic",
       inspiratie: "structură clasică de jurnal indexat",
       descriere: "Format orientat spre indexare: volume și numere, articole cu DOI, rezumate, instrucțiuni pentru autori, evaluare colegială. Secțiunea magazin este separată, într-o zonă distinctă."
+    },
+    {
+      id: "tipografic",
+      fisier: "format-4-tipografic.html",
+      nr: 4,
+      nume: "Magazin tipografic",
+      inspiratie: "inspirat de Globe (ETH Zürich), cu fonturile din PDF",
+      descriere: "Variantă de magazin pe numere tematice, cu aspect de publicație tipărită: text în Palatino, etichete mici în Helvetica, casete și tabele sobre, în verdele de pe imim.ro."
     }
   ],
 

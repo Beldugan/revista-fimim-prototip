@@ -1,0 +1,103 @@
+/* Formatul 4: Magazin tipografic (structură Globe, ETH Zürich; tipografia din specificația PDF:
+   text Palatino / URW Palladio, etichete Helvetica / Nimbus Sans la 90%, casete și tabele booktabs) */
+:root {
+  --ink: #094536;          /* verde închis imim.ro (rol „ink” din PDF) */
+  --acc: #126A1D;          /* verde imim.ro (rol „acc”) */
+  --soft: #eef5f1;         /* fundalul casetelor */
+  --grn: #E2F0D9;          /* rânduri evidențiate (din PDF) */
+  --yel: #FFF2CC;
+  --negru: #000;
+  --serif-t: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", "TeX Gyre Pagella", Georgia, serif;
+  --sans-t: "Nimbus Sans L", Helvetica, Arial, sans-serif;
+}
+body { font-family: var(--serif-t); font-size: 17px; line-height: 1.5; color: var(--negru); background: #fff; }
+.t-et { font-family: var(--sans-t); font-size: .9em; color: var(--ink); white-space: nowrap; }
+.t-et::before { content: "["; } .t-et::after { content: "]"; }
+
+.t-wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 900px) { .t-wrap { padding: 0 40px; } }
+
+/* antet curent (ca în PDF: stânga / dreapta, linie de 0,4 pt) */
+.t-antet { font-size: 15px; color: var(--ink); }
+.t-antet .t-wrap { display: flex; justify-content: space-between; gap: 12px; padding-top: 14px; padding-bottom: 6px; border-bottom: .6px solid var(--ink); flex-wrap: wrap; }
+.t-antet a { color: inherit; text-decoration: none; }
+
+.t-mast { text-align: center; padding: 34px 0 10px; }
+.t-mast h1 { font-family: var(--serif-t); font-weight: 700; color: var(--ink); font-size: clamp(34px, 5.4vw, 58px); letter-spacing: -.005em; margin: 0; }
+.t-mast p { font-size: 1.09em; margin: 4px 0 0; }
+.t-nav { border-top: .6px solid var(--ink); border-bottom: 1.6px solid var(--ink); margin-top: 22px; }
+.t-nav ul { list-style: none; margin: 0 auto; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+.t-nav li { position: relative; }
+.t-nav a { display: block; padding: 10px 14px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 16px; }
+.t-nav a:hover { color: var(--acc); text-decoration: underline; }
+.t-nav li ul { display: none; position: absolute; left: 0; top: 100%; background: #fff; border: .6px solid var(--ink); border-top: 1.6px solid var(--ink); min-width: 240px; z-index: 20; flex-direction: column; }
+.t-nav li:hover > ul, .t-nav li:focus-within > ul { display: flex; }
+.t-nav li ul a { font-weight: 400; padding: 8px 14px; }
+
+/* coperta numărului */
+.t-coperta { display: grid; gap: 32px; grid-template-columns: 1fr; padding: 36px 0 28px; align-items: center; }
+@media (min-width: 900px) { .t-coperta { grid-template-columns: 1.25fr 1fr; } }
+.t-coperta .imagine { aspect-ratio: 4/3; border-radius: 2px; }
+.t-coperta h2 { font-weight: 700; color: var(--ink); font-size: 1.571em; line-height: 1.15; font-size: clamp(30px, 3.6vw, 44px); margin: 10px 0 12px; }
+.t-coperta .sub { font-size: 1.09em; font-style: italic; }
+.t-coperta .meta { font-size: 15px; margin-top: 14px; }
+.t-btn { display: inline-block; margin-top: 14px; border: .6px solid var(--ink); border-radius: 2px; padding: 7px 14px; color: var(--ink); text-decoration: none; font-weight: 700; background: var(--soft); }
+.t-btn:hover { background: var(--ink); color: #fff; }
+
+/* titluri de secțiune numerotate, ca în PDF („1. Documentele”) */
+.t-sec { padding: 26px 0 8px; }
+.t-sec > h2 { font-weight: 700; color: var(--ink); font-size: 1.309em; margin: 0 0 12px; }
+
+/* tabel booktabs: trei linii orizontale, fără linii verticale */
+.t-tab { width: 100%; border-collapse: collapse; border-top: 1.6px solid var(--negru); border-bottom: 1.6px solid var(--negru); font-size: 16px; }
+.t-tab th { text-align: left; font-weight: 400; padding: 6px 8px 6px 0; border-bottom: .6px solid var(--negru); }
+.t-tab td { padding: 5px 8px 5px 0; vertical-align: top; }
+.t-tab td.dr, .t-tab th.dr { text-align: right; padding-right: 0; }
+.t-tab tr.grn td { background: var(--grn); }
+.t-tab tr.yel td { background: var(--yel); }
+.t-tab tr.bloc td { font-weight: 700; color: var(--ink); padding-top: 10px; }
+.t-tab a { color: inherit; text-decoration: none; }
+.t-tab a:hover { color: var(--ink); text-decoration: underline; }
+.t-scroll { overflow-x: auto; }
+
+/* caseta (ca „caseta problemei”: fundal soft, ramă ink 0,5 pt, colțuri de 2 pt) */
+.t-caseta { background: var(--soft); border: .6px solid var(--ink); border-radius: 2px; padding: 10px 14px; }
+.t-caseta .rand1 { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; align-items: baseline; margin-bottom: 4px; }
+.t-caseta .rand1 b { color: var(--ink); }
+.t-caseta .rand1 .pct { margin-left: 8px; }
+.t-caseta a { color: inherit; text-decoration: none; }
+.t-caseta a:hover { text-decoration: underline; }
+.t-casete { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.t-solutie { color: var(--acc); font-weight: 700; }
+
+/* articol în două coloane, ca în tipar */
+.t-dosar { display: grid; gap: 28px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .t-dosar { grid-template-columns: 1fr 1fr; } }
+.t-dosar .imagine { aspect-ratio: 1; border-radius: 2px; }
+.t-dosar h3 { font-weight: 700; color: var(--ink); font-size: 1.571em; line-height: 1.15; margin: 6px 0 10px; }
+.t-coloane { columns: 2 260px; column-gap: 28px; text-align: justify; hyphens: auto; }
+.t-coloane p:first-child::first-letter { float: left; font-size: 3.4em; line-height: .85; padding: 4px 6px 0 0; color: var(--ink); font-weight: 700; }
+.t-citat { font-style: italic; font-size: 1.09em; border-left: 2px solid var(--acc); padding-left: 14px; margin: 14px 0; break-inside: avoid; }
+.t-lista { padding-left: 1.2em; margin: 0; }
+.t-lista li { margin-bottom: 4px; }
+.t-lista a { color: var(--ink); }
+
+/* interviu */
+.t-interviu { display: grid; gap: 28px; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 900px) { .t-interviu { grid-template-columns: 1fr 2fr; } }
+.t-interviu .imagine { aspect-ratio: 3/4; border-radius: 2px; }
+.t-interviu .q { font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+
+/* galerie: rânduri de imagini */
+.t-galerie { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.t-galerie a { text-decoration: none; color: inherit; }
+.t-galerie .imagine { aspect-ratio: 4/3; border-radius: 2px; margin-bottom: 8px; }
+.t-galerie b { color: var(--ink); display: block; line-height: 1.25; }
+.t-galerie a:hover b { text-decoration: underline; }
+.t-galerie span { font-size: 15px; }
+
+.t-subsol { margin-top: 36px; border-top: .6px solid var(--ink); }
+.t-subsol .t-wrap { padding-top: 16px; padding-bottom: 28px; text-align: center; font-size: 15px; }
+.t-subsol nav { display: flex; justify-content: center; gap: 6px 18px; flex-wrap: wrap; margin-bottom: 10px; }
+.t-subsol a { color: var(--ink); text-decoration: none; }
+.t-subsol a:hover { text-decoration: underline; }

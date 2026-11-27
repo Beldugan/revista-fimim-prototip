@@ -16,7 +16,20 @@
     try { localStorage.setItem(CHEIE, id); } catch (e) {}
   }
 
+  R.magazin.forEach(function (a, i) { a.idx = i; a.tipLink = "articol"; });
+  R.cercetareExplicata.forEach(function (a, i) { a.idx = i; a.tipLink = "explicat"; });
+  R.cercetare.forEach(function (a, i) { a.idx = i; a.tipLink = "articol-stiintific"; });
   var idCurent = citesteDenumire();
+  var formatCurent = null;
+  var FISIER = { campus: "format-1-campus.html", magazin: "format-2-magazin.html", academic: "format-3-academic.html", tipografic: "format-4-tipografic.html" };
+  /* Legătură către o pagină internă a formatului curent (pagina-<format>.html?p=...) */
+  function link(p, par) {
+    if (!formatCurent) return "#";
+    if (!p) return FISIER[formatCurent] + "?n=" + idCurent;
+    var u = "pagina-" + formatCurent + ".html?p=" + encodeURIComponent(p) + "&n=" + idCurent;
+    if (par) Object.keys(par).forEach(function (k) { u += "&" + k + "=" + encodeURIComponent(par[k]); });
+    return u;
+  }
   var D = R.denumiri[idCurent];
 
   function esc(t) {
@@ -45,9 +58,13 @@
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="' + esc(eticheta || "Imagine generică") + '">' +
       '<defs><linearGradient id="l' + tema + '" gradientTransform="rotate(' + unghi + ' .5 .5)"><stop offset="0" stop-color="' + c1 + '"/><stop offset="1" stop-color="' + c2 + '"/></linearGradient>' + grid + '</defs>' +
       '<rect width="600" height="400" fill="url(#l' + tema + ')"/><rect width="600" height="400" fill="url(#g' + tema + ')"/>' +
-      (forme[tema] || forme[1]) + "</svg>";
-    return '<div class="imagine">' + svg + "</div>";
+      "</svg>";
+    var model = MODELE[tema] || MODELE[1];
+    return '<div class="imagine">' + svg + '<img class="macheta" src="assets/img/3d/' + model + '.webp" alt="' + esc(eticheta || "Machetă 3D") + '"></div>';
   }
+  /* Machete 3D transparente (randate cu three.js, vezi instrumente/randare-3d) */
+  var MODELE = { 1: "turbine", 2: "crane", 3: "gears", 4: "engine", 5: "caliper", 6: "bulb", 7: "car", 8: "lattice", 9: "robot" };
+
   function engrenaj(cx, cy, r, dinti) {
     var d = "";
     for (var i = 0; i < dinti * 2; i++) {
@@ -80,7 +97,8 @@
   }
 
   /* Bara de prototip (sus): schimbare denumire și format */
-  function bara(formatCurent) {
+  function bara(fmt) {
+    formatCurent = fmt.replace(/^pagina-/, "");
     var el = document.createElement("div");
     el.className = "bara-prototip";
     var optiuni = Object.keys(R.denumiri).map(function (k) {
@@ -114,6 +132,12 @@
     document.querySelectorAll("[data-facultate]").forEach(function (e) { e.textContent = R.facultate; });
     document.querySelectorAll("[data-universitate]").forEach(function (e) { e.textContent = R.universitate; });
     document.querySelectorAll("[data-an]").forEach(function (e) { e.textContent = new Date().getFullYear(); });
+    document.querySelectorAll("a[data-p]").forEach(function (a) {
+      var par = a.dataset.id != null ? { id: a.dataset.id } : null;
+      a.href = link(a.dataset.p, par);
+    });
+    document.querySelectorAll("a[data-acasa]").forEach(function (a) { a.href = link(""); });
+    document.querySelectorAll("a[data-format]").forEach(function (a) { a.href = FISIER[a.dataset.format] + "?n=" + idCurent; });
     var pref = document.title;
     document.title = D.titlu + (pref ? " · " + pref : "");
   }
@@ -121,7 +145,7 @@
   function specializari() {
     function bloc(titlu, lista) {
       return '<div class="spec-bloc"><h3 class="spec-titlu">' + titlu + '</h3><ul class="spec-lista">' + lista.map(function (s) {
-        return '<li><a href="#"><strong>' + esc(s.nume) + '</strong><span>' + esc(s.domeniu) + "</span></a></li>";
+        return '<li><a href="' + link("specializari") + '"><strong>' + esc(s.nume) + '</strong><span>' + esc(s.domeniu) + "</span></a></li>";
       }).join("") + "</ul></div>";
     }
     return '<div class="spec-grila">' + bloc("Licență", R.specializari.licenta) + bloc("Master", R.specializari.master) + "</div>";
@@ -129,6 +153,8 @@
 
   window.APP = {
     specializari: specializari,
+    link: link,
+    href: function (a) { return a && a.tipLink ? link(a.tipLink, { id: a.idx }) : link("stiri"); },
     R: R,
     D: D,
     id: idCurent,
