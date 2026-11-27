@@ -55,7 +55,7 @@
     var grid = '<pattern id="g' + tema + '" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0 L0 0 0 30" fill="none" stroke="#fff" stroke-opacity=".07"/></pattern>';
     var unghi = (tema * 37) % 360;
     var svg =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="' + esc(eticheta || "Imagine generică") + '">' +
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="' + esc(eticheta || "Ilustrație") + '">' +
       '<defs><linearGradient id="l' + tema + '" gradientTransform="rotate(' + unghi + ' .5 .5)"><stop offset="0" stop-color="' + c1 + '"/><stop offset="1" stop-color="' + c2 + '"/></linearGradient>' + grid + '</defs>' +
       '<rect width="600" height="400" fill="url(#l' + tema + ')"/><rect width="600" height="400" fill="url(#g' + tema + ')"/>' +
       "</svg>";

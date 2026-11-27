@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prototip revistă FIMIM</title>
-<meta name="description" content="Prototip pentru revista online a Facultății de Inginerie Mecanică, Industrială și Maritimă, Universitatea Ovidius din Constanța.">
+<title>Revista FIMIM</title>
+<meta name="description" content="Revista online a Facultății de Inginerie Mecanică, Industrială și Maritimă, Universitatea Ovidius din Constanța.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
   .card-nume .bifa { position: absolute; top: 14px; right: 14px; width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,.6); display: grid; place-items: center; font-size: 14px; }
   .card-nume[aria-pressed="true"] .bifa { background: #fff; color: var(--c); border-color: #fff; }
 
-  .grila-format { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .grila-format { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
   .card-format {
     display: flex; flex-direction: column; text-decoration: none; background: #fff; border-radius: 10px; overflow: hidden;
     box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 0 0 1px var(--linie); transition: box-shadow .15s, transform .15s;
@@ -72,7 +72,6 @@
       <strong data-universitate></strong>
       <span data-facultate></span>
     </div>
-    <span class="stare">Prototip · conținut generic</span>
   </div>
 </header>
 
@@ -135,12 +134,12 @@
       var s = schite[f.id].replace(/C1/g, d.culoare).replace(/C2/g, d.accent);
       return '<a class="card-format" href="' + f.fisier + "?n=" + ales + '">' +
         '<div class="schita" aria-hidden="true">' + s + "</div>" +
-        '<div class="corp"><span class="nr">Formatul ' + f.nr + "</span><h3>" + A.esc(f.nume) + '</h3><span class="insp">' + A.esc(f.inspiratie) + "</span><p>" + A.esc(f.descriere) + '</p><span class="deschide">Deschide formatul cu „' + A.esc(d.titlu) + "” &rarr;</span></div></a>";
+        '<div class="corp"><span class="nr">Formatul ' + f.nr + "</span><h3>" + A.esc(f.nume) + "</h3><p>" + A.esc(f.descriere) + '</p><span class="deschide">Deschide formatul cu „' + A.esc(d.titlu) + "” &rarr;</span></div></a>";
     }).join("");
   }
 
   A.completeaza();
-  document.title = "Prototip revistă FIMIM";
+  document.title = "Revista FIMIM";
   deseneazaNume();
   deseneazaFormate();
 })();

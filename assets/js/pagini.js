@@ -1,14 +1,13 @@
 /* Conținut generic pentru toate paginile interne (meniuri și submeniuri), comun celor 4 formate.
    Fiecare pagină: titlu, sapou, grup (pentru meniul lateral) și conținut (secțiuni sau un tip special). */
 (function () {
-  var P = "Text generic. ";
   function par(n, tema) {
     var baze = [
-      "Acest paragraf ține locul unui text real și arată cum va arăta pagina după completarea conținutului de către redacție.",
-      "Aici se vor descrie pe scurt contextul, obiectivele și informațiile esențiale pe care cititorul trebuie să le afle.",
-      "Textul definitiv va fi redactat de echipa revistei și aprobat conform procedurilor editoriale ale facultății.",
-      "Paragraful poate conține trimiteri la alte pagini ale revistei, la documente oficiale sau la date de contact.",
-      "Informațiile vor fi actualizate periodic, iar data ultimei modificări va fi afișată la finalul paginii."
+      "Revista facultății informează studenții, cadrele didactice, absolvenții și partenerii despre activitatea de învățământ și cercetare.",
+      "Facultatea pregătește ingineri pentru industria, energetica și transporturile din regiune și colaborează cu parteneri din țară și din străinătate.",
+      "Conținutul este pregătit de echipa redacțională și verificat conform procedurilor editoriale ale facultății.",
+      "Pentru întrebări și propuneri, redacția poate fi contactată prin pagina de contact a revistei.",
+      "Informațiile sunt actualizate periodic; data ultimei modificări apare la finalul paginii."
     ];
     var out = [];
     for (var i = 0; i < n; i++) out.push((tema ? tema + " " : "") + baze[i % baze.length]);

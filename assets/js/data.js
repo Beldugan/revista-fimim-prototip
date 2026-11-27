@@ -48,7 +48,7 @@ window.REVISTA = {
       fisier: "format-1-campus.html",
       nr: 1,
       nume: "Campus & Cercetare",
-      inspiratie: "inspirat de Delta (TU Delft)",
+      inspiratie: "",
       descriere: "Format de tip publicație de știri: actualitate din facultate, investigații, opinii și cercetare explicată pe înțelesul tuturor. Pagina e condusă de cele mai noi articole."
     },
     {
@@ -56,7 +56,7 @@ window.REVISTA = {
       fisier: "format-2-magazin.html",
       nr: 2,
       nume: "Magazin de știință",
-      inspiratie: "inspirat de Globe (ETH Zürich)",
+      inspiratie: "",
       descriere: "Format vizual, pe teme: fiecare număr are un dosar central, imagini mari, portrete de cercetători și articole lungi, pentru absolvenți, parteneri și publicul larg."
     },
     {
@@ -64,7 +64,7 @@ window.REVISTA = {
       fisier: "format-3-academic.html",
       nr: 3,
       nume: "Jurnal academic",
-      inspiratie: "structură clasică de jurnal indexat",
+      inspiratie: "",
       descriere: "Format orientat spre indexare: volume și numere, articole cu DOI, rezumate, instrucțiuni pentru autori, evaluare colegială. Secțiunea magazin este separată, într-o zonă distinctă."
     },
     {
@@ -72,8 +72,8 @@ window.REVISTA = {
       fisier: "format-4-tipografic.html",
       nr: 4,
       nume: "Magazin tipografic",
-      inspiratie: "inspirat de Globe (ETH Zürich), cu fonturile din PDF",
-      descriere: "Variantă de magazin pe numere tematice, cu aspect de publicație tipărită: text în Palatino, etichete mici în Helvetica, casete și tabele sobre, în verdele de pe imim.ro."
+      inspiratie: "",
+      descriere: "Magazin pe numere tematice, cu aspect de publicație tipărită: cuprins, dosar, interviu, reportaje, programe de studii și agendă."
     }
   ],
 
@@ -116,7 +116,7 @@ window.REVISTA = {
     {
       rubrica: "economie",
       titlu: "Investiție industrială în zona portului Constanța: ce înseamnă pentru absolvenți",
-      sapou: "Text generic despre o investiție din Dobrogea, locurile de muncă create și competențele tehnice cerute de angajatori.",
+      sapou: "O nouă investiție în zona portului aduce sute de locuri de muncă. Angajatorii caută ingineri mecanici, energeticieni și specialiști în automatizare.",
       autor: "Nume Prenume",
       data: "25 noiembrie 2026",
       minute: 7,
@@ -134,7 +134,7 @@ window.REVISTA = {
     {
       rubrica: "evenimente",
       titlu: "Conferința studențească anuală: apel la lucrări",
-      sapou: "Detalii generice despre o conferință sau competiție a facultății: termene, secțiuni, premii și modul de înscriere.",
+      sapou: "Studenții își pot trimite lucrările până la 15 martie. Secțiuni pentru autovehicule, energetică, producție și informatică industrială.",
       autor: "Redacția",
       data: "20 noiembrie 2026",
       minute: 3,
@@ -152,7 +152,7 @@ window.REVISTA = {
     {
       rubrica: "opinie",
       titlu: "De ce industria regională are nevoie de mai mulți ingineri",
-      sapou: "Text de opinie generic, semnat de un cadru didactic sau de un partener industrial, despre relația dintre facultate și piața muncii.",
+      sapou: "Un cadru didactic al facultății scrie despre distanța dintre ce cer angajatorii din regiune și câți ingineri absolvă în fiecare an.",
       autor: "Nume Prenume",
       data: "15 noiembrie 2026",
       minute: 5,
@@ -161,7 +161,7 @@ window.REVISTA = {
     {
       rubrica: "fimim",
       titlu: "Rezultatele unui proiect de cercetare finanțat, prezentate public",
-      sapou: "Știre generică despre finalizarea unui proiect: echipa, partenerii, rezultatele și pașii următori.",
+      sapou: "Echipa proiectului a prezentat rezultatele a trei ani de cercetare, alături de partenerii industriali și de studenții implicați.",
       autor: "Nume Prenume",
       data: "12 noiembrie 2026",
       minute: 4,
@@ -170,7 +170,7 @@ window.REVISTA = {
     {
       rubrica: "evenimente",
       titlu: "Competiția de vehicule construite de studenți ajunge la a doua ediție",
-      sapou: "Text generic despre o competiție tehnică: echipe, regulament, calendar și parteneri.",
+      sapou: "Echipele de studenți construiesc și testează propriile vehicule. Înscrierile sunt deschise până la sfârșitul lunii aprilie.",
       autor: "Redacția",
       data: "10 noiembrie 2026",
       minute: 3,
@@ -197,7 +197,7 @@ window.REVISTA = {
       doi: "10.XXXXX/xxx.2026.01.001",
       pagini: "1–12",
       cuvinte: ["finite element analysis", "automotive engineering", "fatigue"],
-      rezumat: "This placeholder abstract describes the aim of the study, the methods used, the main results and the conclusions. It is typically 150–250 words long and written in English, as required by international indexing databases."
+      rezumat: "The study investigates the behaviour of a vehicle component under variable loading. A finite element model was validated against bench measurements, and the results identify the critical zones and the expected service life. The conclusions support design changes that reduce mass while preserving fatigue strength."
     },
     {
       tip: "Research Article",
@@ -207,7 +207,7 @@ window.REVISTA = {
       doi: "10.XXXXX/xxx.2026.01.002",
       pagini: "13–24",
       cuvinte: ["tribology", "materials", "manufacturing"],
-      rezumat: "Placeholder abstract. The experimental setup, the measured parameters and the statistical treatment of data are briefly presented, followed by the key findings and their relevance for industry."
+      rezumat: "Wear tests were carried out on a pin-on-disc tribometer under dry and lubricated conditions. The measured friction coefficients and wear rates are discussed in relation to surface hardness, and practical recommendations are given for industrial use."
     },
     {
       tip: "Review",
@@ -217,7 +217,7 @@ window.REVISTA = {
       doi: "10.XXXXX/xxx.2026.01.003",
       pagini: "25–40",
       cuvinte: ["review", "port equipment", "maintenance"],
-      rezumat: "Placeholder abstract for a review article summarising the state of the art, the main research directions and open questions in the field."
+      rezumat: "This review summarises recent developments in condition monitoring and predictive maintenance of port equipment, outlines the main research directions and identifies open questions for future work."
     },
     {
       tip: "Short Communication",
@@ -227,7 +227,7 @@ window.REVISTA = {
       doi: "10.XXXXX/xxx.2026.01.004",
       pagini: "41–46",
       cuvinte: ["renewable energy", "efficiency", "Dobrogea"],
-      rezumat: "Placeholder abstract for a short communication presenting early results that are of immediate interest to the community."
+      rezumat: "Early measurements of energy use in industrial plants from the Dobrogea region are reported, together with first estimates of the savings achievable through heat recovery."
     }
   ],
 
@@ -235,19 +235,19 @@ window.REVISTA = {
   cercetareExplicata: [
     {
       titlu: "Cum pot fi făcute autovehiculele mai eficiente energetic",
-      sapou: "O echipă din facultate testează soluții noi pentru reducerea consumului și a emisiilor. Text generic de popularizare a științei.",
+      sapou: "O echipă din facultate testează soluții noi pentru reducerea consumului și a emisiilor.",
       autor: "Nume Prenume",
       tema: 7
     },
     {
       titlu: "Materiale care rezistă mai mult la uzură și coroziune",
-      sapou: "Cercetătorii studiază comportarea materialelor în condițiile climatice ale litoralului. Text generic, pe înțelesul publicului larg.",
+      sapou: "Cercetătorii studiază comportarea materialelor în condițiile climatice ale litoralului.",
       autor: "Nume Prenume",
       tema: 8
     },
     {
       titlu: "Roboți industriali pentru întreprinderile mici",
-      sapou: "Cum pot fi automatizate procesele de fabricație fără investiții uriașe. Text generic de popularizare.",
+      sapou: "Cum pot fi automatizate procesele de fabricație fără investiții uriașe.",
       autor: "Nume Prenume",
       tema: 9
     }

@@ -55,10 +55,10 @@
         <span class="t-et">§ Dosar · Mobilitatea de mâine</span>
         <h3>Titlul articolului central, despre o temă mare a ingineriei mecanice</h3>
         <div class="t-coloane">
-          <p>Text generic de deschidere pentru un reportaj amplu. Primul paragraf prezintă contextul și întrebarea de la care pornește articolul, cu oamenii pe care cititorul îi va întâlni pe parcurs.</p>
-          <p>Al doilea paragraf descrie laboratorul, echipa și proiectul, folosind un limbaj accesibil pentru absolvenți, parteneri și publicul larg.</p>
-          <p class="t-citat">„Un citat dintr-un cercetător, pus în evidență ca în revistele tipărite.”</p>
-          <p>Paragraful de încheiere deschide spre următoarele articole din dosar.</p>
+          <p>Cum arată mobilitatea în următorii zece ani și ce rol au inginerii formați la Constanța? Am petrecut o lună în laboratoarele facultății, alături de echipele care testează vehicule, motoare și surse noi de energie.</p>
+          <p>În laboratorul de autovehicule, standul de probă rulează zi și noapte. Studenții din anul terminal măsoară consumul, temperaturile și vibrațiile, apoi compară datele cu simulările făcute la calculator.</p>
+          <p class="t-citat">„Un vehicul eficient se proiectează piesă cu piesă. Fiecare gram și fiecare procent contează.”</p>
+          <p>Dosarul continuă cu un interviu, un infografic și un glosar pentru cei care descoperă acum domeniul.</p>
         </div>
         <ul class="t-lista">
           <li><a data-p="articol" data-id="2" href="#">Interviu: cum se testează un vehicul pe standul de probă</a></li>
@@ -83,11 +83,11 @@
         <span class="t-et">§ Oameni</span>
         <h3 style="color:var(--ink);font-size:1.309em;margin:6px 0 12px">Nume Prenume: „Fraza-cheie a interviului, ca titlu”</h3>
         <p class="q">Ce v-a adus în ingineria mecanică?</p>
-        <p>Răspuns generic de două-trei fraze despre drumul profesional și motivație.</p>
+        <p>Curiozitatea pentru felul în care funcționează lucrurile. Am început cu motoare în atelierul familiei, apoi am ales ingineria mecanică.</p>
         <p class="q">La ce lucrați acum?</p>
-        <p>Răspuns generic despre proiectul actual, explicat pe înțelesul unui cititor fără pregătire tehnică.</p>
+        <p>Studiem cum pot fi reduse pierderile de energie într-un vehicul, de la transmisie până la sistemul de răcire.</p>
         <p class="q">Ce le recomandați studenților?</p>
-        <p>Răspuns generic, cu un sfat practic pentru anii de studiu.</p>
+        <p>Să petreacă timp în laborator și în practică. Teoria prinde sens abia când vezi piesa funcționând.</p>
         <a class="t-btn" data-p="oameni" href="#">Toate portretele</a>
       </div>
     </div>
@@ -137,7 +137,7 @@
   var A = window.APP, R = A.R, e = A.esc, m = R.magazin, L = A.link;
   A.bara("tipografic");
 
-  document.getElementById("coperta").innerHTML = '<div>' + A.imagine(7, "Coperta numărului") + '</div><div><span class="t-et">§ Nr. 1 · Iarna 2026</span><h2>Mobilitatea de mâine</h2><p class="sub">Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p><p>Text generic de copertă, care prezintă tema numărului și principalele articole.</p><a class="t-btn" href="' + L("dosar") + '">Citește dosarul</a><p class="meta">Text: Nume Prenume · Machete: Redacția</p></div>';
+  document.getElementById("coperta").innerHTML = '<div>' + A.imagine(7, "Coperta numărului") + '</div><div><span class="t-et">§ Nr. 1 · Iarna 2026</span><h2>Mobilitatea de mâine</h2><p class="sub">Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p><p>Dosarul numărului, un interviu, reportaje din Dobrogea și noutățile facultății.</p><a class="t-btn" href="' + L("dosar") + '">Citește dosarul</a><p class="meta">Text: Nume Prenume · Machete: Redacția</p></div>';
 
   var rows = '<tr><th>Rubrica</th><th>Titlu</th><th class="dr">Min.</th></tr>';
   rows += '<tr class="bloc"><td colspan="3">Dosar</td></tr>';
@@ -155,7 +155,7 @@
 
   var dob = [["Portul Constanța și nevoia de ingineri", 2, 1], ["Furnizorii auto din regiune", 7, 5], ["Parcurile eoliene ale Dobrogei", 1, 1], ["Automatizare în fabricile mici", 9, 6]];
   document.getElementById("galerie").innerHTML = dob.map(function (d) {
-    return '<a href="' + L("articol", { id: d[2] }) + '">' + A.imagine(d[1], d[0]) + "<b>" + e(d[0]) + "</b><span>Reportaj generic · 5 min</span></a>";
+    return '<a href="' + L("articol", { id: d[2] }) + '">' + A.imagine(d[1], d[0]) + "<b>" + e(d[0]) + "</b><span>Reportaj · 5 min</span></a>";
   }).join("");
 
   var p = '<tr><th>Ciclu</th><th>Program de studii</th><th>Domeniu</th></tr>';

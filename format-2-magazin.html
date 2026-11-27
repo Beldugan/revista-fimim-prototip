@@ -46,7 +46,7 @@
         <div>
           <span class="eticheta">Dosar · Mobilitatea de mâine</span>
           <h3>Titlul articolului central al numărului, despre o temă mare de inginerie</h3>
-          <p>Introducere generică pentru un reportaj amplu: contextul, întrebarea de la care pornește și oamenii pe care cititorul îi va întâlni pe parcurs.</p>
+          <p>Cum arată mobilitatea în următorii zece ani și ce rol au inginerii formați la Constanța? Am petrecut o lună în laboratoarele facultății, alături de echipele care testează vehicule, motoare și surse noi de energie.</p>
           <blockquote class="g-citat">„Un citat puternic dintr-un cercetător sau dintr-un inginer, scos în evidență ca în revistele tipărite.”</blockquote>
           <p class="meta">Text: Nume Prenume · Fotografii: Nume Prenume · 14 min de citit</p>
           <ul>
@@ -61,7 +61,7 @@
 
   <section class="g-sec">
     <div class="container">
-      <div class="g-sec-cap"><h2>Facultatea în cifre</h2><span>Date generice</span></div>
+      <div class="g-sec-cap"><h2>Facultatea în cifre</h2><span>Anul universitar 2026–2027</span></div>
       <div class="g-cifre">
         <div class="g-cifra"><strong>00</strong><span>programe de studii de licență și master</span></div>
         <div class="g-cifra"><strong>000</strong><span>studenți înmatriculați</span></div>
@@ -87,9 +87,9 @@
           <span class="eticheta">Cercetătoare · Departamentul X</span>
           <h3>Nume Prenume: „Fraza-cheie a interviului, ca titlu”</h3>
           <p class="g-intrebare">Ce v-a adus în ingineria mecanică?</p>
-          <p>Răspuns generic de două-trei fraze, care prezintă drumul profesional și motivația cercetătoarei.</p>
+          <p>Curiozitatea pentru felul în care funcționează lucrurile. Am început cu motoare în atelierul familiei, apoi am ales ingineria mecanică și nu am mai plecat din laborator.</p>
           <p class="g-intrebare">La ce lucrați acum?</p>
-          <p>Răspuns generic despre proiectul actual, explicat pe înțelesul unui cititor fără pregătire tehnică.</p>
+          <p>Studiem cum pot fi reduse pierderile de energie într-un vehicul, de la transmisie până la sistemul de răcire. Fiecare procent câștigat înseamnă consum mai mic și emisii mai reduse.</p>
           <a data-p="oameni" href="#" class="meta">Citește interviul complet &rarr;</a>
         </div>
       </div>
@@ -154,7 +154,7 @@
   
   document.getElementById("coperta").innerHTML = A.imagine(7, "Coperta numărului") +
     '<div class="container"><div class="g-numar"><b>Nr. 1</b><span>Iarna 2026</span><span>Dosar: Mobilitatea de mâine</span></div>' +
-    "<h1>Mobilitatea de mâine</h1><p>Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală. Text generic de copertă.</p>" +
+    "<h1>Mobilitatea de mâine</h1><p>Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală.</p>" +
     '<a class="btn" href="' + A.link("dosar") + '">Citește dosarul</a></div>';
 
   document.getElementById("specializari").innerHTML = A.specializari();
@@ -174,11 +174,11 @@
   document.getElementById("portret-imagine").innerHTML = A.imagine(8, "Portret");
 
   var dobrogea = [
-    { id: 1, t: "Portul Constanța și nevoia de ingineri", s: "Reportaj generic despre activitatea portuară." , tema: 2 },
-    { id: 5, t: "Furnizorii auto și service-urile din regiune", s: "Prezentare generică a industriei auto locale.", tema: 7 },
-    { id: 1, t: "Parcurile eoliene și energia Dobrogei", s: "Text generic despre proiectele energetice.", tema: 1 },
-    { id: 6, t: "Parcuri industriale și investiții noi", s: "Text generic despre investițiile din județ.", tema: 9 },
-    { id: 8, t: "Firmele mici care angajează absolvenți", s: "Text generic despre IMM-uri tehnice.", tema: 3 }
+    { id: 1, t: "Portul Constanța și nevoia de ingineri", s: "Operatorii portuari caută ingineri pentru echipamente și mentenanță." , tema: 2 },
+    { id: 5, t: "Furnizorii auto și service-urile din regiune", s: "Componente, service și logistică: unde lucrează absolvenții.", tema: 7 },
+    { id: 1, t: "Parcurile eoliene și energia Dobrogei", s: "Dobrogea produce o parte importantă din energia eoliană a țării.", tema: 1 },
+    { id: 6, t: "Parcuri industriale și investiții noi", s: "Noi fabrici și depozite în jurul Constanței.", tema: 9 },
+    { id: 8, t: "Firmele mici care angajează absolvenți", s: "Firmele locale care oferă stagii și primele locuri de muncă.", tema: 3 }
   ];
   document.getElementById("banda").innerHTML = dobrogea.map(function (a) {
     return '<a href="' + A.href(m[a.id]) + '" style="text-decoration:none">' + A.imagine(a.tema, a.t) + '<span class="eticheta">Economie</span><h4>' + e(a.t) + '</h4><p class="meta">' + e(a.s) + "</p></a>";

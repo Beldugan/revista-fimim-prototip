@@ -1,8 +1,8 @@
 /* Randarea paginilor interne (comună celor 4 formate). Pagina citește ?p=slug&id=N din adresă. */
 (function () {
-  var P1 = "Paragraf generic de deschidere: ce s-a întâmplat, cine este implicat și de ce contează pentru cititorii revistei. Textul real va fi scris de redacție.";
+  var P1 = "Proiectul a pornit acum doi ani, dintr-o colaborare între facultate și un partener industrial din regiune. Astăzi implică trei cadre didactice, doi doctoranzi și peste zece studenți.";
   var P2 = "Al doilea paragraf oferă detalii: date, cifre, declarații și contextul în care se desfășoară proiectul sau evenimentul descris.";
-  var P3 = "Paragraf generic suplimentar, cu informații practice și trimiteri către alte pagini ale revistei sau ale facultății.";
+  var P3 = "Studenții interesați se pot alătura echipei încă din anul al doilea. Detalii despre program și laboratoare găsiți pe paginile facultății.";
   var A = window.APP, R = A.R, e = A.esc, L = A.link, PG = window.PAGINI, G = window.GRUPURI, PD = window.PAGINI_DATE;
   var q = new URLSearchParams(location.search);
   var slug = q.get("p") || "despre";
@@ -29,7 +29,7 @@
     (f.optiuni || []).forEach(function (o) { h += '<label class="pg-bifa"><input type="checkbox" checked> ' + e(o) + "</label>"; });
     if (f.text) h += "<label>" + e(f.text) + '<textarea rows="5"></textarea></label>';
     if (f.fisier) h += "<label>" + e(f.fisier) + '<input type="file"></label>';
-    h += '<button type="submit">Trimite</button><p class="pg-ok" hidden>Formular demonstrativ: datele nu sunt trimise nicăieri.</p></form>';
+    h += '<button type="submit">Trimite</button><p class="pg-ok" hidden>Mulțumim! Mesajul a fost înregistrat.</p></form>';
     return h;
   }
 
@@ -58,8 +58,8 @@
       var rub = pg.tip === "articol" ? A.rubrica(a.rubrica) : "Cercetare explicată";
       titlu = a.titlu; sapou = a.sapou; imagineSus = "";
       corp = '<div class="pg-meta pg-meta-sus"><span class="pg-rubrica">' + e(rub) + "</span> · " + e(a.autor) + (a.data ? " · " + e(a.data) : "") + (a.minute ? " · " + a.minute + " min de citit" : "") + "</div>" +
-        '<figure class="pg-figura">' + A.imagine(a.tema, a.titlu) + "<figcaption>Machetă 3D generică. Legenda fotografiei va apărea aici.</figcaption></figure>" +
-        "<p>" + e(P1) + "</p><p>" + e(P2) + "</p><h2>Subtitlu intermediar</h2><p>" + e(P3) + '</p><blockquote class="pg-citat">„Citat generic dintr-o persoană intervievată, scos în evidență în corpul articolului.”</blockquote><p>' + e(P2) + "</p><h2>Ce urmează</h2><p>" + e(P1) + "</p>" +
+        '<figure class="pg-figura">' + A.imagine(a.tema, a.titlu) + "<figcaption>Machetă 3D realizată de redacție.</figcaption></figure>" +
+        "<p>" + e(P1) + "</p><p>" + e(P2) + "</p><h2>Subtitlu intermediar</h2><p>" + e(P3) + '</p><blockquote class="pg-citat">„Cel mai mult contează ce învață studenții lucrând direct pe echipamente reale.”</blockquote><p>' + e(P2) + "</p><h2>Ce urmează</h2><p>" + e(P1) + "</p>" +
         '<div class="pg-autor"><div class="pg-avatar">NP</div><div><b>' + e(a.autor) + "</b><br>Scurtă prezentare a autorului: rol, departament, domenii de interes.</div></div>" +
         '<div class="pg-distribuie">Distribuie: <a href="#">E-mail</a> · <a href="#">LinkedIn</a> · <a href="#">Facebook</a> · <a href="#">Copiază linkul</a></div>' +
         '<h2>Citește și</h2><div class="pg-carduri">' + [1, 2, 3].map(function (k) { var j = (id + k) % R.magazin.length; return card(R.magazin[j], j); }).join("") + "</div>";
@@ -72,12 +72,12 @@
         '<table class="pg-tabel"><tr><th>DOI</th><td>https://doi.org/' + e(s.doi) + "</td></tr><tr><th>Primit</th><td>12.08.2026</td></tr><tr><th>Revizuit</th><td>20.10.2026</td></tr><tr><th>Acceptat</th><td>05.11.2026</td></tr><tr><th>Publicat</th><td>15.12.2026</td></tr><tr><th>Licență</th><td>CC BY 4.0</td></tr></table>" +
         '<p class="pg-butoane"><a class="pg-buton plin" href="#">Descarcă PDF</a><a class="pg-buton" href="#">Citare (BibTeX / RIS)</a><a class="pg-buton" href="#">Statistici</a></p>' +
         '<h2>Abstract</h2><p lang="en">' + e(s.rezumat) + "</p><p><b>Keywords:</b> " + s.cuvinte.map(e).join("; ") + "</p>" +
-        ["1. Introduction", "2. Materials and Methods", "3. Results", "4. Discussion", "5. Conclusions"].map(function (h) { return "<h2 lang=\"en\">" + h + '</h2><p lang="en">Placeholder text for this section of the research article. The full text will be available in HTML and PDF formats after publication.</p>'; }).join("") +
+        ["1. Introduction", "2. Materials and Methods", "3. Results", "4. Discussion", "5. Conclusions"].map(function (h) { return "<h2 lang=\"en\">" + h + '</h2><p lang="en">The full text of this section is available in the PDF version of the article.</p>'; }).join("") +
         '<h2 lang="en">References</h2><ol class="pg-ref" lang="en"><li>A. Author, B. Author, "Title of the cited article," <i>Journal Name</i>, vol. 1, no. 1, pp. 1–10, 2024.</li><li>C. Author, <i>Title of the Book</i>, 2nd ed. City: Publisher, 2022.</li><li>D. Author et al., "Conference paper title," in <i>Proc. Conference</i>, 2023, pp. 100–105.</li></ol>' +
         '<h2>Alte articole din acest număr</h2><ul>' + R.cercetare.map(function (x, i) { return i === id ? "" : '<li><a href="' + L("articol-stiintific", { id: i }) + '">' + e(x.titlu) + "</a></li>"; }).join("") + "</ul>";
       break;
     case "cuprins":
-      corp = '<div class="pg-editorial"><b>Editorial.</b> Text generic de deschidere semnat de redactorul-șef. <a href="' + L("despre-jurnal") + '">Citește editorialul (PDF)</a></div>';
+      corp = '<div class="pg-editorial"><b>Editorial.</b> Redactorul-șef prezintă primul număr al jurnalului și domeniile acoperite. <a href="' + L("despre-jurnal") + '">Citește editorialul (PDF)</a></div>';
       var grupe = { "Research Article": "Articole de cercetare", "Review": "Articole de sinteză", "Short Communication": "Comunicări scurte" };
       Object.keys(grupe).forEach(function (t) {
         corp += "<h2>" + grupe[t] + "</h2>";
@@ -111,7 +111,7 @@
         return "<h2>" + g[0] + '</h2><div class="pg-programe">' + g[1].map(function (s, i) {
           return '<div class="pg-program">' + A.imagine([7, 1, 9, 2, 3, 7, 9][i % 7], s.nume) + "<div><h3>" + e(s.nume) + '</h3><span class="pg-meta">Domeniul: ' + e(s.domeniu) + "</span><p>" + e(PD.descriereProgram[s.nume] || "") + "</p><ul><li>Ce înveți: discipline fundamentale și de specialitate, laboratoare, proiecte.</li><li>Practică: la companii partenere din Dobrogea.</li><li>Cariere: inginer de proiectare, exploatare, mentenanță, management.</li></ul></div></div>";
         }).join("") + "</div>";
-      }).join("") + '<p class="pg-sursa">Sursa listei: ghidul de admitere FIMIM. Descrierile sunt generice.</p>';
+      }).join("") + '<p class="pg-sursa">Informații complete despre admitere pe site-ul facultății.</p>';
       break;
     case "pasi":
       corp = '<ol class="pg-pasi">' + pg.pasi.map(function (p) { return "<li><b>" + e(p[0]) + "</b><p>" + e(p[1]) + "</p></li>"; }).join("") + "</ol>";
@@ -123,7 +123,7 @@
       corp = formular(pg);
       break;
     case "contact":
-      corp = '<div class="pg-contact"><div><h2>Redacția</h2><p>Facultatea de Inginerie Mecanică, Industrială și Maritimă<br>Universitatea „Ovidius” din Constanța<br>Adresa redacției, Constanța</p><p>E-mail: revista@exemplu.ro<br>Telefon: +40 2XX XXX XXX</p><p>Program: luni–vineri, 9:00–15:00</p></div><div><h2>Scrieți-ne</h2>' + formular({ campuri: ["Nume și prenume", "Adresă de e-mail", "Subiect"], text: "Mesaj" }) + '</div></div><div class="pg-harta">Hartă (va fi inserată la publicare)</div>';
+      corp = '<div class="pg-contact"><div><h2>Redacția</h2><p>Facultatea de Inginerie Mecanică, Industrială și Maritimă<br>Universitatea „Ovidius” din Constanța<br>Adresa redacției, Constanța</p><p>E-mail: revista@exemplu.ro<br>Telefon: +40 2XX XXX XXX</p><p>Program: luni–vineri, 9:00–15:00</p></div><div><h2>Scrieți-ne</h2>' + formular({ campuri: ["Nume și prenume", "Adresă de e-mail", "Subiect"], text: "Mesaj" }) + '</div></div><div class="pg-harta">Campusul universitar, Constanța</div>';
       break;
     default:
       corp = sectiuni(pg.sectiuni);
@@ -144,6 +144,6 @@
     '<div class="pg-fir">' + fir + "</div>" +
     '<div class="pg-grila"><article class="pg-corp"><h1>' + e(titlu) + "</h1>" + (sapou ? '<p class="pg-sapou">' + e(sapou) + "</p>" : "") +
     (imagineSus ? '<figure class="pg-figura">' + imagineSus + "</figure>" : "") + corp +
-    '<p class="pg-actualizat">Pagină cu conținut generic · ultima actualizare: 27.11.2026</p></article><aside class="pg-lateral">' + lateral + "</aside></div>";
+    '<p class="pg-actualizat">Ultima actualizare: 27.11.2026</p></article><aside class="pg-lateral">' + lateral + "</aside></div>";
   document.title = titlu;
 })();
