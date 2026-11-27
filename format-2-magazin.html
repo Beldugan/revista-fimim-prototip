@@ -43,15 +43,15 @@
       <div class="g-dosar-grila">
         <div id="dosar-imagine"></div>
         <div>
-          <span class="eticheta">Dosar · Marea ca laborator</span>
+          <span class="eticheta">Dosar · Mobilitatea de mâine</span>
           <h3>Titlul articolului central al numărului, despre o temă mare de inginerie</h3>
           <p>Introducere generică pentru un reportaj amplu: contextul, întrebarea de la care pornește și oamenii pe care cititorul îi va întâlni pe parcurs.</p>
           <blockquote class="g-citat">„Un citat puternic dintr-un cercetător sau dintr-un inginer, scos în evidență ca în revistele tipărite.”</blockquote>
           <p class="meta">Text: Nume Prenume · Fotografii: Nume Prenume · 14 min de citit</p>
           <ul>
-            <li><a href="#">Interviu: cum se testează o structură offshore</a><span class="meta">8 min</span></li>
-            <li><a href="#">Infografic: drumul unei piese de la proiect la navă</a><span class="meta">3 min</span></li>
-            <li><a href="#">Glosar: zece termeni din ingineria maritimă</a><span class="meta">4 min</span></li>
+            <li><a href="#">Interviu: cum se testează un vehicul pe standul de probă</a><span class="meta">8 min</span></li>
+            <li><a href="#">Infografic: drumul unei piese de la proiect la fabricație</a><span class="meta">3 min</span></li>
+            <li><a href="#">Glosar: zece termeni din ingineria autovehiculelor</a><span class="meta">4 min</span></li>
           </ul>
         </div>
       </div>
@@ -67,6 +67,13 @@
         <div class="g-cifra"><strong>00</strong><span>laboratoare de cercetare</span></div>
         <div class="g-cifra"><strong>00</strong><span>parteneri industriali din Dobrogea</span></div>
       </div>
+    </div>
+  </section>
+
+  <section class="g-sec" style="padding-top:0">
+    <div class="container">
+      <div class="g-sec-cap"><h2>Ce se studiază la FIMIM</h2><span>Programe de licență și master</span></div>
+      <div id="specializari"></div>
     </div>
   </section>
 
@@ -147,10 +154,11 @@
   document.getElementById("btn-jurnal").href = "format-3-academic.html?n=" + A.id;
 
   document.getElementById("coperta").innerHTML = A.imagine(7, "Coperta numărului") +
-    '<div class="container"><div class="g-numar"><b>Nr. 1</b><span>Iarna 2026</span><span>Dosar: Marea ca laborator</span></div>' +
-    "<h1>Marea ca laborator</h1><p>Cum folosesc inginerii din Constanța Marea Neagră pentru a testa materiale, nave și energie. Text generic de copertă.</p>" +
+    '<div class="container"><div class="g-numar"><b>Nr. 1</b><span>Iarna 2026</span><span>Dosar: Mobilitatea de mâine</span></div>' +
+    "<h1>Mobilitatea de mâine</h1><p>Cum lucrează inginerii din Constanța la vehicule mai eficiente, energie curată și fabricație digitală. Text generic de copertă.</p>" +
     '<a class="btn" href="#dosar">Citește dosarul</a></div>';
 
+  document.getElementById("specializari").innerHTML = A.specializari();
   var cuprins = [
     { titlu: "Titlul articolului principal din cuprins", sapou: R.cercetareExplicata[0].sapou, rubrica: "Cercetare", tema: 3 },
     { titlu: R.cercetareExplicata[1].titlu, sapou: R.cercetareExplicata[1].sapou, rubrica: "Materiale", tema: 8 },
@@ -168,8 +176,8 @@
 
   var dobrogea = [
     { t: "Portul Constanța și nevoia de ingineri", s: "Reportaj generic despre activitatea portuară." , tema: 2 },
-    { t: "Șantierele navale ale regiunii", s: "Prezentare generică a industriei navale.", tema: 7 },
-    { t: "Energie offshore în Marea Neagră", s: "Text generic despre proiectele energetice.", tema: 1 },
+    { t: "Furnizorii auto și service-urile din regiune", s: "Prezentare generică a industriei auto locale.", tema: 7 },
+    { t: "Parcurile eoliene și energia Dobrogei", s: "Text generic despre proiectele energetice.", tema: 1 },
     { t: "Parcuri industriale și investiții noi", s: "Text generic despre investițiile din județ.", tema: 9 },
     { t: "Firmele mici care angajează absolvenți", s: "Text generic despre IMM-uri tehnice.", tema: 3 }
   ];
@@ -185,7 +193,7 @@
     return '<article class="g-item"><a href="#">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + '</h3><p class="meta">' + e(a.autor) + "</p></a></article>";
   }).join("");
 
-  var numere = [["Nr. 1 · Iarna 2026", "Marea ca laborator", 7], ["Nr. 0 · Vara 2026", "Număr pilot: tema numărului", 3], ["Nr. viitor", "Energie și tranziție", 1], ["Nr. viitor", "Fabrica digitală", 9], ["Nr. viitor", "Materiale noi", 8]];
+  var numere = [["Nr. 1 · Iarna 2026", "Mobilitatea de mâine", 7], ["Nr. 0 · Vara 2026", "Număr pilot: tema numărului", 3], ["Nr. viitor", "Energie și tranziție", 1], ["Nr. viitor", "Fabrica digitală", 9], ["Nr. viitor", "Materiale noi", 8]];
   document.getElementById("arhiva-grila").innerHTML = numere.map(function (n) {
     return '<a href="#" class="g-coperta-mica">' + A.imagine(n[2], n[1]).replace('class="imagine"', 'class="imagine" data-t="' + e(n[1]) + '"') + "<b>" + e(n[0]) + "</b></a>";
   }).join("");

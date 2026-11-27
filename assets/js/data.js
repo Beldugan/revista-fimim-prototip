@@ -8,7 +8,7 @@ window.REVISTA = {
       id: "acta",
       titlu: "Acta Technica Tomitana",
       scurt: "ATT",
-      motto: "Cercetare în inginerie mecanică, industrială și maritimă",
+      motto: "Cercetare în inginerie mecanică și industrială",
       descriere: "Nume latin, în tradiția seriilor „Acta” ale universităților europene. Trimite la Tomis, cetatea antică a Constanței.",
       culoare: "#1f3a5f",
       accent: "#b8862b"
@@ -17,8 +17,8 @@ window.REVISTA = {
       id: "tehnonav",
       titlu: "TEHNONAV Review",
       scurt: "TNR",
-      motto: "Tehnică, navigație și industrie la Marea Neagră",
-      descriere: "Continuă un brand deja cunoscut în facultate (conferința TEHNONAV) și leagă revista de profilul naval și maritim.",
+      motto: "Tehnică, energie și industrie în Dobrogea",
+      descriere: "Continuă un brand al facultății (conferința studențească TEHNONAV Junior), deja recunoscut de studenți și parteneri.",
       culoare: "#0b4f6c",
       accent: "#e07a2f"
     },
@@ -26,8 +26,8 @@ window.REVISTA = {
       id: "ingenium",
       titlu: "Ingenium Ponticum",
       scurt: "IP",
-      motto: "Ingeniozitate tehnică pe malul Pontului Euxin",
-      descriere: "„Ingenium” este rădăcina cuvântului inginer; „Ponticum” plasează revista în spațiul Mării Negre.",
+      motto: "Ingeniozitate tehnică în Dobrogea",
+      descriere: "„Ingenium” este rădăcina cuvântului inginer; „Ponticum” ancorează revista în regiunea Constanței.",
       culoare: "#3d2f5b",
       accent: "#2f9c8f"
     },
@@ -69,6 +69,21 @@ window.REVISTA = {
     }
   ],
 
+  /* Programe de studii (sursa: ghidul de admitere FIMIM) */
+  specializari: {
+    licenta: [
+      { nume: "Autovehicule rutiere", domeniu: "Ingineria autovehiculelor" },
+      { nume: "Energetică industrială", domeniu: "Inginerie energetică" },
+      { nume: "Informatică aplicată în inginerie industrială (IAII)", domeniu: "Inginerie industrială" },
+      { nume: "Inginerie economică în domeniul mecanic", domeniu: "Inginerie și management" },
+      { nume: "Inginerie mecanică (DUAL)", domeniu: "Inginerie mecanică" }
+    ],
+    master: [
+      { nume: "Ingineria vehiculelor moderne", domeniu: "Inginerie mecanică" },
+      { nume: "Ingineria și managementul sistemelor de producție", domeniu: "Inginerie și management" }
+    ]
+  },
+
   /* Rubricile părții de magazin */
   rubrici: {
     fimim: "Știri FIMIM",
@@ -101,7 +116,7 @@ window.REVISTA = {
     },
     {
       rubrica: "specializari",
-      titlu: "O zi la laboratorul de motoare navale",
+      titlu: "O zi în laboratorul de autovehicule rutiere",
       sapou: "Prezentarea unei specializări prin ochii studenților și profesorilor: ce se învață, unde se fac stagiile, ce urmează după licență.",
       autor: "Nume Prenume",
       data: "22 noiembrie 2026",
@@ -155,7 +170,7 @@ window.REVISTA = {
     },
     {
       rubrica: "studenti",
-      titlu: "Practica de vară pe un șantier naval: jurnal de stagiu",
+      titlu: "Practica de vară la un producător de componente auto: jurnal de stagiu",
       sapou: "Experiența unui student într-un stagiu de practică, povestită pas cu pas pentru cei care aplică anul viitor.",
       autor: "Nume Prenume, anul II",
       data: "8 noiembrie 2026",
@@ -168,12 +183,12 @@ window.REVISTA = {
   cercetare: [
     {
       tip: "Research Article",
-      titlu: "Numerical Analysis of [Phenomenon] in [Marine Component] Under Variable Loading Conditions",
+      titlu: "Numerical Analysis of [Phenomenon] in [Vehicle Component] Under Variable Loading Conditions",
       autori: "A. Author, B. Author, C. Author",
       afiliere: "Faculty of Mechanical, Industrial and Maritime Engineering, Ovidius University of Constanța, Romania",
       doi: "10.XXXXX/xxx.2026.01.001",
       pagini: "1–12",
-      cuvinte: ["finite element analysis", "marine engineering", "fatigue"],
+      cuvinte: ["finite element analysis", "automotive engineering", "fatigue"],
       rezumat: "This placeholder abstract describes the aim of the study, the methods used, the main results and the conclusions. It is typically 150–250 words long and written in English, as required by international indexing databases."
     },
     {
@@ -188,22 +203,22 @@ window.REVISTA = {
     },
     {
       tip: "Review",
-      titlu: "A Review of [Technology] Applications in Port and Offshore Engineering",
+      titlu: "A Review of [Technology] Applications in Port Equipment and Industrial Maintenance",
       autori: "F. Author",
       afiliere: "Ovidius University of Constanța, Romania",
       doi: "10.XXXXX/xxx.2026.01.003",
       pagini: "25–40",
-      cuvinte: ["review", "offshore", "port engineering"],
+      cuvinte: ["review", "port equipment", "maintenance"],
       rezumat: "Placeholder abstract for a review article summarising the state of the art, the main research directions and open questions in the field."
     },
     {
       tip: "Short Communication",
-      titlu: "Preliminary Results on [Energy System] Efficiency in the Black Sea Region",
+      titlu: "Preliminary Results on [Energy System] Efficiency in the Dobrogea Region",
       autori: "G. Author, H. Author",
       afiliere: "Ovidius University of Constanța, Romania",
       doi: "10.XXXXX/xxx.2026.01.004",
       pagini: "41–46",
-      cuvinte: ["renewable energy", "efficiency", "Black Sea"],
+      cuvinte: ["renewable energy", "efficiency", "Dobrogea"],
       rezumat: "Placeholder abstract for a short communication presenting early results that are of immediate interest to the community."
     }
   ],
@@ -211,14 +226,14 @@ window.REVISTA = {
   /* Cercetare explicată pentru publicul larg (pentru formatele 1 și 2) */
   cercetareExplicata: [
     {
-      titlu: "Cum pot fi făcute navele mai eficiente energetic",
-      sapou: "O echipă din facultate testează soluții noi pentru reducerea consumului de combustibil. Text generic de popularizare a științei.",
+      titlu: "Cum pot fi făcute autovehiculele mai eficiente energetic",
+      sapou: "O echipă din facultate testează soluții noi pentru reducerea consumului și a emisiilor. Text generic de popularizare a științei.",
       autor: "Nume Prenume",
       tema: 7
     },
     {
-      titlu: "Materiale care rezistă mai mult în apă sărată",
-      sapou: "Cercetătorii studiază coroziunea în condițiile specifice Mării Negre. Text generic, pe înțelesul publicului larg.",
+      titlu: "Materiale care rezistă mai mult la uzură și coroziune",
+      sapou: "Cercetătorii studiază comportarea materialelor în condițiile climatice ale litoralului. Text generic, pe înțelesul publicului larg.",
       autor: "Nume Prenume",
       tema: 8
     },

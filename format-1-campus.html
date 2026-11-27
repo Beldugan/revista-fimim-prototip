@@ -88,6 +88,11 @@
     <div class="c-grila" id="economie"></div>
   </section>
 
+  <section class="c-sectiune">
+    <div class="c-sectiune-cap"><h2>Specializările FIMIM</h2><a href="#">Admitere &rarr;</a></div>
+    <div id="specializari"></div>
+  </section>
+
   <section class="c-sectiune c-doua">
     <div class="c-opinie">
       <span class="rubrica">Opinie</span>
@@ -129,6 +134,7 @@
       '<div class="meta">' + e(a.autor) + (a.data ? " · " + e(a.data) : "") + "</div></article>";
   }
 
+  document.getElementById("specializari").innerHTML = A.specializari();
   var m = R.magazin;
   document.getElementById("flux").textContent = m.slice(1, 4).map(function (a) { return a.titlu; }).join("   ·   ");
 
