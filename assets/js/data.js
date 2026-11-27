@@ -264,7 +264,7 @@ window.FOTO = {
  "coperta-autobuz-electric": "Autobuz electric pe o arteră din apropierea portului, la amurg.",
  "coperta-ruptura-oboseala": "Detaliu de suprafață de rupere a unei piese metalice, pe fundal verde închis.",
  "coperta-motor-electric": "Motor electric deschis pe un banc, cu rotorul, statorul și bobinajele de cupru la vedere.",
- "coperta-autoturism-hibrid": "Autoturism hibrid în secțiune transparentă: motorul termic, motorul electric, invertorul și bateria de tracțiune, legate prin cablurile de înaltă tensiune.",
+ "coperta-autoturism-hibrid": "Crossover hibrid cu caroserie transparentă: motorul termic, motorul electric, invertorul și bateria de tracțiune, legate prin cablurile de înaltă tensiune.",
  "port-cariere": "Macarale de cheu, un cargou și linii ferate într-un port comercial.",
  "parcuri-eoliene": "Turbine eoliene pe culmile joase și terenurile agricole ale Dobrogei.",
  "parc-industrial": "Hale de producție și căi de acces într-un parc industrial de coastă.",
