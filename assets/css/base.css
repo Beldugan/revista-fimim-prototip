@@ -212,3 +212,11 @@ p { margin: 0 0 1em; }
 .pg-sigla { margin: 4px 0 18px; padding: 14px 18px; background: #fff; border: 1px solid #e3e9ec; display: inline-block; border-radius: 4px; }
 .pg-sigla .sigla-img { height: 72px; }
 @media (max-width: 560px) { .sigle-rol { display: none; } .sigla-img { height: 44px; } .sigla-text small { display: none; } }
+.sigla-aido { color: #8a5a00; }
+.sigla-aido b { color: #8a5a00; border-color: #c88a12; }
+.sigla-aido small { color: #6b4700; }
+.sigla-siar b, .sigla-siar small { color: #0b3a6e; }
+.as-grila { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+.sigle-banda .sigle-rol { display: none; }
+.sigle-in { gap: 12px 22px; }
+.sigle-banda .sigla-img { height: 48px; }

@@ -150,7 +150,7 @@
   document.getElementById("pagina").innerHTML =
     '<div class="pg-fir">' + fir + "</div>" +
     '<div class="pg-grila"><article class="pg-corp"><h1>' + e(titlu) + "</h1>" + (sapou ? '<p class="pg-sapou">' + e(sapou) + "</p>" : "") +
-    (slug === "siar" || slug === "aiee" ? '<div class="pg-sigla">' + A.sigla(slug) + "</div>" : "") +
+    (slug === "siar" || slug === "aiee" || slug === "aido" ? '<div class="pg-sigla">' + A.sigla(slug) + "</div>" : "") +
     (imagineSus ? '<figure class="pg-figura">' + imagineSus + "</figure>" : "") + corp +
     '<p class="pg-actualizat">Ultima actualizare: 27.11.2026</p></article><aside class="pg-lateral">' + lateral + "</aside></div>";
   document.title = titlu;

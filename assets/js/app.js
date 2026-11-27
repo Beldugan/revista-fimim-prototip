@@ -146,7 +146,7 @@
     var f = document.querySelector("footer");
     if (f && !f.querySelector(".sigle-subsol")) {
       var d = document.createElement("div"); d.className = "sigle-subsol";
-      d.innerHTML = '<span>Parteneri profesionali</span>' + ["siar", "aiee"].map(function (k) { return '<a href="' + link(SIGLE[k].pagina) + '">' + sigla(k) + "</a>"; }).join("");
+      d.innerHTML = '<span>Parteneri profesionali</span>' + ["siar", "aiee", "aido"].map(function (k) { return '<a href="' + link(SIGLE[k].pagina) + '">' + sigla(k) + "</a>"; }).join("");
       f.appendChild(d);
     }
     var pref = document.title;
@@ -156,6 +156,7 @@
   /* Siglele asociațiilor profesionale (SIAR, AIEE) */
   var SIGLE = {
     siar: { nume: "SIAR", lung: "Societatea Inginerilor de Automobile din România", img: "", pagina: "siar", rol: "Secția Constanța" },
+    aido: { nume: "AIDO", lung: "Asociația Inginerilor Dobrogeni Ovidius", img: "", pagina: "aido", rol: "Viitor prin Ingineri" },
     aiee: { nume: "AIEE", lung: "Asociația Inginerilor Energeticieni și Electricieni", img: "assets/img/sigle/aiee.png", pagina: "aiee", rol: "Forumul „Carieră în Industria Energetică”" }
   };
   function sigla(k) {
@@ -165,7 +166,7 @@
   }
   function bandaSigle() {
     return '<div class="sigle-banda"><div class="sigle-in"><span class="sigle-et">Asociații profesionale partenere</span>' +
-      ["siar", "aiee"].map(function (k) { var s = SIGLE[k]; return '<a class="sigle-cel" href="' + link(s.pagina) + '">' + sigla(k) + '<span class="sigle-rol">' + esc(s.rol) + "</span></a>"; }).join("") + "</div></div>";
+      ["siar", "aiee", "aido"].map(function (k) { var s = SIGLE[k]; return '<a class="sigle-cel" href="' + link(s.pagina) + '">' + sigla(k) + '<span class="sigle-rol">' + esc(s.rol) + "</span></a>"; }).join("") + "</div></div>";
   }
 
   function specializari() {
@@ -191,6 +192,8 @@
       return '<div class="as-grila">' +
         '<a class="as-card" href="' + link("siar") + '">' + imagine(7, "SIAR", "lab-autovehicule") + '<div class="as-txt"><div class="as-sigla">' + sigla("siar") + '</div><span class="as-et">Ingineria autovehiculelor</span><h3>SIAR – Secția Constanța</h3><p>Secția universitară a Societății Inginerilor de Automobile din România, coordonată de Ș.l. dr. ing. Camil Tudor. Organizează, între altele, competiția Ovidius RaceTech.</p><span class="as-mai">Membri și activități &rarr;</span></div></a>' +
         '<a class="as-card" href="' + link("aiee") + '">' + imagine(1, "AIEE", "aiee-masa-rotunda") + '<div class="as-txt"><div class="as-sigla">' + sigla("aiee") + '</div><span class="as-et">Industria energetică</span><h3>AIEE – Forumul „Carieră în Industria Energetică”</h3><p>Universitatea „Ovidius” a fost coorganizator al ediției de toamnă, 13–14 noiembrie 2026, alături de Asociația Inginerilor Energeticieni și Electricieni.</p><span class="as-mai">Detalii și galerie foto &rarr;</span></div></a>' +
+        '<a class="as-card" href="' + link("aido") + '">' + imagine(8, "AIDO", "iaii-transportor") + '<div class="as-txt"><div class="as-sigla">' + sigla("aido") + '</div><span class="as-et">Comunitatea inginerilor</span><h3>AIDO – Asociația Inginerilor Dobrogeni Ovidius</h3><p>Absolvenți, cadre didactice și studenți care vor Constanța pol al educației și centru de transfer tehnologic ingineresc. Președinte: Conf. dr. ing. Constantin Ilie.</p><span class="as-mai">Programe și înscriere &rarr;</span></div></a>' +
+        '<a class="as-card" href="' + link("racetech") + '">' + imagine(7, "Ovidius RaceTech", "formula-student") + '<div class="as-txt"><span class="as-et">Competiție · FIMIM și SIAR Constanța</span><h3>Ovidius RaceTech 2026</h3><p>Mașini RC cu caroserie printată 3D, pilotate doar prin camera de bord și ochelari FPV, pe un circuit cu viteză, off-road și obstacole. 12–13 iunie 2026.</p><span class="as-mai">Regulament, program și premii &rarr;</span></div></a>' +
         "</div>";
     },
     bara: bara,

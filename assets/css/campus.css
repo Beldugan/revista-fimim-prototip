@@ -101,3 +101,4 @@ body { font-family: "Inter", system-ui, sans-serif; }
 .c-meniu:hover .c-sub, .c-meniu:focus-within .c-sub { display: flex; }
 .c-nav .c-sub a { color: var(--text); font-weight: 500; padding: 10px 14px; border-bottom: 1px solid var(--linie); background: none; }
 .c-nav .c-sub a:hover { background: var(--fundal-2); color: var(--brand); }
+@media (min-width: 900px) and (max-width: 1360px) { .c-nav .container > .c-meniu > a { padding: 12px 10px; font-size: 13.5px; } }

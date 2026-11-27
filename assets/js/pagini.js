@@ -20,7 +20,7 @@
     autori: { titlu: "Pentru autori", pagini: ["instructiuni-autori", "ghid-redactare", "sablon", "trimitere", "taxe", "declaratie", "evaluare"] },
     etica: { titlu: "Etică și politici", pagini: ["etica", "anti-plagiat", "licenta", "acces-deschis"] },
     magazin: { titlu: "Magazin", pagini: ["stiri", "cercetare-explicata", "specializari", "economie", "evenimente", "studenti", "opinie", "oameni", "dosar"] },
-    asociatii: { titlu: "Asociații profesionale", pagini: ["asociatii", "siar", "aiee"] },
+    asociatii: { titlu: "Asociații profesionale", pagini: ["asociatii", "siar", "aiee", "aido", "racetech"] },
     redactie: { titlu: "Despre revistă", pagini: ["despre", "redactia", "statut", "trimite-subiect", "parteneri", "abonare", "arhiva", "contact", "confidentialitate"] }
   };
 
@@ -48,7 +48,7 @@
 
     /* ---------- Asociații profesionale ---------- */
     asociatii: { titlu: "Asociații profesionale", grup: "asociatii", tip: "asociatii",
-      sapou: "Organizațiile profesionale cu care facultatea, cadrele didactice și studenții colaborează: SIAR, pentru ingineria autovehiculelor, și AIEE, pentru industria energetică." },
+      sapou: "Organizațiile profesionale cu care facultatea, cadrele didactice și studenții colaborează: SIAR, pentru ingineria autovehiculelor, AIEE, pentru industria energetică, și AIDO, asociația inginerilor dobrogeni, plus competiția Ovidius RaceTech." },
     siar: {
       titlu: "SIAR – Secția Constanța", grup: "asociatii", tema: 7, foto: "lab-autovehicule",
       sapou: "Societatea Inginerilor de Automobile din România are o secție universitară la Universitatea „Ovidius” din Constanța, în Departamentul de Management Industrial și Autovehicule Rutiere al FIMIM.",
@@ -59,7 +59,7 @@
         { p: ["Ș.l. dr. ing. Camil TUDOR, coordonatorul specializării Autovehicule rutiere, este membru al Consiliului Director al SIAR, ales la Adunarea generală din 23 octombrie 2025, la Universitatea Tehnică din Cluj-Napoca."] },
         { h: "Domenii de competență", p: ["Membrii secției predau și lucrează în trei domenii de bază ale ingineriei autovehiculelor:"],
           tabel: [["Proiectare asistată de calculator", "Modelare 2D și 3D, desen tehnic și documentație de execuție în AutoCAD și CATIA, de la piesă la ansamblu"], ["Simularea solicitărilor prin metoda elementului finit (MEF)", "Analize statice, de oboseală și de vibrații în ANSYS, pentru verificarea și optimizarea pieselor și a structurilor"], ["Rezistența materialelor", "Calculul la tracțiune, încovoiere, torsiune și flambaj, baza dimensionării componentelor de autovehicul"]] },
-        { h: "Ovidius RaceTech 2026", p: ["Competiție interuniversitară educațională, tehnică și competitivă, cu vehicule RC și sisteme FPV, organizată la Universitatea „Ovidius” împreună cu Secția SIAR Constanța."],
+        { h: "Ovidius RaceTech 2026", p: ["Competiție universitară cu vehicule RC și sisteme FPV, organizată de FIMIM împreună cu Secția SIAR Constanța, în 12–13 iunie 2026. Echipele construiesc mașini radiocomandate cu caroseria printată 3D după propriul model CAD și le pilotează doar prin camera de bord și ochelarii FPV. Regulamentul, programul și premiile sunt pe pagina competiției."],
           tabel: [["Comitetul onorific", "Conf. univ. dr. Dan-Marcel ILIESCU, rectorul Universității „Ovidius” din Constanța; Conf. univ. dr. ing. Lucia-Violeta MELNIC, decanul FIMIM; Prof. univ. dr. ing. Nicolae BURNETE, președintele SIAR"], ["Comitetul tehnic", "Ș.l. dr. ing. Bogdan RĂDOIU (prodecan FIMIM), Ș.l. dr. ing. Camil TUDOR, Dr. ing. Traian DORDEA, Asist. univ. drd. ing. Lucian STANIA, Drd. ing. Sorin IONAȘCU, Ing. Adrian BELDUGAN"], ["Contact", "racetech@univ-ovidius.ro"]] },
         { h: "Conducerea națională SIAR", tabel: [["Președinte", "Prof. univ. dr. ing. Nicolae BURNETE (Universitatea Tehnică din Cluj-Napoca)"], ["Secretar general", "Prof. univ. dr. ing. Minu MITREA (Academia Tehnică Militară „Ferdinand I”)"], ["Sediul central", "UNSTPB, Facultatea de Transporturi, Splaiul Independenței nr. 313, București"]] },
         { h: "Secțiile SIAR", p: ["Arad, București (ATM, RAR, UNSTPB), Brașov, Chișinău (UTM), Cluj-Napoca, Constanța, Craiova, Galați, Iași, Oradea, Pitești, Timișoara și SIAR International."] },
@@ -77,6 +77,32 @@
         { h: "Galerie foto", galerie: ["aiee-masa-rotunda", "aiee-vizita-tehnica", "aiee-voluntari"] },
         { h: "Vizibilitatea universității", lista: ["Sigla UOC pe pagina evenimentului, la secțiunea „Parteneri strategici”, și pe materialele de promovare: machete, afișe, ecusoane, harta standurilor, pliante și bannerul din campus.", "Peste 40 de postări despre eveniment pe Facebook, LinkedIn și Instagram.", "Mențiuni în presa de specialitate: InvesTenergy, e-nergia.ro, Energy Industry Review, Focus Energetic și NewsEnergy."] },
         { h: "Pentru studenții FIMIM", p: ["Forumul este o ocazie de a cunoaște companiile din sectorul energetic, de a afla despre stagii de practică și locuri de muncă și de a discuta direct cu inginerii din industrie. Studenții de la Energetică industrială și de la celelalte specializări ale facultății sunt invitați la edițiile următoare."] }
+      ]
+    },
+
+    aido: {
+      titlu: "AIDO – Asociația Inginerilor Dobrogeni Ovidius", grup: "asociatii", tema: 8, foto: "iaii-transportor",
+      sapou: "Asociație a inginerilor formați la Universitatea „Ovidius” din Constanța, cu deviza „Viitor prin Ingineri”.",
+      sectiuni: [
+        { h: "Despre AIDO", p: ["„Pentru că ne dorim Constanța un pol al educației și un centru de transfer tehnologic ingineresc, am înființat Asociația Inginerilor Dobrogeni Ovidius.” Asociația reunește absolvenți, cadre didactice, studenți și ingineri din industrie interesați de inovare, practică, proiectare și inginerie."],
+          tabel: [["Înregistrare", "Registrul Asociațiilor și Fundațiilor nr. 37/03.08.2020, CUI 43589504"], ["Președinte", "Conf. univ. dr. ing. Constantin ILIE, directorul Departamentului de Management Industrial și Autovehicule Rutiere"], ["Membri fondatori", "Mirela-Rodica COTRUMBĂ, Alexandru PINTILIE"]] },
+        { h: "Programe", tabel: [["Meet-Ing.", "Comunitatea absolvenților ingineri ai Universității „Ovidius”"], ["FII AIDO! / Student AIDO!", "Înscrierea studenților și a tinerilor ingineri în asociație"], ["JOBS-AIDO", "Oferte de locuri de muncă și stagii de la companii partenere"], ["PRO-AIDO", "Proiecte educaționale (EDU) și de infrastructură de laborator (In(g)frastructura)"], ["DON-AIDO", "Donații și sponsorizări pentru activitățile asociației"]] },
+        { h: "Activități", lista: ["Webinarul „Industry 4.0 and Mobility Industry Applications in Lightweight Structures: Innovative Design, New Materials & Technologies”, în cadrul „O zi student la FIMIM”, 19 martie 2021.", "Sprijin pentru TEHNONAV JUNIOR, conferința națională a studenților și elevilor organizată de FIMIM (ediția a X-a, 28 mai 2021, online)."] },
+        { h: "Cum devii membru", p: ["Studenții, absolvenții și inginerii interesați se pot înscrie prin formularul de pe site-ul asociației. Absolvenții se pot alătura și comunității Meet-Ing."] },
+        { h: "Contact", tabel: [["Adresa", "B-dul Mamaia nr. 124, corp S39B, Universitatea „Ovidius” din Constanța, 900527"], ["E-mail", "contact@aido.website"], ["Web", "aidoengineer.wordpress.com"], ["Instagram", "@aido.ing"]] }
+      ]
+    },
+    racetech: {
+      titlu: "Ovidius RaceTech 2026", grup: "asociatii", tema: 7, foto: "formula-student",
+      sapou: "Competiție universitară cu vehicule RC și sisteme FPV, organizată de Facultatea de Inginerie Mecanică, Industrială și Maritimă împreună cu Secția SIAR Constanța. „Where passion meets engineering.”",
+      sectiuni: [
+        { h: "Despre competiție", p: ["Echipele de studenți și elevi proiectează și construiesc o mașină radiocomandată, apoi o pilotează pe un circuit cu linii de viteză, zone off-road și obstacole tehnice. Pilotul nu vede pista direct: conduce doar prin imaginea transmisă de camera de bord în ochelarii FPV sau pe un monitor."],
+          tabel: [["Perioada", "12–13 iunie 2026"], ["Loc", "Universitatea „Ovidius” din Constanța, FIMIM, B-dul Mamaia nr. 124"], ["Participanți", "Echipe de 2–5 studenți sau elevi; mai multe echipe pe facultate sau liceu"], ["Termen de înscriere", "5 iunie 2026, prin formularul online"]] },
+        { h: "Regulament pe scurt", lista: ["Caroserie de tip sedan, hatchback, coupé sau camion, între 32 × 15 × 10 cm și 60 × 35 × 35 cm, cu masa de 1–8 kg.", "Propulsie electrică sau termică și tracțiune față, spate sau integrală, la alegerea echipei.", "Caroseria se printează 3D după modelul CAD al echipei; este permisă și o caroserie de tip roll-cage.", "Vehiculul este radiocomandat și are obligatoriu o cameră de bord funcțională, cu transmisie FPV.", "Componentele pot fi schimbate o singură dată, între două manșe, cu aprobarea comisiei tehnice; caroseria, șasiul și motorul nu se schimbă."] },
+        { h: "Jurizare", tabel: [["Timpul pe tur", "50% (media timpilor din manșe)"], ["Design", "30%"], ["Originalitate tehnică", "20%"]] },
+        { h: "Program", tabel: [["Ziua 1", "Înregistrare, deschiderea TEHNONAV JUNIOR 2026 și a competiției, tragerea la sorți, prezentarea echipelor și a proiectelor, inspecția tehnică, testare liberă pe circuit, workshop „Tehnologii moderne în vehicule autonome și FPV”"], ["Ziua 2", "Briefing de siguranță, încălzire, cursa de calificare (tur cronometrat), cursa finală cu start simultan, proba de manevrabilitate și creativitate, jurizare, festivitatea de premiere"]] },
+        { h: "Premii", lista: ["Locurile I, II și III: trofee și premii materiale.", "Premii speciale: „Cel mai inovator design”, „Cea mai bună manevrabilitate”, „Premiul de popularitate”."] },
+        { h: "Organizatori", tabel: [["Comitetul onorific", "Conf. univ. dr. Dan-Marcel ILIESCU, rector; Conf. univ. dr. ing. Lucia-Violeta MELNIC, decan FIMIM; Prof. univ. dr. ing. Nicolae BURNETE, președintele SIAR"], ["Comitetul tehnic", "Ș.l. dr. ing. Bogdan RĂDOIU, Ș.l. dr. ing. Camil TUDOR, Dr. ing. Traian DORDEA, Asist. univ. drd. ing. Lucian STANIA, Drd. ing. Sorin IONAȘCU, Ing. Adrian BELDUGAN"], ["Contact", "racetech@univ-ovidius.ro · +40 762 827 000 · racetech.univ-ovidius.ro"]] }
       ]
     },
 
