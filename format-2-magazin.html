@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatul 2 · Magazin de știință</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/magazin.css">
+</head>
+<body>
+
+<header class="g-antet">
+  <div class="container">
+    <a class="g-logo" href="#" data-titlu></a>
+    <nav class="g-meniu" aria-label="Meniu">
+      <a href="#cuprins">Numărul curent</a>
+      <a href="#dosar">Dosar</a>
+      <a href="#oameni">Oameni</a>
+      <a href="#dobrogea">Dobrogea</a>
+      <a href="#stiinta">Cercetare</a>
+      <a href="#arhiva">Arhivă</a>
+      <a href="#abonare" class="g-imp">Abonare</a>
+    </nav>
+  </div>
+</header>
+
+<section class="g-coperta" id="coperta"></section>
+
+<main>
+  <section class="g-sec" id="cuprins">
+    <div class="container">
+      <div class="g-sec-cap"><h2>În acest număr</h2><span>Nr. 1 · Iarna 2026</span></div>
+      <div class="g-mozaic" id="mozaic"></div>
+    </div>
+  </section>
+
+  <section class="g-sec g-dosar" id="dosar">
+    <div class="container">
+      <div class="g-sec-cap"><h2>Dosarul numărului</h2><span>Lectură lungă</span></div>
+      <div class="g-dosar-grila">
+        <div id="dosar-imagine"></div>
+        <div>
+          <span class="eticheta">Dosar · Marea ca laborator</span>
+          <h3>Titlul articolului central al numărului, despre o temă mare de inginerie</h3>
+          <p>Introducere generică pentru un reportaj amplu: contextul, întrebarea de la care pornește și oamenii pe care cititorul îi va întâlni pe parcurs.</p>
+          <blockquote class="g-citat">„Un citat puternic dintr-un cercetător sau dintr-un inginer, scos în evidență ca în revistele tipărite.”</blockquote>
+          <p class="meta">Text: Nume Prenume · Fotografii: Nume Prenume · 14 min de citit</p>
+          <ul>
+            <li><a href="#">Interviu: cum se testează o structură offshore</a><span class="meta">8 min</span></li>
+            <li><a href="#">Infografic: drumul unei piese de la proiect la navă</a><span class="meta">3 min</span></li>
+            <li><a href="#">Glosar: zece termeni din ingineria maritimă</a><span class="meta">4 min</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <div class="container">
+      <div class="g-sec-cap"><h2>Facultatea în cifre</h2><span>Date generice</span></div>
+      <div class="g-cifre">
+        <div class="g-cifra"><strong>00</strong><span>programe de studii de licență și master</span></div>
+        <div class="g-cifra"><strong>000</strong><span>studenți înmatriculați</span></div>
+        <div class="g-cifra"><strong>00</strong><span>laboratoare de cercetare</span></div>
+        <div class="g-cifra"><strong>00</strong><span>parteneri industriali din Dobrogea</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-sec" id="oameni">
+    <div class="container">
+      <div class="g-sec-cap"><h2>Portret</h2><span>Oamenii din spatele cercetării</span></div>
+      <div class="g-portret">
+        <div id="portret-imagine"></div>
+        <div>
+          <span class="eticheta">Cercetătoare · Departamentul X</span>
+          <h3>Nume Prenume: „Fraza-cheie a interviului, ca titlu”</h3>
+          <p class="g-intrebare">Ce v-a adus în ingineria mecanică?</p>
+          <p>Răspuns generic de două-trei fraze, care prezintă drumul profesional și motivația cercetătoarei.</p>
+          <p class="g-intrebare">La ce lucrați acum?</p>
+          <p>Răspuns generic despre proiectul actual, explicat pe înțelesul unui cititor fără pregătire tehnică.</p>
+          <a href="#" class="meta">Citește interviul complet &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-sec" id="dobrogea" style="padding-top:0">
+    <div class="container">
+      <div class="g-sec-cap"><h2>Dobrogea industrială</h2><span>Economie, porturi, investiții</span></div>
+      <div class="g-banda" id="banda"></div>
+    </div>
+  </section>
+
+  <section class="g-sec g-stiinta" id="stiinta">
+    <div class="container g-stiinta-grila">
+      <div>
+        <span class="eticheta">Secțiune științifică separată</span>
+        <h2>Articole evaluate colegial</h2>
+        <p class="meta">Jurnalul publică cercetare originală în limba engleză, cu DOI, în volume și numere. Partea de magazin de mai sus nu face parte din jurnalul științific.</p>
+        <a class="btn" id="btn-jurnal" href="format-3-academic.html">Deschide jurnalul</a>
+      </div>
+      <div id="articole"></div>
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <div class="container">
+      <div class="g-sec-cap"><h2>De la student la student</h2><span>Scris de studenți</span></div>
+      <div class="g-trei" id="studenti"></div>
+    </div>
+  </section>
+
+  <section class="g-sec" id="arhiva" style="padding-top:0">
+    <div class="container">
+      <div class="g-sec-cap"><h2>Arhivă</h2><span>Numere anterioare</span></div>
+      <div class="g-arhiva" id="arhiva-grila"></div>
+    </div>
+  </section>
+
+  <section class="g-sec g-abonare" id="abonare">
+    <div class="container">
+      <h2>Primiți fiecare număr</h2>
+      <p>Revista apare de două ori pe an, online și într-un tiraj tipărit pentru absolvenți, parteneri și liceele din regiune.</p>
+      <a class="btn" href="#">Abonare gratuită</a><a class="btn contur" href="#">Descarcă PDF</a>
+    </div>
+  </section>
+</main>
+
+<footer class="g-subsol">
+  <div class="container">
+    <div><strong data-titlu></strong><span data-facultate></span><br><span data-universitate></span></div>
+    <nav><a href="#">Despre revistă</a><a href="#">Redacția</a><a href="#">Contact</a><a href="#">Protecția datelor</a></nav>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function () {
+  var A = window.APP, R = A.R, e = A.esc, m = R.magazin;
+  A.bara("magazin");
+  A.completeaza();
+  document.getElementById("btn-jurnal").href = "format-3-academic.html?n=" + A.id;
+
+  document.getElementById("coperta").innerHTML = A.imagine(7, "Coperta numărului") +
+    '<div class="container"><div class="g-numar"><b>Nr. 1</b><span>Iarna 2026</span><span>Dosar: Marea ca laborator</span></div>' +
+    "<h1>Marea ca laborator</h1><p>Cum folosesc inginerii din Constanța Marea Neagră pentru a testa materiale, nave și energie. Text generic de copertă.</p>" +
+    '<a class="btn" href="#dosar">Citește dosarul</a></div>';
+
+  var cuprins = [
+    { titlu: "Titlul articolului principal din cuprins", sapou: R.cercetareExplicata[0].sapou, rubrica: "Cercetare", tema: 3 },
+    { titlu: R.cercetareExplicata[1].titlu, sapou: R.cercetareExplicata[1].sapou, rubrica: "Materiale", tema: 8 },
+    { titlu: R.cercetareExplicata[2].titlu, sapou: R.cercetareExplicata[2].sapou, rubrica: "Automatizare", tema: 9 },
+    { titlu: m[2].titlu, sapou: m[2].sapou, rubrica: A.rubrica(m[2].rubrica), tema: m[2].tema },
+    { titlu: m[3].titlu, sapou: m[3].sapou, rubrica: A.rubrica(m[3].rubrica), tema: m[3].tema },
+    { titlu: m[0].titlu, sapou: m[0].sapou, rubrica: A.rubrica(m[0].rubrica), tema: 1 }
+  ];
+  document.getElementById("mozaic").innerHTML = cuprins.map(function (a) {
+    return '<article class="g-item"><a href="#">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(a.rubrica) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a></article>";
+  }).join("");
+
+  document.getElementById("dosar-imagine").innerHTML = A.imagine(7, "Imagine dosar");
+  document.getElementById("portret-imagine").innerHTML = A.imagine(8, "Portret");
+
+  var dobrogea = [
+    { t: "Portul Constanța și nevoia de ingineri", s: "Reportaj generic despre activitatea portuară." , tema: 2 },
+    { t: "Șantierele navale ale regiunii", s: "Prezentare generică a industriei navale.", tema: 7 },
+    { t: "Energie offshore în Marea Neagră", s: "Text generic despre proiectele energetice.", tema: 1 },
+    { t: "Parcuri industriale și investiții noi", s: "Text generic despre investițiile din județ.", tema: 9 },
+    { t: "Firmele mici care angajează absolvenți", s: "Text generic despre IMM-uri tehnice.", tema: 3 }
+  ];
+  document.getElementById("banda").innerHTML = dobrogea.map(function (a) {
+    return '<a href="#" style="text-decoration:none">' + A.imagine(a.tema, a.t) + '<span class="eticheta">Economie</span><h4>' + e(a.t) + '</h4><p class="meta">' + e(a.s) + "</p></a>";
+  }).join("");
+
+  document.getElementById("articole").innerHTML = R.cercetare.map(function (a, i) {
+    return '<div class="g-art"><span class="nr">0' + (i + 1) + '</span><div><span class="eticheta">' + e(a.tip) + "</span><h4>" + e(a.titlu) + '</h4><div class="meta">' + e(a.autori) + " · DOI " + e(a.doi) + "</div></div></div>";
+  }).join("");
+
+  document.getElementById("studenti").innerHTML = [m[4], m[8], m[7]].map(function (a) {
+    return '<article class="g-item"><a href="#">' + A.imagine(a.tema, a.titlu) + '<span class="eticheta">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + '</h3><p class="meta">' + e(a.autor) + "</p></a></article>";
+  }).join("");
+
+  var numere = [["Nr. 1 · Iarna 2026", "Marea ca laborator", 7], ["Nr. 0 · Vara 2026", "Număr pilot: tema numărului", 3], ["Nr. viitor", "Energie și tranziție", 1], ["Nr. viitor", "Fabrica digitală", 9], ["Nr. viitor", "Materiale noi", 8]];
+  document.getElementById("arhiva-grila").innerHTML = numere.map(function (n) {
+    return '<a href="#" class="g-coperta-mica">' + A.imagine(n[2], n[1]).replace('class="imagine"', 'class="imagine" data-t="' + e(n[1]) + '"') + "<b>" + e(n[0]) + "</b></a>";
+  }).join("");
+})();
+</script>
+</body>
+</html>

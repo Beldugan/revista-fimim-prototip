@@ -1,0 +1,93 @@
+/* Formatul 3: Jurnal academic (structură clasică de jurnal indexat, cu secțiune magazin separată) */
+body { font-family: "Inter", system-ui, sans-serif; background: #fff; font-size: 15px; }
+.serif { font-family: "Source Serif 4", Georgia, serif; }
+
+.a-sus { background: var(--fundal-2); border-bottom: 1px solid var(--linie); font-size: 12px; color: var(--text-2); }
+.a-sus .container { display: flex; justify-content: space-between; gap: 12px; padding-top: 6px; padding-bottom: 6px; flex-wrap: wrap; }
+.a-sus a { text-decoration: none; margin-left: 14px; }
+
+.a-antet .container { display: flex; gap: 20px; align-items: center; padding-top: 24px; padding-bottom: 24px; flex-wrap: wrap; }
+.a-sigla { width: 72px; height: 72px; border: 3px solid var(--brand); display: grid; place-items: center; font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 22px; color: var(--brand); flex: none; position: relative; }
+.a-sigla::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--accent); }
+.a-antet h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); color: var(--brand); margin: 0; letter-spacing: -.005em; }
+.a-antet .sub { color: var(--text-2); font-size: 14px; }
+.a-antet .issn { margin-left: auto; text-align: right; font-size: 13px; color: var(--text-2); line-height: 1.7; }
+.a-antet .issn b { color: var(--text); }
+@media (max-width: 760px) { .a-antet .issn { margin-left: 0; text-align: left; } }
+
+.a-nav { background: var(--brand); }
+.a-nav .container { display: flex; overflow-x: auto; scrollbar-width: none; }
+.a-nav a { color: #fff; text-decoration: none; padding: 12px 14px; font-size: 14px; white-space: nowrap; border-right: 1px solid rgba(255,255,255,.12); }
+.a-nav a:hover, .a-nav a.activ { background: rgba(0,0,0,.2); }
+.a-nav a.magazin { margin-left: auto; background: var(--accent); font-weight: 600; border: 0; }
+
+.a-fir { font-size: 13px; color: var(--text-2); padding: 14px 0; border-bottom: 1px solid var(--linie); }
+.a-fir a { color: var(--brand); text-decoration: none; }
+
+.a-corp { display: grid; gap: 32px; grid-template-columns: 1fr; padding: 28px 0 48px; }
+@media (min-width: 1000px) { .a-corp { grid-template-columns: 220px 1fr 260px; } }
+
+.a-coperta { border: 1px solid var(--linie); }
+.a-coperta .imagine { aspect-ratio: 3/4; position: relative; }
+.a-coperta .eticheta-cop { position: absolute; left: 14px; right: 14px; top: 16px; color: #fff; font-family: "Source Serif 4", Georgia, serif; font-size: 17px; font-weight: 600; line-height: 1.2; z-index: 2; }
+.a-coperta .eticheta-cop small { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-size: 12px; opacity: .85; margin-top: 6px; }
+.a-info { font-size: 13px; color: var(--text-2); margin-top: 16px; }
+.a-info dt { font-weight: 600; color: var(--text); margin-top: 10px; }
+.a-info dd { margin: 0; }
+.a-insigne { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.a-insigne span { border: 1px dashed #b6bbc4; font-size: 11px; padding: 4px 8px; color: var(--text-2); }
+
+.a-principal h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 28px; font-weight: 600; margin-bottom: 4px; }
+.a-principal .publicat { color: var(--text-2); font-size: 14px; margin-bottom: 18px; }
+.a-editorial { background: var(--fundal-2); border-left: 4px solid var(--brand); padding: 14px 18px; margin-bottom: 26px; font-size: 14px; }
+.a-editorial a { color: var(--brand); font-weight: 600; }
+.a-sectiune-titlu { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--brand); border-bottom: 2px solid var(--brand); padding-bottom: 6px; margin: 28px 0 0; }
+.a-art { padding: 18px 0; border-bottom: 1px solid var(--linie); }
+.a-art h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+.a-art h3 a { text-decoration: none; color: var(--text); }
+.a-art h3 a:hover { color: var(--brand); text-decoration: underline; }
+.a-autori { font-size: 14px; margin-bottom: 4px; }
+.a-afil { font-size: 13px; color: var(--text-2); font-style: italic; margin-bottom: 8px; }
+.a-rand { display: flex; gap: 8px 16px; flex-wrap: wrap; align-items: center; font-size: 13px; color: var(--text-2); }
+.a-rand code { font-size: 12px; color: var(--brand); }
+.a-btn { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 10px; border: 1px solid var(--brand); color: var(--brand); text-decoration: none; border-radius: 3px; background: #fff; cursor: pointer; font-family: inherit; }
+.a-btn:hover, .a-btn.plin { background: var(--brand); color: #fff; }
+.a-rezumat { margin-top: 12px; background: var(--fundal-2); padding: 14px 16px; font-size: 14px; }
+.a-rezumat p { font-family: "Source Serif 4", Georgia, serif; font-size: 15px; }
+.a-rezumat .kw { font-size: 13px; color: var(--text-2); }
+.a-rezumat[hidden] { display: none; }
+
+.a-lateral .bloc { border: 1px solid var(--linie); margin-bottom: 20px; }
+.a-lateral h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; background: var(--fundal-2); padding: 10px 14px; margin: 0; border-bottom: 1px solid var(--linie); }
+.a-lateral .in { padding: 14px; font-size: 14px; }
+.a-lateral .trimite { display: block; text-align: center; background: var(--accent); color: #fff; text-decoration: none; padding: 12px; font-weight: 600; margin-bottom: 20px; }
+.a-lateral ul { list-style: none; margin: 0; padding: 0; }
+.a-lateral li { padding: 6px 0; border-bottom: 1px dotted var(--linie); }
+.a-lateral li:last-child { border: 0; }
+.a-lateral a { text-decoration: none; color: var(--brand); }
+.a-date li { display: flex; justify-content: space-between; gap: 8px; }
+.a-nori { display: flex; flex-wrap: wrap; gap: 6px; }
+.a-nori a { background: var(--fundal-2); padding: 3px 8px; font-size: 12px; color: var(--text); }
+
+/* Zona magazin, vizual separată */
+.a-magazin { background: #f3efe6; border-top: 6px solid var(--accent); padding: 40px 0 48px; }
+.a-magazin-cap { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.a-magazin-cap h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 30px; margin: 0; }
+.a-magazin-cap p { margin: 4px 0 0; color: var(--text-2); font-size: 14px; max-width: 640px; }
+.a-taburi { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid #d8d1c2; margin-bottom: 22px; }
+.a-taburi button { font: inherit; font-size: 14px; background: none; border: 0; padding: 10px 14px; cursor: pointer; color: var(--text-2); border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.a-taburi button[aria-selected="true"] { color: var(--text); border-color: var(--accent); font-weight: 600; }
+.a-mgrila { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.a-mcard { background: #fff; text-decoration: none; display: block; }
+.a-mcard .imagine { aspect-ratio: 16/9; }
+.a-mcard .t { padding: 14px 16px 18px; }
+.a-mcard .r { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 700; }
+.a-mcard h3 { font-size: 17px; margin: 6px 0; }
+.a-mcard p { font-size: 13px; color: var(--text-2); margin: 0; }
+.a-gol { color: var(--text-2); font-size: 14px; }
+
+.a-subsol { background: #12161d; color: #a7adb7; font-size: 13px; padding: 32px 0; }
+.a-subsol .grila { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.a-subsol h5 { color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 8px; }
+.a-subsol p { margin: 0 0 6px; }
+.a-subsol .licenta { border-top: 1px solid #2a2f38; margin-top: 24px; padding-top: 14px; }

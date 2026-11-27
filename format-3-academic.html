@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatul 3 · Jurnal academic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/academic.css">
+</head>
+<body>
+
+<div class="a-sus">
+  <div class="container">
+    <span data-universitate></span>
+    <span><a href="#">Autentificare</a><a href="#">Înregistrare</a><a href="#">RO</a> / <a href="#">EN</a></span>
+  </div>
+</div>
+
+<header class="a-antet">
+  <div class="container">
+    <div class="a-sigla" data-scurt></div>
+    <div>
+      <h1 data-titlu></h1>
+      <div class="sub"><span data-motto></span><br><span data-facultate></span></div>
+    </div>
+    <div class="issn">
+      <div><b>ISSN online:</b> XXXX-XXXX</div>
+      <div><b>Prefix DOI:</b> 10.XXXXX</div>
+      <div><b>Periodicitate:</b> semestrială</div>
+    </div>
+  </div>
+</header>
+
+<nav class="a-nav" aria-label="Navigare jurnal">
+  <div class="container">
+    <a href="#" class="activ">Număr curent</a>
+    <a href="#">Arhivă</a>
+    <a href="#">Despre jurnal</a>
+    <a href="#">Colegiul editorial</a>
+    <a href="#">Instrucțiuni pentru autori</a>
+    <a href="#">Evaluare colegială</a>
+    <a href="#">Etică și politici</a>
+    <a href="#">Indexare</a>
+    <a href="#magazin" class="magazin">Magazin FIMIM</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="a-fir"><a href="#">Acasă</a> / <a href="#">Arhivă</a> / Vol. 1, Nr. 1 (2026)</div>
+
+  <div class="a-corp">
+    <aside>
+      <div class="a-coperta" id="coperta"></div>
+      <dl class="a-info">
+        <dt>Volum / Număr</dt><dd>Vol. 1, Nr. 1 (2026)</dd>
+        <dt>Publicat</dt><dd>15 decembrie 2026</dd>
+        <dt>Limba articolelor</dt><dd>engleză</dd>
+        <dt>Acces</dt><dd>Acces deschis, licență CC BY 4.0</dd>
+        <dt>Evaluare</dt><dd>Double-blind peer review</dd>
+      </dl>
+      <div class="a-insigne" aria-label="Indexare (exemple, în curs)">
+        <span>Crossref</span><span>DOAJ</span><span>Google Scholar</span><span>EBSCO</span><span>CEEOL</span>
+      </div>
+    </aside>
+
+    <main class="a-principal">
+      <h2>Vol. 1, Nr. 1 (2026)</h2>
+      <div class="publicat">Număr curent · Ediție inaugurală</div>
+      <div class="a-editorial">
+        <strong>Editorial.</strong> Text generic de deschidere semnat de redactorul-șef: scopul jurnalului, domeniile acoperite și invitația adresată autorilor din țară și din străinătate. <a href="#">Citește editorialul (PDF)</a>
+      </div>
+      <div id="cuprins"></div>
+    </main>
+
+    <aside class="a-lateral">
+      <a class="trimite" href="#">Trimite un manuscris</a>
+      <div class="bloc"><h4>Apel la lucrări</h4><div class="in">Pentru Vol. 2, Nr. 1 (2027) se primesc articole originale în domeniile ingineriei mecanice, industriale, navale și energetice.</div></div>
+      <div class="bloc"><h4>Date importante</h4><div class="in"><ul class="a-date">
+        <li><span>Termen trimitere</span><b>15.03.2027</b></li>
+        <li><span>Notificare</span><b>30.04.2027</b></li>
+        <li><span>Publicare</span><b>15.06.2027</b></li>
+      </ul></div></div>
+      <div class="bloc"><h4>Pentru autori</h4><div class="in"><ul>
+        <li><a href="#">Șablon articol (DOCX / LaTeX)</a></li>
+        <li><a href="#">Ghid de redactare</a></li>
+        <li><a href="#">Taxe de publicare: fără</a></li>
+        <li><a href="#">Declarație de originalitate</a></li>
+      </ul></div></div>
+      <div class="bloc"><h4>Cuvinte-cheie</h4><div class="in a-nori" id="nori"></div></div>
+    </aside>
+  </div>
+</div>
+
+<section class="a-magazin" id="magazin">
+  <div class="container">
+    <div class="a-magazin-cap">
+      <div>
+        <span class="eticheta-placeholder">Secțiune separată, fără evaluare colegială</span>
+        <h2>Magazin FIMIM</h2>
+        <p>Știri, specializări, economia Dobrogei, evenimente și articole scrise de studenți. Această secțiune nu face parte din conținutul științific indexat al jurnalului.</p>
+      </div>
+    </div>
+    <div class="a-taburi" role="tablist" id="taburi"></div>
+    <div class="a-mgrila" id="mgrila" role="tabpanel"></div>
+  </div>
+</section>
+
+<footer class="a-subsol">
+  <div class="container">
+    <div class="grila">
+      <div><h5 data-titlu></h5><p data-facultate></p><p data-universitate></p></div>
+      <div><h5>Contact redacție</h5><p>Adresa redacției, Constanța</p><p>revista@exemplu.ro</p></div>
+      <div><h5>Politici</h5><p>Acces deschis · Etica publicării (COPE) · Politica anti-plagiat · Arhivare</p></div>
+    </div>
+    <div class="licenta">Articolele sunt publicate sub licența Creative Commons Attribution 4.0 International (CC BY 4.0). &copy; <span data-an></span> <span data-titlu></span>.</div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function () {
+  var A = window.APP, R = A.R, e = A.esc;
+  A.bara("academic");
+  A.completeaza();
+
+  document.getElementById("coperta").innerHTML = A.imagine(3, "Coperta numărului").replace("</div>",
+    '<span class="eticheta-cop">' + e(A.D.titlu) + "<small>Vol. 1 · Nr. 1 · 2026</small></span></div>");
+
+  var grupe = { "Research Article": "Articole de cercetare", "Review": "Articole de sinteză", "Short Communication": "Comunicări scurte" };
+  var html = "";
+  Object.keys(grupe).forEach(function (tip) {
+    var lista = R.cercetare.filter(function (a) { return a.tip === tip; });
+    if (!lista.length) return;
+    html += '<h3 class="a-sectiune-titlu">' + grupe[tip] + "</h3>";
+    lista.forEach(function (a) {
+      var i = R.cercetare.indexOf(a);
+      html += '<article class="a-art"><h3><a href="#">' + e(a.titlu) + '</a></h3>' +
+        '<div class="a-autori">' + e(a.autori) + '</div><div class="a-afil">' + e(a.afiliere) + "</div>" +
+        '<div class="a-rand"><span>pp. ' + e(a.pagini) + "</span><span>DOI: <code>" + e(a.doi) + "</code></span>" +
+        '<button class="a-btn" aria-expanded="false" aria-controls="rez' + i + '">Rezumat</button><a class="a-btn plin" href="#">PDF</a><a class="a-btn" href="#">Citare</a></div>' +
+        '<div class="a-rezumat" id="rez' + i + '" hidden><strong>Abstract</strong><p>' + e(a.rezumat) + '</p><div class="kw"><b>Keywords:</b> ' + a.cuvinte.map(e).join("; ") + "</div></div></article>";
+    });
+  });
+  document.getElementById("cuprins").innerHTML = html;
+  document.querySelectorAll(".a-art button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var r = document.getElementById(b.getAttribute("aria-controls"));
+      r.hidden = !r.hidden;
+      b.setAttribute("aria-expanded", String(!r.hidden));
+    });
+  });
+
+  var kw = [];
+  R.cercetare.forEach(function (a) { a.cuvinte.forEach(function (k) { if (kw.indexOf(k) < 0) kw.push(k); }); });
+  document.getElementById("nori").innerHTML = kw.map(function (k) { return '<a href="#">' + e(k) + "</a>"; }).join("");
+
+  var rub = ["toate", "fimim", "specializari", "economie", "evenimente", "studenti"];
+  var tb = document.getElementById("taburi");
+  tb.innerHTML = rub.map(function (r, i) {
+    return '<button role="tab" data-r="' + r + '" aria-selected="' + (i === 0) + '">' + (r === "toate" ? "Toate" : e(A.rubrica(r))) + "</button>";
+  }).join("");
+  function arata(r) {
+    var l = R.magazin.filter(function (a) { return r === "toate" || a.rubrica === r; });
+    document.getElementById("mgrila").innerHTML = l.length ? l.map(function (a) {
+      return '<a class="a-mcard" href="#">' + A.imagine(a.tema, a.titlu) + '<div class="t"><span class="r">' + e(A.rubrica(a.rubrica)) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.autor) + " · " + e(a.data) + "</p></div></a>";
+    }).join("") : '<p class="a-gol">Niciun articol în această rubrică.</p>';
+  }
+  tb.addEventListener("click", function (ev) {
+    var b = ev.target.closest("button"); if (!b) return;
+    tb.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-selected", String(x === b)); });
+    arata(b.dataset.r);
+  });
+  arata("toate");
+})();
+</script>
+</body>
+</html>

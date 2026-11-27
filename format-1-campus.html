@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatul 1 · Campus &amp; Cercetare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/campus.css">
+</head>
+<body>
+
+<div class="c-top">
+  <div class="container">
+    <span>Publicație independentă editorial a <span data-facultate></span></span>
+    <span class="c-limba" aria-label="Limba"><a href="#" class="activ">RO</a>|<a href="#">EN</a></span>
+  </div>
+</div>
+
+<header class="c-mast">
+  <div class="container">
+    <a class="c-logo" href="#">
+      <span class="sigla" data-scurt></span>
+      <span><strong data-titlu></strong><span data-motto></span></span>
+    </a>
+    <form class="c-cauta" role="search" onsubmit="return false"><input type="search" placeholder="Caută în revistă" aria-label="Caută"><button>Caută</button></form>
+  </div>
+</header>
+
+<nav class="c-nav" aria-label="Rubrici">
+  <div class="container">
+    <a href="#" class="activ">Acasă</a>
+    <a href="#">Știri FIMIM</a>
+    <a href="#">Cercetare explicată</a>
+    <a href="#">Specializări</a>
+    <a href="#">Economie &amp; Industrie</a>
+    <a href="#">Evenimente</a>
+    <a href="#">De la student la student</a>
+    <a href="#">Opinie</a>
+    <a href="#jurnal" class="stiintific">Jurnal științific</a>
+  </div>
+</nav>
+
+<div class="c-flux"><div class="container"><b>Pe scurt</b><span id="flux"></span></div></div>
+
+<main class="container">
+  <section class="c-prim">
+    <article class="c-lead" id="lead"></article>
+    <aside class="c-lateral">
+      <h2>Cele mai citite</h2>
+      <ol class="c-lista" id="citite"></ol>
+    </aside>
+  </section>
+
+  <section class="c-sectiune">
+    <div class="c-sectiune-cap"><h2>Ultimele articole</h2><a href="#">Toate știrile &rarr;</a></div>
+    <div class="c-grila" id="ultimele"></div>
+  </section>
+</main>
+
+<section class="c-sectiune c-explicat">
+  <div class="container">
+    <div class="c-sectiune-cap"><h2>Cercetare explicată</h2><a href="#">Toate &rarr;</a></div>
+    <p class="intro-sec">Proiectele de cercetare ale facultății, povestite de jurnaliști pentru cititorii care nu sunt specialiști.</p>
+    <div class="c-grila" id="explicat"></div>
+  </div>
+</section>
+
+<section class="c-sectiune c-jurnal" id="jurnal">
+  <div class="container">
+    <div class="c-jurnal-box">
+      <div>
+        <span class="rubrica">Secțiune separată · peer review</span>
+        <h2><span data-titlu></span>: jurnalul științific</h2>
+        <p class="meta">Articole originale evaluate colegial, publicate în limba engleză, cu DOI. ISSN online: XXXX-XXXX.</p>
+        <a class="btn" href="format-3-academic.html" id="btn-jurnal">Vezi numărul curent</a>
+      </div>
+      <div id="articole-jurnal"></div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+  <section class="c-sectiune">
+    <div class="c-sectiune-cap"><h2>Economie &amp; Industrie Dobrogea</h2><a href="#">Toate &rarr;</a></div>
+    <div class="c-grila" id="economie"></div>
+  </section>
+
+  <section class="c-sectiune c-doua">
+    <div class="c-opinie">
+      <span class="rubrica">Opinie</span>
+      <blockquote>„Citat generic dintr-un articol de opinie, care rezumă argumentul principal al autorului.”</blockquote>
+      <p class="meta">Nume Prenume, cadru didactic</p>
+    </div>
+    <div class="c-newsletter">
+      <h3>Buletin săptămânal</h3>
+      <p>Primiți în fiecare vineri cele mai importante articole din facultate și din cercetare.</p>
+      <form onsubmit="return false"><input type="email" placeholder="adresa@exemplu.ro" aria-label="E-mail"><button>Abonare</button></form>
+    </div>
+  </section>
+</main>
+
+<footer class="c-subsol">
+  <div class="container">
+    <div class="grila">
+      <div><h4 data-titlu></h4><p data-motto></p></div>
+      <div><h4>Redacția</h4><ul><li><a href="#">Echipa redacțională</a></li><li><a href="#">Statut editorial și independență</a></li><li><a href="#">Trimite un subiect</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Jurnal științific</h4><ul><li><a href="#">Număr curent</a></li><li><a href="#">Arhivă</a></li><li><a href="#">Instrucțiuni pentru autori</a></li><li><a href="#">Etica publicării</a></li></ul></div>
+      <div><h4>Facultatea</h4><ul><li><a href="#">Site FIMIM</a></li><li><a href="#">Universitatea „Ovidius”</a></li><li><a href="#">Admitere</a></li></ul></div>
+    </div>
+    <div class="jos">&copy; <span data-an></span> <span data-titlu></span> · <span data-facultate></span>, <span data-universitate></span>. Redacția decide independent asupra conținutului.</div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function () {
+  var A = window.APP, R = A.R, e = A.esc;
+  A.bara("campus");
+  A.completeaza();
+  document.getElementById("btn-jurnal").href = "format-3-academic.html?n=" + A.id;
+
+  function card(a) {
+    return '<article class="c-card"><a href="#">' + A.imagine(a.tema, a.titlu) +
+      '<span class="rubrica">' + e(A.rubrica(a.rubrica || "cercetare")) + "</span><h3>" + e(a.titlu) + "</h3><p>" + e(a.sapou) + "</p></a>" +
+      '<div class="meta">' + e(a.autor) + (a.data ? " · " + e(a.data) : "") + "</div></article>";
+  }
+
+  var m = R.magazin;
+  document.getElementById("flux").textContent = m.slice(1, 4).map(function (a) { return a.titlu; }).join("   ·   ");
+
+  var l = m[0];
+  document.getElementById("lead").innerHTML = '<a href="#">' + A.imagine(l.tema, l.titlu) +
+    '<span class="rubrica">' + e(A.rubrica(l.rubrica)) + "</span><h1>" + e(l.titlu) + "</h1><p>" + e(l.sapou) + "</p></a>" +
+    '<div class="meta">' + e(l.autor) + " · " + e(l.data) + " · " + l.minute + " min de citit</div>";
+
+  document.getElementById("citite").innerHTML = m.slice(1, 6).map(function (a) {
+    return '<li><div><span class="rubrica">' + e(A.rubrica(a.rubrica)) + '</span><br><a href="#">' + e(a.titlu) + "</a></div></li>";
+  }).join("");
+
+  document.getElementById("ultimele").innerHTML = m.slice(2, 8).map(card).join("");
+  document.getElementById("explicat").innerHTML = R.cercetareExplicata.map(function (a) {
+    return card({ titlu: a.titlu, sapou: a.sapou, autor: a.autor, tema: a.tema, rubrica: "Cercetare explicată" });
+  }).join("");
+  document.getElementById("economie").innerHTML = [m[1], m[5], m[3]].map(card).join("");
+
+  document.getElementById("articole-jurnal").innerHTML = R.cercetare.slice(0, 3).map(function (a) {
+    return '<div class="c-art"><span class="tip">' + e(a.tip) + "</span><h4>" + e(a.titlu) + '</h4><div class="meta">' + e(a.autori) + " · DOI <code>" + e(a.doi) + "</code></div></div>";
+  }).join("");
+})();
+</script>
+</body>
+</html>
