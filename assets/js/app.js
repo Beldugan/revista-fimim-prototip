@@ -142,8 +142,30 @@
     });
     document.querySelectorAll("a[data-acasa]").forEach(function (a) { a.href = link(""); });
     document.querySelectorAll("a[data-format]").forEach(function (a) { a.href = FISIER[a.dataset.format] + "?n=" + idCurent; });
+    document.querySelectorAll("[data-sigle]").forEach(function (e) { e.innerHTML = bandaSigle(); });
+    var f = document.querySelector("footer");
+    if (f && !f.querySelector(".sigle-subsol")) {
+      var d = document.createElement("div"); d.className = "sigle-subsol";
+      d.innerHTML = '<span>Parteneri profesionali</span>' + ["siar", "aiee"].map(function (k) { return '<a href="' + link(SIGLE[k].pagina) + '">' + sigla(k) + "</a>"; }).join("");
+      f.appendChild(d);
+    }
     var pref = document.title;
     document.title = D.titlu + (pref ? " · " + pref : "");
+  }
+
+  /* Siglele asociațiilor profesionale (SIAR, AIEE) */
+  var SIGLE = {
+    siar: { nume: "SIAR", lung: "Societatea Inginerilor de Automobile din România", img: "", pagina: "siar", rol: "Secția Constanța" },
+    aiee: { nume: "AIEE", lung: "Asociația Inginerilor Energeticieni și Electricieni", img: "assets/img/sigle/aiee.png", pagina: "aiee", rol: "Forumul „Carieră în Industria Energetică”" }
+  };
+  function sigla(k) {
+    var s = SIGLE[k];
+    return s.img ? '<img class="sigla-img" src="' + s.img + '" alt="' + esc(s.nume + " – " + s.lung) + '">'
+      : '<span class="sigla-text sigla-' + k + '" role="img" aria-label="' + esc(s.nume + " – " + s.lung) + '"><b>' + s.nume + "</b><small>" + esc(s.lung) + "</small></span>";
+  }
+  function bandaSigle() {
+    return '<div class="sigle-banda"><div class="sigle-in"><span class="sigle-et">Asociații profesionale partenere</span>' +
+      ["siar", "aiee"].map(function (k) { var s = SIGLE[k]; return '<a class="sigle-cel" href="' + link(s.pagina) + '">' + sigla(k) + '<span class="sigle-rol">' + esc(s.rol) + "</span></a>"; }).join("") + "</div></div>";
   }
 
   function specializari() {
@@ -164,10 +186,11 @@
     id: idCurent,
     esc: esc,
     imagine: imagine,
+    sigla: sigla,
     asociatii: function () {
       return '<div class="as-grila">' +
-        '<a class="as-card" href="' + link("siar") + '">' + imagine(7, "SIAR", "lab-autovehicule") + '<div class="as-txt"><span class="as-et">Ingineria autovehiculelor</span><h3>SIAR – Secția Constanța</h3><p>Secția universitară a Societății Inginerilor de Automobile din România, coordonată de Ș.l. dr. ing. Camil Tudor. Organizează, între altele, competiția Ovidius RaceTech.</p><span class="as-mai">Membri și activități &rarr;</span></div></a>' +
-        '<a class="as-card" href="' + link("aiee") + '">' + imagine(1, "AIEE", "aiee-masa-rotunda") + '<div class="as-txt"><span class="as-et">Industria energetică</span><h3>AIEE – Forumul „Carieră în Industria Energetică”</h3><p>Universitatea „Ovidius” a fost coorganizator al ediției de toamnă, 13–14 noiembrie 2026, alături de Asociația Inginerilor Energeticieni și Electricieni.</p><span class="as-mai">Detalii și galerie foto &rarr;</span></div></a>' +
+        '<a class="as-card" href="' + link("siar") + '">' + imagine(7, "SIAR", "lab-autovehicule") + '<div class="as-txt"><div class="as-sigla">' + sigla("siar") + '</div><span class="as-et">Ingineria autovehiculelor</span><h3>SIAR – Secția Constanța</h3><p>Secția universitară a Societății Inginerilor de Automobile din România, coordonată de Ș.l. dr. ing. Camil Tudor. Organizează, între altele, competiția Ovidius RaceTech.</p><span class="as-mai">Membri și activități &rarr;</span></div></a>' +
+        '<a class="as-card" href="' + link("aiee") + '">' + imagine(1, "AIEE", "aiee-masa-rotunda") + '<div class="as-txt"><div class="as-sigla">' + sigla("aiee") + '</div><span class="as-et">Industria energetică</span><h3>AIEE – Forumul „Carieră în Industria Energetică”</h3><p>Universitatea „Ovidius” a fost coorganizator al ediției de toamnă, 13–14 noiembrie 2026, alături de Asociația Inginerilor Energeticieni și Electricieni.</p><span class="as-mai">Detalii și galerie foto &rarr;</span></div></a>' +
         "</div>";
     },
     bara: bara,
