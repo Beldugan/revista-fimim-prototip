@@ -20,6 +20,7 @@
     autori: { titlu: "Pentru autori", pagini: ["instructiuni-autori", "ghid-redactare", "sablon", "trimitere", "taxe", "declaratie", "evaluare"] },
     etica: { titlu: "Etică și politici", pagini: ["etica", "anti-plagiat", "licenta", "acces-deschis"] },
     magazin: { titlu: "Magazin", pagini: ["stiri", "cercetare-explicata", "specializari", "economie", "evenimente", "studenti", "opinie", "oameni", "dosar"] },
+    asociatii: { titlu: "Asociații profesionale", pagini: ["asociatii", "siar", "aiee"] },
     redactie: { titlu: "Despre revistă", pagini: ["despre", "redactia", "statut", "trimite-subiect", "parteneri", "abonare", "arhiva", "contact", "confidentialitate"] }
   };
 
@@ -43,6 +44,39 @@
       ]
     },
     specializari: { titlu: "Specializări", grup: "magazin", tip: "specializari", sapou: "Programele de studii de licență și master ale Facultății de Inginerie Mecanică, Industrială și Maritimă." },
+
+
+    /* ---------- Asociații profesionale ---------- */
+    asociatii: { titlu: "Asociații profesionale", grup: "asociatii", tip: "asociatii",
+      sapou: "Organizațiile profesionale cu care facultatea, cadrele didactice și studenții colaborează: SIAR, pentru ingineria autovehiculelor, și AIEE, pentru industria energetică." },
+    siar: {
+      titlu: "SIAR – Secția Constanța", grup: "asociatii", tema: 7, foto: "lab-autovehicule",
+      sapou: "Societatea Inginerilor de Automobile din România are o secție universitară la Universitatea „Ovidius” din Constanța, în Departamentul de Management Industrial și Autovehicule Rutiere al FIMIM.",
+      sectiuni: [
+        { h: "Despre SIAR", p: ["Societatea Inginerilor de Automobile din România (SIAR) reunește specialiști din universități, centre de cercetare, industrie și instituții din domeniul autovehiculelor. Motto-ul societății este „Cunoaștere și dezvoltare, prin cooperare!”.", "SIAR editează revista „Ingineria Automobilului” (Automotive Engineering), care apare în patru serii din 1990 și este indexată în Web of Science. Societatea este afiliată la FISITA, federația internațională a societăților de ingineria automobilului."] },
+        { h: "Secția SIAR Constanța", p: ["Secția funcționează în cadrul Facultății de Inginerie Mecanică, Industrială și Maritimă și reunește cadre didactice, doctoranzi, studenți și ingineri din domeniul autovehiculelor rutiere."],
+          persoane: [["Președinte (coordonator) al secției", "Ș.l. dr. ing. Camil TUDOR"], ["Secretar al secției", "Ing. Adrian-Mircea BELDUGAN"], ["Trezorier al secției", "Asist. univ. drd. ing. Maria GHERGHIȘAN"], ["Director al Departamentului de Management Industrial și Autovehicule Rutiere", "Conf. univ. dr. ing. Constantin ILIE"]] },
+        { p: ["Ș.l. dr. ing. Camil TUDOR, coordonatorul specializării Autovehicule rutiere, este membru al Consiliului Director al SIAR, ales la Adunarea generală din 23 octombrie 2025, la Universitatea Tehnică din Cluj-Napoca."] },
+        { h: "Ovidius RaceTech 2026", p: ["Competiție interuniversitară educațională, tehnică și competitivă, cu vehicule RC și sisteme FPV, organizată la Universitatea „Ovidius” împreună cu Secția SIAR Constanța."],
+          tabel: [["Comitetul onorific", "Conf. univ. dr. Dan-Marcel ILIESCU, rectorul Universității „Ovidius” din Constanța; Conf. univ. dr. ing. Lucia-Violeta MELNIC, decanul FIMIM; Prof. univ. dr. ing. Nicolae BURNETE, președintele SIAR"], ["Comitetul tehnic", "Ș.l. dr. ing. Bogdan RĂDOIU (prodecan FIMIM), Ș.l. dr. ing. Camil TUDOR, Dr. ing. Traian DORDEA, Asist. univ. drd. ing. Lucian STANIA, Drd. ing. Sorin IONAȘCU, Ing. Adrian BELDUGAN"], ["Contact", "racetech@univ-ovidius.ro"]] },
+        { h: "Conducerea națională SIAR", tabel: [["Președinte", "Prof. univ. dr. ing. Nicolae BURNETE (Universitatea Tehnică din Cluj-Napoca)"], ["Secretar general", "Prof. univ. dr. ing. Minu MITREA (Academia Tehnică Militară „Ferdinand I”)"], ["Sediul central", "UNSTPB, Facultatea de Transporturi, Splaiul Independenței nr. 313, București"]] },
+        { h: "Secțiile SIAR", p: ["Arad, București (ATM, RAR, UNSTPB), Brașov, Chișinău (UTM), Cluj-Napoca, Constanța, Craiova, Galați, Iași, Oradea, Pitești, Timișoara și SIAR International."] },
+        { h: "Contact Secția Constanța", tabel: [["Adresa", "Universitatea „Ovidius” din Constanța, FIMIM, Departamentul de Management Industrial și Autovehicule Rutiere, B-dul Mamaia nr. 124, 900527 Constanța"], ["Telefon", "+40 241 551 105"], ["Web", "siar.ro · ingineria-automobilului.ro"]] }
+      ]
+    },
+    aiee: {
+      titlu: "AIEE – Asociația Inginerilor Energeticieni și Electricieni", grup: "asociatii", tema: 1, foto: "aiee-deschidere",
+      sapou: "Universitatea „Ovidius” din Constanța a fost coorganizator al Forumului „Carieră în Industria Energetică 2026 – ediția de toamnă”, dezvoltat de AIEE în parteneriat strategic cu Ministerul Energiei.",
+      sectiuni: [
+        { h: "Despre AIEE", p: ["Asociația Inginerilor Energeticieni și Electricieni (AIEE) este o organizație neguvernamentală care apropie industria energetică de mediul academic și de noile generații de ingineri, prin forumuri de carieră, mese rotunde, vizite tehnice și programe precum AIEE Talk și „Dispecer pentru o zi”."],
+          tabel: [["Președinte", "Mircea BIȚOIU"], ["Manager de proiect", "Cristina TĂNASE"], ["Web", "aiee.ro · carieraenergetica.ro"]] },
+        { h: "Forumul „Carieră în Industria Energetică 2026”, Constanța", p: ["Evenimentul s-a desfășurat în perioada 13–14 noiembrie 2026. Universitatea „Ovidius” din Constanța a participat în calitate de coorganizator, iar studenții universității au fost voluntari."],
+          tabel: [["13 noiembrie 2026", "Deschiderea oficială, vizita tehnică, standuri de promovare și prezentări de companii, cina de lucru"], ["14 noiembrie 2026", "Masa rotundă AIEE, cu reprezentanți ai companiilor din energie și ai universităților"]] },
+        { h: "Galerie foto", galerie: ["aiee-masa-rotunda", "aiee-vizita-tehnica", "aiee-voluntari"] },
+        { h: "Vizibilitatea universității", lista: ["Sigla UOC pe pagina evenimentului, la secțiunea „Parteneri strategici”, și pe materialele de promovare: machete, afișe, ecusoane, harta standurilor, pliante și bannerul din campus.", "Peste 40 de postări despre eveniment pe Facebook, LinkedIn și Instagram.", "Mențiuni în presa de specialitate: InvesTenergy, e-nergia.ro, Energy Industry Review, Focus Energetic și NewsEnergy."] },
+        { h: "Pentru studenții FIMIM", p: ["Forumul este o ocazie de a cunoaște companiile din sectorul energetic, de a afla despre stagii de practică și locuri de muncă și de a discuta direct cu inginerii din industrie. Studenții de la Energetică industrială și de la celelalte specializări ale facultății sunt invitați la edițiile următoare."] }
+      ]
+    },
 
     /* ---------- Articole (cu parametru id) ---------- */
     articol: { titlu: "Articol", grup: "magazin", tip: "articol" },

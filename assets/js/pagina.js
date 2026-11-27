@@ -19,6 +19,8 @@
       (x.p || []).forEach(function (t) { h += "<p>" + e(t) + "</p>"; });
       if (x.lista) h += "<ul>" + x.lista.map(function (t) { return "<li>" + e(t) + "</li>"; }).join("") + "</ul>";
       if (x.tabel) h += '<table class="pg-tabel">' + x.tabel.map(function (r) { return "<tr><th>" + e(r[0]) + "</th><td>" + e(r[1]) + "</td></tr>"; }).join("") + "</table>";
+      if (x.persoane) h += '<ul class="pg-persoane">' + x.persoane.map(function (p) { return "<li><b>" + e(p[1]) + "</b><span>" + e(p[0]) + "</span></li>"; }).join("") + "</ul>";
+      if (x.galerie) h += '<div class="pg-galerie">' + x.galerie.map(function (f) { return '<figure class="pg-figura">' + A.imagine(1, "", f) + "<figcaption>" + e(window.FOTO[f] || "") + "</figcaption></figure>"; }).join("") + "</div>";
       if (x.articole) h += '<div class="pg-carduri">' + x.articole.map(function (i) { return card(R.magazin[i], i); }).join("") + "</div>";
       return h;
     }).join("");
@@ -127,6 +129,9 @@
     case "contact":
       corp = '<div class="pg-contact"><div><h2>Redacția</h2><p>Facultatea de Inginerie Mecanică, Industrială și Maritimă<br>Universitatea „Ovidius” din Constanța<br>Adresa redacției, Constanța</p><p>E-mail: revista@exemplu.ro<br>Telefon: +40 2XX XXX XXX</p><p>Program: luni–vineri, 9:00–15:00</p></div><div><h2>Scrieți-ne</h2>' + formular({ campuri: ["Nume și prenume", "Adresă de e-mail", "Subiect"], text: "Mesaj" }) + '</div></div><div class="pg-harta">Campusul universitar, Constanța</div>';
       break;
+    case "asociatii":
+      corp = A.asociatii();
+      break;
     default:
       corp = sectiuni(pg.sectiuni);
   }
@@ -137,7 +142,7 @@
     var x = PG[s]; if (!x) return "";
     return '<li><a href="' + L(s) + '"' + (s === slug ? ' class="activ" aria-current="page"' : "") + ">" + e(x.titlu.replace(/^Număr curent:.*/, "Număr curent")) + "</a></li>";
   }).join("") + "</ul>";
-  var alt = pg.grup === "magazin" || pg.grup === "redactie" ? G.jurnal : G.magazin;
+  var alt = pg.grup === "magazin" || pg.grup === "redactie" || pg.grup === "asociatii" ? G.jurnal : G.magazin;
   lateral += "<h4>" + e(alt.titlu) + "</h4><ul>" + alt.pagini.slice(0, 5).map(function (s) { return '<li><a href="' + L(s) + '">' + e(PG[s].titlu.replace(/^Număr curent:.*/, "Număr curent")) + "</a></li>"; }).join("") + "</ul>";
 
   var fir = '<a href="' + L("") + '">Acasă</a> / ' + e(grup.titlu) + " / " + e(titlu.length > 60 ? titlu.slice(0, 57) + "…" : titlu);

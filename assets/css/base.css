@@ -174,3 +174,19 @@ p { margin: 0 0 1em; }
 
 .imagine.foto { background: var(--fundal-2); }
 .imagine.foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* Galerie foto în paginile interne */
+.pg-galerie { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.pg-galerie .pg-figura { margin: 0; }
+
+/* Asociații profesionale (SIAR, AIEE) – bloc comun pe paginile principale */
+.as-grila { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.as-card { display: grid; grid-template-columns: 2fr 3fr; border: 1px solid var(--linie, #d5dde3); background: #fff; color: inherit; text-decoration: none; overflow: hidden; }
+.as-card .imagine { height: 100%; min-height: 180px; aspect-ratio: auto; border-radius: 0; }
+.as-card .as-txt { padding: 18px 20px; }
+.as-card .as-et { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: #126A1D; font-weight: 600; }
+.as-card h3 { margin: 6px 0 8px; font-size: 19px; line-height: 1.25; color: #094536; }
+.as-card p { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
+.as-card .as-mai { font-size: 14px; font-weight: 600; color: #094536; }
+.as-card:hover h3 { text-decoration: underline; }
+@media (max-width: 560px) { .as-card { grid-template-columns: 1fr; } .as-card .imagine { min-height: 160px; aspect-ratio: 16/9; } }

@@ -290,5 +290,9 @@ window.FOTO = {
  "portret-student": "Portret ilustrativ al unui student într-un laborator de automatizări.",
  "portret-absolvent": "Portret ilustrativ al unui inginer de producție într-un atelier.",
  "portret-doctoranda": "Portret ilustrativ al unei doctorande într-un laborator de energetică.",
- "portret-partener": "Portret ilustrativ al unei reprezentante a industriei portuare."
+ "portret-partener": "Portret ilustrativ al unei reprezentante a industriei portuare.",
+ "aiee-deschidere": "Deschiderea oficială a Forumului „Carieră în Industria Energetică 2026”, Constanța, 13 noiembrie 2026.",
+ "aiee-masa-rotunda": "Masa rotundă AIEE, cu reprezentanți ai industriei energetice și ai mediului academic.",
+ "aiee-vizita-tehnica": "Vizita tehnică a participanților la forum, 13 noiembrie 2026.",
+ "aiee-voluntari": "Studenții Universității „Ovidius” voluntari la forum, 13 noiembrie 2026."
 };

@@ -164,6 +164,12 @@
     id: idCurent,
     esc: esc,
     imagine: imagine,
+    asociatii: function () {
+      return '<div class="as-grila">' +
+        '<a class="as-card" href="' + link("siar") + '">' + imagine(7, "SIAR", "lab-autovehicule") + '<div class="as-txt"><span class="as-et">Ingineria autovehiculelor</span><h3>SIAR – Secția Constanța</h3><p>Secția universitară a Societății Inginerilor de Automobile din România, coordonată de Ș.l. dr. ing. Camil Tudor. Organizează, între altele, competiția Ovidius RaceTech.</p><span class="as-mai">Membri și activități &rarr;</span></div></a>' +
+        '<a class="as-card" href="' + link("aiee") + '">' + imagine(1, "AIEE", "aiee-masa-rotunda") + '<div class="as-txt"><span class="as-et">Industria energetică</span><h3>AIEE – Forumul „Carieră în Industria Energetică”</h3><p>Universitatea „Ovidius” a fost coorganizator al ediției de toamnă, 13–14 noiembrie 2026, alături de Asociația Inginerilor Energeticieni și Electricieni.</p><span class="as-mai">Detalii și galerie foto &rarr;</span></div></a>' +
+        "</div>";
+    },
     bara: bara,
     completeaza: completeaza,
     salveaza: salveaza,
